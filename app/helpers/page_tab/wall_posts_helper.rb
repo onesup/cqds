@@ -1,0 +1,2 @@
+module PageTab::WallPostsHelper
+end

@@ -1,0 +1,115 @@
+<div class="wrap">
+  <div class="title">
+    <div class="tt">
+      댓글로 기부를! 이상한 기부!
+    </div>
+    
+    <div class="num clearfix">
+      <%= raw number_to_big_image_tag(Hero.registerd_heroes_count) %>
+    </div>
+  </div><!--start:character _block-->
+  <div>
+    <%= image_tag "page_tab/img_character.jpg"%>
+  </div><!--end:character _block--><!--start:movie _block-->
+  <div class="youtube">
+    <iframe width="580" height="357" 
+    src="//www.youtube.com/embed/pOZgnkEPxJc?wmode=opaque" frameborder="0" allowfullscreen></iframe>
+  </div><!--end:movie _block--><!--start:btn_block-->
+  <div class="btn_block">
+    <p class="btn_comment">
+      <%= link_to image_tag("page_tab/btn_comment.jpg"), nil, {title: "영웅의 한마디 남기기", id: "comment_open"} %>
+    </p>
+  </div><!--end:btn_block-->
+  <!--start:status-->
+  <div class="status_block">
+    <div class="txt">
+      <%= image_tag "page_tab/txt_status.jpg" %>
+    </div>
+    <div class="status clearfix">
+      <ul class="s_first clearfix">
+        <!--txt_block-->
+        <%=raw render_a_box_group("first",box_set(@count)[0]) %>
+        <li class="txt_block">
+          <%= image_tag "page_tab/status/1000_01.jpg" %>
+        </li>
+      </ul>
+      <ul class="s_second clearfix">
+        <!--txt_block-->
+        <%=raw render_a_box_group("second",box_set(@count)[1]) %>
+        <li class="txt_block">
+          <%= image_tag "page_tab/status/3000_01.jpg" %>
+        </li>
+      </ul>
+      <ul class="s_third clearfix">
+      	<li class="cross">
+          <%= image_tag "page_tab/status/cross_blank.jpg" %>
+        </li>
+        <%=raw render_a_box_group("third",box_set(@count)[2]) %>
+        <!-- 40-->
+        <!--txt_block-->
+        <li class="txt_block">
+          <%= image_tag "page_tab/status/6000_01.jpg" %>
+        </li>
+      </ul>               
+    </div>
+  </div>
+          <!--end:status-->
+  <!--start:comment list-->
+  <div class="comment_list_block">
+    <% @wall_posts.each do |wall_post| %>
+      <!--start:comment_one-->
+      <div class="comment_one clearfix">
+        <div class="img">
+          <%= image_tag wall_post.user.profile_image unless wall_post.user.nil? %>
+        </div>
+        <div class="txt_block">
+          <p class="name">
+            <%= wall_post.user.name unless wall_post.user.nil? %>
+          </p>
+          <p class="txt">
+            <%= simple_format(wall_post.message) %>
+          </p>
+        </div>
+      </div><!--end:comment_one-->
+    <% end %>
+    <div class="paginate">
+      <%= paginate @wall_posts %>
+    </div>
+  </div><!--end:comment list-->
+  <div class="txt_bottom">
+    <%= image_tag "page_tab/txt_bottom.jpg", border: "0", usemap: "#map" %>
+    <map name="map" id="map">
+      <area shape="rect" coords="507,98,636,123" href="http://miracle365.org" target="_blank" />
+      <area shape="rect" coords="111,123,222,152" href="http://www.miraclehospital.org/side/privacy.asp" target="_blank" />
+    </map>
+    
+    
+    <!-- 홈페이지 바로가기-->
+    
+    
+  </div>
+</div>
+<div class="pop_wrap" id="comment_complete_popup">
+  <div class="pop_comment_complete">
+    <a href="#" class="btn_close b-close" id="comment_close">Close</a>
+    <a href="#" class="btn_ok b-close" id="comment_complete_ok_btn">ok</a>
+  </div>
+</div>
+<div class="pop_wrap" id="comment_invalid_popup">
+  <div class="pop_comment_invalid">
+    <a href="#" class="btn_close b-close" id="comment_close">Close</a>
+    <a href="#" class="btn_ok b-close" id="comment_invalid_ok_btn">ok</a>
+  </div>
+</div>
+<div class="pop_wrap" id="comment_popup">
+	<div class="pop_comment">  
+    <a href="#" class="btn_close b-close" id="comment_close">Close</a>
+    <%= simple_form_for [:page_tab, @wall_post], html:{id:"new_page_tab_wall_post"} do |f| %>
+      <%= f.input :message, input_html: {class: "input_comment"}, label: false, required: false%>
+      <%= image_submit_tag("page_tab/pop/btn_comment.png", class: "button", id: "comment_submit") %>
+      <% end %>
+    <!-- <a href="#" class="btn_ok">OK</a> -->
+  </div>
+  <!-- e:pop_comment-->
+</div>
+<!-- e:pop_wrap-->

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns:fb="http://ogp.me/ns/fb#" xmlns:og="http://ogp.me/ns#">
+<head prefix="og: http://ogp.me/ns#">
+  <title>기적의 어린이재활병원 '영웅의 한마디'</title>
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+  <meta name="title" content="기적의 어린이재활병원 '영웅의 한마디'" />
+  <meta name="description" content="Description Here" />
+  <link rel="image_src" href="preview-image-here.jpg" />
+  <meta property="fb:app_id" content="<%= FACEBOOK_CONFIG[:app_id] %>" />
+  <meta property="og:type"   content="myapp:myobject" />
+  <meta property="og:url"  content="http://bit.ly/173wYGA" />
+  <meta property="og:title"  content="기적의 어린이재활병원" />
+  <meta property="og:image"  content="http://farm4.staticflickr.com/3665/10288523825_3fea0316ef_o.jpg" />
+
+</head>
+<body id="mobile">
+  <div id="fb-root"></div>
+<script type="text/javascript">
+
+var cb = function(response){
+  if (response.status === 'connected') { 
+    comment_popup(response);
+  } else if (response.status === 'not_authorized') {
+    // FB.login(cb,{scope: 'email, publish_stream, user_relationship_details,user_photos'});
+  } else {
+    alert("무럭무럭맨의 체력이 5p ▼ 됐습니다.")
+  }
+};
+
+function comment_popup(response){
+  var uid = response.authResponse.userID;
+  var accessToken = response.authResponse.accessToken;
+  $("#uid").val(uid);
+  $("#access_token").val(accessToken);
+  $.post( "/users", {uid: uid, access_token: accessToken}, function( data ) {});
+  $('#comment_popup').bPopup({
+    follow: [false, false], //x, y
+    position: ['auto', 400] //x, y
+  });
+};
+
+$(document).ready(function() {
+  $.ajaxSetup({ cache: true });
+  $.getScript('//connect.facebook.net/ko_KR/all.js', function(){
+    FB.init({
+      appId      : '<%= FACEBOOK_CONFIG[:app_id] %>',                        // App ID from the app dashboard
+      channelUrl : '//<%= FACEBOOK_CONFIG[:domain] %>/channel.html', // Channel file for x-domain comms
+      status     : true, // check login status
+      cookie     : true, // enable cookies to allow the server to access the session
+      xfbml      : true  // parse XFBML
+    });
+        
+
+    <% if flash[:popup] == "complete" %>
+      $('#mobile_comment_complete_popup').bPopup({
+        follow: [false, false], //x, y
+        position: ['auto', 150] //x, y
+      });
+    <% elsif flash[:popup] == "invalid" %>
+      $('#mobile_comment_invalid_popup').bPopup({
+        follow: [false, false], //x, y
+        position: ['auto', 150] //x, y
+      });
+    <% elsif flash[:popup] == "need_reload" %>
+      location.reload();
+    <% end %>
+  
+    $('#comment_open').bind('click', function(e) {
+      e.preventDefault();
+      FB.getLoginStatus(function(response) {
+        if (response.status === 'not_authorized') {
+          FB.login(cb,{scope: 'email, publish_stream, user_relationship_details,user_photos'});
+        }else if (response.status === 'connected'){
+          comment_popup(response);
+        }else{
+          FB.login(cb,{scope: 'email, publish_stream, user_relationship_details,user_photos'});
+        }
+      });
+    });
+  
+  });  
+  
+});
+</script>
+<%= yield %>
+
+</body>
+</html>

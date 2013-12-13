@@ -1,0 +1,12 @@
+<%= @user_agent %>
+<h1>이벤트 페이지</h1>
+  <%= @wall_posts.count * 5000 %>원 적립
+<ul>
+<% @wall_posts.each do |post| %>
+  <li><%= post.message %></li>
+<% end %>
+</ul>
+<%= simple_form_for @wall_post do |f| %>
+  <%= f.input :message %>
+  <%= f.button :submit %>  
+<% end %>

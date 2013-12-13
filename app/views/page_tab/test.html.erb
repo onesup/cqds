@@ -1,0 +1,10 @@
+<div id="comments_box">
+  <ul id="wall_posts">
+
+      <%= render partial: "wall_post", collection: @wall_posts  %>
+
+  </ul>
+  <div class="paginate">
+    <%= paginate @wall_posts %>
+  </div>
+</div>
