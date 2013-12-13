@@ -17,5 +17,5 @@ production:
   :page_id: "1377173915843709"
   :app_id: "177488465773634"
   :app_secret: "this_is_app_secret"
-  :domain: "ssl.minivertising.kr"
+  :domain: "cqds.minivertising.kr"
   :page_address: "https://www.facebook.com/miraclehospital/app_177488465773634"
