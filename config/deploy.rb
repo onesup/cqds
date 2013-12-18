@@ -11,7 +11,7 @@ set :scm, "git"
 set :repository, "git@github.com:#{user}/#{application}.git"
 set :branch, "master"
 set :default_environment, {
-      'PATH' => "/home/#{user}/.rbenv/versions/2.0.0-p195/bin/:$PATH"
+      'PATH' => "/home/#{user}/.rbenv/versions/2.0.0-p353/bin/:$PATH"
     }
 set :keep_releases, 5
 default_run_options[:pty] = true

@@ -12,7 +12,7 @@ stdout_path "#{root}/log/unicorn.out.log"
  
 # change the YOUR_APP_NAME to your application name
 listen "#{TMP_DIR}/.unicorn.#{APP_NAME}.sock", :backlog => 512
-# listen "/tmp/unicorn.coffee_letter.sock"
+
 worker_processes 2
 timeout 180
 preload_app false
