@@ -7,7 +7,7 @@ class HomeController < ApplicationController
       redirect_to mobile_path
     else
       flash[:facebook_params] = request.env['facebook.params']
-      redirect_to FACEBOOK_CONFIG[:page_address]
+      redirect_to FACEBOOK_CONFIG[:page_tab_address]
     end
   end
   

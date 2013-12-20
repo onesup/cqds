@@ -35,7 +35,7 @@ var cb = function(response){
   } else if (response.status === 'not_authorized') {
     FB.login(cb,{scope: 'email, user_photos'});
   } else {
-    alert("쿠심붕괴")
+    alert("내 쿠심ㅠㅠ");
   }
 };
 
@@ -44,11 +44,9 @@ function comment_popup(response){
   var accessToken = response.authResponse.accessToken;
   $("#uid").val(uid);
   $("#access_token").val(accessToken);
-  $.post( "/users", {uid: uid, access_token: accessToken}, function( data ) {});
-  // $('#comment_popup').bPopup({
-  //   follow: [false, false], //x, y
-  //   position: ['auto', 400] //x, y
-  // });
+  $.post( "/users", {uid: uid, access_token: accessToken}, function(data){
+    $(window).attr("location","<%= mobile_gate_url %>");
+  });
 };
 
 $(document).ready(function() {

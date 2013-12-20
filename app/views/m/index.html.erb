@@ -1,6 +1,6 @@
 <div id="wrap">
   <div class="like_button">
-    <fb:like href="https://www.facebook.com/miraclehospital" colorscheme="light" layout="button_count" action="like" show_faces="false" send="false"></fb:like>
+    <fb:like href="<%= FACEBOOK_CONFIG[:page_address]%>" colorscheme="light" layout="button_count" action="like" show_faces="false" send="false"></fb:like>
   </div>
     <header id="main_header">	
     <div class="title">
@@ -18,7 +18,7 @@
     <section id="content">
     	<div class="count">
             <ul class="clearfix">
-              <%=raw number_to_image_tag(Hero.registerd_heroes_count) %>
+              <%= raw number_to_image_tag(Hero.registerd_heroes_count) %>
                 <li>명</li>
             </ul>
         </div>
@@ -126,26 +126,26 @@
   
   
   
-<div id="mobile_need_like" class="alert">
-  <header id="comment_header">	
-    <div class="btn_block">
-      <%= link_to image_tag("m/pop/btn_close.jpg", width: "21"), nil, class: "b-close" %>
-    </div>
-    <div class="title_like">
-    <%= image_tag "m/pop/likepage_title.jpg", width: 231 %>
-    </div>
-  </header>
-  <section id="content">
-    <div class="like_page">
-      <div class="btn_like">
-        <fb:like href="https://www.facebook.com/miraclehospital" colorscheme="light" layout="button_count" action="like" show_faces="false" send="false"></fb:like>
+  <div id="mobile_need_like" class="alert">
+    <header id="comment_header">	
+      <div class="btn_block">
+        <%= link_to image_tag("m/pop/btn_close.jpg", width: "21"), nil, class: "b-close" %>
       </div>
-      <p class="hero_image">
-      <%= image_tag "m/pop/likepage_img.jpg", width: 183 %>
-      </p>
-    </div>
-  </section>
-</div>
+      <div class="title_like">
+      <%= image_tag "m/pop/likepage_title.jpg", width: 231 %>
+      </div>
+    </header>
+    <section id="content">
+      <div class="like_page">
+        <div class="btn_like">
+          <fb:like href="https://www.facebook.com/miraclehospital" colorscheme="light" layout="button_count" action="like" show_faces="false" send="false"></fb:like>
+        </div>
+        <p class="hero_image">
+        <%= image_tag "m/pop/likepage_img.jpg", width: 183 %>
+        </p>
+      </div>
+    </section>
+  </div>
   
 </div>
 
@@ -159,18 +159,18 @@
     </div>
   </header>
   <section id="content">
-    <%= simple_form_for [:m, @wall_post], html:{id:"new_mobile_wall_post"} do |f| %>
+    <%#= simple_form_for [:m, @wall_post], html:{id:"new_mobile_wall_post"} do |f| %>
       <div>
-        <%= f.input :message, input_html: {class: "input_comment", id: "wall_post_text_area_input"}, 
+        <%#= f.input :message, input_html: {class: "input_comment", id: "wall_post_text_area_input"}, 
           label: false, required: false %>
-        <%= hidden_field_tag 'access_token' %>
-        <%= hidden_field_tag 'uid' %>
+        <%#= hidden_field_tag 'access_token' %>
+        <%#= hidden_field_tag 'uid' %>
       </div>
     <div class="comment btn_block">
       <p>
         <%= image_submit_tag("m/pop/btn_comment.png", class: "button", id: "comment_submit") %>
       </p>
     </div>
-    <% end %>
+    <%# end %>
   </section>
 </div>
