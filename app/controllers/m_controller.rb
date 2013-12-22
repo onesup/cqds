@@ -5,7 +5,7 @@ class MController < ApplicationController
     unless session[:facebook_uid].nil?
       redirect_to mobile_gate_path unless check_like
     else
-      redirect_to mobile_gate_path
+      redirect_to fb_login_path
     end
   end
   
@@ -18,10 +18,10 @@ class MController < ApplicationController
   end
   
   def fan_gate
-    unless session[:facebook_uid].nil?    
-      redirect_to mobile_path if check_like
-    else
+    if session[:facebook_uid].nil?
       redirect_to fb_login_path
+    else 
+      redirect_to mobile_path if check_like
     end
   end
   
@@ -31,13 +31,16 @@ class MController < ApplicationController
       access_token = session[:facebook_token]
       api = Koala::Facebook::API.new(access_token)
       begin
-        result = api.get_connections("me","likes/" + page_id)
+        query = api.get_connections("me","likes/" + page_id)
       rescue Koala::Facebook::AuthenticationError
-        result = []
+        puts "auth error"
+        query = []
       rescue Koala::Facebook::ClientError
-        result = []
+        puts "client error"
+        query = []
       end
-      return result.empty? ? false : true
+      result = query.empty? ? false : true
+      return result
     end
         
 end

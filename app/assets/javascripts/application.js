@@ -17,4 +17,5 @@
 //= require jquery.bpopup.min
 //= require jquery.validate
 //= require jquery.infinitescroll.js
+//= require spin
 //= require_tree .

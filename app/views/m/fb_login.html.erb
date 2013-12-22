@@ -2,7 +2,6 @@
 <html xmlns:fb="http://ogp.me/ns/fb#" xmlns:og="http://ogp.me/ns#">
 <head prefix="og: http://ogp.me/ns#">
   <title>기적의 어린이재활병원 '영웅의 한마디'</title>
-  <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
@@ -15,37 +14,69 @@
   <meta property="og:url"  content="http://bit.ly/173wYGA" />
   <meta property="og:title"  content="기적의 어린이재활병원" />
   <meta property="og:image"  content="http://farm4.staticflickr.com/3665/10288523825_3fea0316ef_o.jpg" />
-
 </head>
 <body id="mobile">
   <div id="fb-root"></div>
 <script type="text/javascript">
-
-function verifyUserLikesPage() {
-  FB.api("/me/likes/"+<%= FACEBOOK_CONFIG[:page_id]%>, function(apiResponse){
-    if (apiResponse.data && apiResponse.data.length > 0){
-      location.reload();
-    }
-  });
+function spin(){
+  var opts = {
+    lines: 13, // The number of lines to draw
+    length: 20, // The length of each line
+    width: 10, // The line thickness
+    radius: 30, // The radius of the inner circle
+    corners: 1, // Corner roundness (0..1)
+    rotate: 0, // The rotation offset
+    direction: 1, // 1: clockwise, -1: counterclockwise
+    color: '#000', // #rgb or #rrggbb or array of colors
+    speed: 1, // Rounds per second
+    trail: 60, // Afterglow percentage
+    shadow: false, // Whether to render a shadow
+    hwaccel: false, // Whether to use hardware acceleration
+    className: 'spinner', // The CSS class to assign to the spinner
+    zIndex: 2e9, // The z-index (defaults to 2000000000)
+    top: 'auto', // Top position relative to parent in px
+    left: 'auto' // Left position relative to parent in px
+  };
+  var target = document.getElementById('mobile');
+  var spinner = new Spinner(opts).spin(target);
 };
 
 var cb = function(response){
-  if (response.status === 'connected') { 
-    comment_popup(response);
+  if (response.status === 'connected') {
+    after_login(response);
   } else if (response.status === 'not_authorized') {
-    FB.login(cb,{scope: 'email, user_photos'});
+    alert('캠페인 참여를 위해 페이스북 로그인이 필요합니다.');
   } else {
-    alert("내 쿠심ㅠㅠ");
+    alert('페이스북 로그인이 필요합니다.');
   }
 };
 
-function comment_popup(response){
+function after_login(response){
+  spin();
   var uid = response.authResponse.userID;
   var accessToken = response.authResponse.accessToken;
   $("#uid").val(uid);
   $("#access_token").val(accessToken);
-  $.post( "/users", {uid: uid, access_token: accessToken}, function(data){
-    $(window).attr("location","<%= mobile_gate_url %>");
+  $.post( "/users", {uid: uid, access_token: accessToken}, function( data ) {
+    var url = "<%= mobile_gate_url %>";    
+    $(location).attr('href',url);
+  });
+};
+
+function fb_auth(e){
+  e.preventDefault();
+  FB.getLoginStatus(function(response) {
+    if (response.status === 'not_authorized') {
+      FB.login(cb,{
+        scope: 'email, publish_stream, user_birthday, user_relationships, user_relationship_details, user_photos'
+      });
+    }else if (response.status === 'connected'){
+      after_login(response);
+    }else{
+      FB.login(cb,{
+        scope: 'email, publish_stream, user_birthday, user_relationships, user_relationship_details, user_photos'
+      });
+    }
   });
 };
 
@@ -53,43 +84,20 @@ $(document).ready(function() {
   $.ajaxSetup({ cache: true });
   $.getScript('//connect.facebook.net/ko_KR/all.js', function(){
     FB.init({
-      appId      : '<%= FACEBOOK_CONFIG[:app_id] %>',            // App ID from the app dashboard
+      appId      : '<%= FACEBOOK_CONFIG[:app_id] %>',     // App ID from the appdashboard
       channelUrl : '//<%= FACEBOOK_CONFIG[:domain] %>/channel.html', // Channel file for x-domain comms
       status     : true, // check login status
       cookie     : true, // enable cookies to allow the server to access the session
       xfbml      : true  // parse XFBML
     });
-    FB.getLoginStatus(function(response) {
-      if (response.status === 'not_authorized') {
-        FB.login(cb,{scope: 'email, user_photos'});
-      }else if (response.status === 'connected'){
-        comment_popup(response);
-      }else{
-        FB.login(cb,{scope: 'email, user_photos'});
-      }
+    
+    $('#join').bind('click', function(e) {
+      fb_auth(e);
     });
-    FB.Event.subscribe("edge.create", verifyUserLikesPage);
-    FB.Event.subscribe('edge.remove', function(href, widget) {
-      location.reload();
-    });
-      
-    <% if flash[:popup] == "complete" %>
-      // $('#mobile_comment_complete_popup').bPopup({
-      //   follow: [false, false], //x, y
-      //   position: ['auto', 150] //x, y
-      // });
-    <% elsif flash[:popup] == "invalid" %>
-      // $('#mobile_comment_invalid_popup').bPopup({
-      //   follow: [false, false], //x, y
-      //   position: ['auto', 150] //x, y
-      // });
-    <% elsif flash[:popup] == "need_reload" %>
-      // location.reload();
-    <% end %>
-  });  
+  });
 });
-</script>
-<%= yield %>
 
+</script>
+<%= link_to image_tag("m/btn_comment.jpg",width: 194),nil, title: "join", id: "join" %>
 </body>
 </html>
