@@ -22,17 +22,6 @@ ActiveRecord::Schema.define(version: 20131226015823) do
     t.datetime "updated_at"
   end
 
-  create_table "heroes", force: true do |t|
-    t.integer  "total"
-    t.integer  "user_id"
-    t.integer  "wall_post_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "heroes", ["user_id"], name: "index_heroes_on_user_id"
-  add_index "heroes", ["wall_post_id"], name: "index_heroes_on_wall_post_id"
-
   create_table "tokens", force: true do |t|
     t.string   "access_token"
     t.text     "data"
