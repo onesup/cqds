@@ -1,9 +1,26 @@
 <script type="text/javascript">
   function changeFocus(pos) {
-  	alert("pos call");
-    
+  	if(pos==1) { 
+  		document.getElementById("youtube").src="//www.youtube.com/embed/1C2bJ6_9QxQ?feature=player_detailpage" ;
+  		document.getElementById("youtube_01").src='<%= asset_path("page_tab/CQDS/tvc_c.jpg") %>' ;
+    	document.getElementById("youtube_02").src='<%= asset_path("page_tab/CQDS/not.jpg") %>' ;
+  		document.getElementById("youtube_03").src='<%= asset_path("page_tab/CQDS/not.jpg") %>' ;
+    }
+    else if(pos==2) {
+    	document.getElementById("youtube").src="//www.youtube.com/embed/pOZgnkEPxJc?wmode=opaque" ;
+    	document.getElementById("youtube_01").src='<%= asset_path("page_tab/CQDS/tvc.jpg") %>' ;
+    	document.getElementById("youtube_02").src='<%= asset_path("page_tab/CQDS/tvc_c.jpg") %>' ;
+  		document.getElementById("youtube_03").src='<%= asset_path("page_tab/CQDS/not.jpg") %>' ;
+  	} else if(pos==3) {
+  		document.getElementById("youtube").src="//www.youtube.com/embed/pOZgnkEPxJc?wmode=opaque" ;
+  		document.getElementById("youtube_01").src='<%= asset_path("page_tab/CQDS/tvc.jpg") %>' ;
+    	document.getElementById("youtube_02").src='<%= asset_path("page_tab/CQDS/not.jpg") %>' ;
+  		document.getElementById("youtube_03").src='<%= asset_path("page_tab/CQDS/tvc_c.jpg") %>' ;	
+  	}
   } 
+  
 </script>
+
 
 <div class="cqds_wrap">
 	<!--background -->
@@ -12,7 +29,7 @@
 		<div class="cqds_youtube_select">
 			<ul class="youtube_select_button">
 				<li class="youtube_select_button01">
-					<img src='<%= asset_path("page_tab/CQDS/tvc_c.jpg") %>' id='youtube_01' onclick='changeFocus()'/> </li>
+					<img id='youtube_01' src='<%= asset_path("page_tab/CQDS/tvc_c.jpg") %>' onclick='changeFocus(1);'/> </li>
 				<li class="youtube_select_button02">
 					<img src='<%= asset_path("page_tab/CQDS/not.jpg") %>' id='youtube_02' onclick='changeFocus(2);'/> </li>
 				<li class="youtube_select_button03">
@@ -20,21 +37,25 @@
 			</ul>
 		</div>
 		<div class="cqds_youtube_view">
-			<iframe width="557" height="309" src="//www.youtube.com/embed/pOZgnkEPxJc?wmode=opaque" frameborder="0" allowfullscreen></iframe>
+			<iframe id="youtube" width="557" height="309" src="//www.youtube.com/embed/1C2bJ6_9QxQ?feature=player_detailpage" frameborder="0" allowfullscreen></iframe>
 		</div>
 
 		<div class="cqds_donate">
-			<%= image_tag "page_tab/CQDS/donation.jpg" %>
+			<a href="#ex1" rel="modal:open"> <img src='<%= asset_path("page_tab/CQDS/donation.jpg") %>'/></a>
 		</div>
 	</div>
 	<div class="cqds_down_field">
 		<ul class="down_select_button">
 				<li class="down_select_button01">
-					<%= link_to image_tag("page_tab/CQDS/colorring.jpg")%>				</li>
+					<%= image_tag asset_path("page_tab/CQDS/ring.png") %> </li>
 				<li class="down_select_button02">
-					<%= link_to image_tag("page_tab/CQDS/notify.jpg")%>				</li>
+					<%= image_tag asset_path("page_tab/CQDS/notify.png") %></li>
 		</ul>
 	</div>	
+</div>
+
+<div class="modal" id="ex1" style="display:none;">
+  <p>Thanks for clicking.  That felt good.  <br />Click <a href="#" rel="modal:close">close</a>, click the overlay, or press ESC</p>
 </div>
 
 <!--

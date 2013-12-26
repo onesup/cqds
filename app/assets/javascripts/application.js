@@ -19,3 +19,4 @@
 //= require jquery.infinitescroll.js
 //= require spin
 //= require_tree .
+//= require jquery.modal

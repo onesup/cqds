@@ -12,4 +12,5 @@
  *= require_directory ./page_tab
  *= require style
  *= require_directory ./mobile
+ *= require jquery.modal.css
  */
