@@ -28,7 +28,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string    :relationship
       t.string    :profile_image
       t.text      :data
-
+      t.timestamps
 
       ## Confirmable
       # t.string   :confirmation_token
@@ -43,7 +43,7 @@ class CreateUsers < ActiveRecord::Migration
 
 
       # Uncomment below if timestamps were not included in your original model.
-      # t.timestamps
+
     end
   end
 end

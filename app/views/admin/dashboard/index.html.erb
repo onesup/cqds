@@ -1,5 +1,5 @@
-<div class="">캠페인 전체 댓글: <%= @total_wall_posts_count %> 건</p>
-<div class="">캠페인 전체 참여자: <%= @heroes_count %> 명</p>
+<div class="">동영상 플레이 횟수: <%#= %> 건</p>
+<div class="">캠페인 전체 참여자: <%#=  %> 명</p>
 <div class="row-fluid">
   <!-- block -->
   <div class="block">
@@ -17,13 +17,13 @@
             </tr>
           </thead>
           <tbody>
-            <% time_iterate(Time.now.beginning_of_month, Time.now.end_of_month, 1.day) do |time|%>
+            <%# time_iterate(Time.now.beginning_of_month, Time.now.end_of_month, 1.day) do |time|%>
               <tr class="">
-                <td><%= time.strftime("%m-%d")%></td>
-                <td><%= Hero.daily_count time %></td>
-                <td><%= WallPost.daily_count time %></td>
+                <td><%#= time.strftime("%m-%d")%></td>
+                <td><%#= Hero.daily_count time %></td>
+                <td><%#= WallPost.daily_count time %></td>
               </tr>
-            <% end %>
+            <%# end %>
           </tbody>
         </table>
       </div>

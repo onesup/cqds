@@ -6,7 +6,7 @@ class Gift < ActiveRecord::Base
     result = false
     golden_time = latest_golden_time(betted_at)
     unless is_before_win?(user)
-      if golden_time.to_datetime <= betted_at.to_datetime and 
+      if golden_time.to_datetime <= betted_at.to_datetime
         self.winners.create!(user: user, gifted_at: golden_time)
         result = true
       end

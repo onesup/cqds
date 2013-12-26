@@ -68,6 +68,8 @@ ActiveRecord::Schema.define(version: 20131226015823) do
     t.string   "relationship"
     t.string   "profile_image"
     t.text     "data"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "wall_posts", force: true do |t|
