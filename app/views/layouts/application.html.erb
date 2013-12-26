@@ -17,11 +17,6 @@
   <div id="fb-root"></div>
 <script type="text/javascript">
 
-$("pop_success").modal_success ({
-  clickClose: false;
-});
-
-
 var cb = function(response){
   if (response.status === 'connected') {
     comment_popup(response);

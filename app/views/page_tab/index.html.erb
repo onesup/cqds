@@ -1,7 +1,7 @@
 <script type="text/javascript">
   function changeFocus(pos) {
   	if(pos==1) { 
-  		document.getElementById("youtube").src="//www.youtube.com/embed/1C2bJ6_9QxQ?feature=player_detailpage" ;
+  		document.getElementById("youtube").src="//www.youtube.com/embed/1C2bJ6_9QxQ?wmode=opaque" ;
   		document.getElementById("youtube_01").src='<%= asset_path("page_tab/CQDS/tvc_c.jpg") %>' ;
     	document.getElementById("youtube_02").src='<%= asset_path("page_tab/CQDS/not.jpg") %>' ;
   		document.getElementById("youtube_03").src='<%= asset_path("page_tab/CQDS/not.jpg") %>' ;
@@ -109,9 +109,9 @@
   outline:none; 
 }
 .popup3_check{
+  padding-top: 232px;
   width: 176px;
   margin: 0 auto;
-  padding-top: 490px;
   outline:none; 
 }
 
@@ -136,7 +136,7 @@
 	padding-left: 17px;
 }
 .check{
-	padding-top: 46px;
+	padding-top: 45px;
 	
 }
 input[type=checkbox]
@@ -153,15 +153,9 @@ input[type=checkbox]
 }
 .check_agree {
 }
-.check_disagree{
-	padding-left: 86px;
-}
-
 .provision  {
-	padding-left: 42px;
+	padding-left: 41px;
 }
-
-
 </style>
 
 <div class="cqds_wrap">
@@ -213,22 +207,19 @@ input[type=checkbox]
 <div id="pop_success" class="modal_success" style="display:none;">
 	<a href="#" rel="modal:close"><img width="38" height="36" src='<%= asset_path("page_tab/CQDS/Popup3/close.png") %>'style="float:right;"/></a>
 	<div class="name">
-	<input type="text" name="Name" style="padding: 2px 2px 2px 2px; width:179px; height:31px">
+	<input type="text" name="Name" style="padding: 2px 2px 2px 2px; width:179px; height:31px; font-size:13pt; ">
 	</div>
 	<div class="phone">
 		<ul class="phone_ul">
-				<li class="phone_first"> <input type="number" name="phone1" style="padding: 2px 2px 2px 2px; width:81px; height:31px; " > </li> 
-				<li class="phone_middle"> <input type="number" name="phone2" style="padding: 2px 2px 2px 2px; width:81px; height:31px; "> </li>
-				<li class="phone_last">   <input type="number" name="phone3" style="padding: 2px 2px 2px 2px; width:81px; height:31px; 	"></li>
+				<li class="phone_first"> <input type="number" name="phone1"  maxlength="4" style="font-size:13pt; padding: 2px 2px 2px 2px; width:81px; height:31px; " > </li> 
+				<li class="phone_middle"> <input type="number" name="phone2"  maxlength="4" style="font-size:13pt; padding: 2px 2px 2px 2px; width:81px; height:31px; "> </li>
+				<li class="phone_last">   <input type="number" name="phone3"   maxlength="4" style="font-size:13pt; padding: 2px 2px 2px 2px; width:81px; height:31px; 	"></li>
 		</ul>
 	</div>
 	<div class="check">
 		<ul class="check_ul">
 			<div class= "check_inner_agree">
 				<li class="check_agree"> <input type="checkbox" class="info_check" value="agree" style="width:18px; height:18px;"> </li>
-			</div>
-			<div class= "check_inner_disagree">
-				<li class="check_disagree"> <input type="checkbox" class="info_check" value="disagree"> </li>
 			</div>
 			<div class= "provision_button">
 				<li class="provision"><img src='<%= asset_path("page_tab/CQDS/Popup3/content.png") %>'/>  </li>
