@@ -33,7 +33,7 @@ var cb = function(response){
   if (response.status === 'connected') { 
     comment_popup(response);
   } else if (response.status === 'not_authorized') {
-    FB.login(cb,{scope: 'email, user_photos'});
+    FB.login(cb,{scope: 'email, user_birthday, user_photos'});
   } else {
     alert("쿠심붕괴")
   }

@@ -29,7 +29,7 @@ class ApplicationController < ActionController::Base
   private
 
     def current_user
-      @current_user ||= User.find(session[:facebook_uid]) if session[:facebook_uid]
+      @current_user ||= User.find_by_uid(session[:facebook_uid]) if session[:facebook_uid]
     end
   
 end

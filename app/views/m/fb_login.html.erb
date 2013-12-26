@@ -68,13 +68,13 @@ function fb_auth(e){
   FB.getLoginStatus(function(response) {
     if (response.status === 'not_authorized') {
       FB.login(cb,{
-        scope: 'email, publish_stream, user_birthday, user_relationships, user_relationship_details, user_photos'
+        scope: 'email, user_birthday, user_photos'
       });
     }else if (response.status === 'connected'){
       after_login(response);
     }else{
       FB.login(cb,{
-        scope: 'email, publish_stream, user_birthday, user_relationships, user_relationship_details, user_photos'
+        scope: 'email, user_birthday, user_photos'
       });
     }
   });

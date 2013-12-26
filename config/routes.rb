@@ -1,6 +1,5 @@
 Cqds::Application.routes.draw do
 
-  get "wall_posts/create"
   get 'test' => 'page_tab#test'
   get 'children' => 'home#index'
   get 'switch' => 'home#index'
@@ -33,6 +32,7 @@ Cqds::Application.routes.draw do
 
   namespace :m do
     resources :wall_posts, only: [:create]
+    resources :users, only: [:show, :edit, :update]
   end
 
   resources :wall_posts, only: [:create]

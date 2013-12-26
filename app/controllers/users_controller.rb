@@ -1,4 +1,4 @@
-class UsersController < ApplicationController
+class UsersController < ApplicationController  
   def create
     uid = params["uid"]
     access_token = params["access_token"]

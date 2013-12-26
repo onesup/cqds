@@ -22,8 +22,14 @@ class User < ActiveRecord::Base
   def detail_from_facebook(access_token)
     graph = Koala::Facebook::API.new(access_token)
     profile = graph.get_object("me")
+    relationship = graph.fql_query("SELECT relationship_status  FROM user where uid=me()") 
     self.name = profile["name"]
+    self.gender = profile["gender"]
+    self.age = profile["birthday"]
+    self.location = profile["location"]["name"]
     self.profile_image = graph.get_picture(profile["id"])
+    self.relationship = relationship.first["relationship_status"]
+
   end
   
   def fans_to_boxes(integer)
