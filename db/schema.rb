@@ -11,7 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131017010454) do
+ActiveRecord::Schema.define(version: 20131226015823) do
+
+  create_table "gifts", force: true do |t|
+    t.string   "name"
+    t.integer  "quantity"
+    t.datetime "started_at"
+    t.datetime "finished_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "heroes", force: true do |t|
     t.integer  "total"
@@ -52,9 +61,15 @@ ActiveRecord::Schema.define(version: 20131017010454) do
     t.string   "provider"
     t.string   "uid"
     t.string   "name"
+    t.string   "phone_number"
+    t.string   "gender"
+    t.string   "age"
+    t.string   "location"
     t.string   "relationship"
     t.string   "profile_image"
     t.text     "data"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "wall_posts", force: true do |t|
@@ -66,5 +81,17 @@ ActiveRecord::Schema.define(version: 20131017010454) do
   end
 
   add_index "wall_posts", ["user_id"], name: "index_wall_posts_on_user_id"
+
+  create_table "winners", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "gift_id"
+    t.integer  "serial"
+    t.datetime "gifted_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "winners", ["gift_id"], name: "index_winners_on_gift_id"
+  add_index "winners", ["user_id"], name: "index_winners_on_user_id"
 
 end

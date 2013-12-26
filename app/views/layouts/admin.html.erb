@@ -1,6 +1,6 @@
 <!DOCTYPE html>
     <head>
-        <title>기적의 어린이재활병원 댓글기부 앱 ADMIN</title>
+        <title>쿠크다스 ADMIN</title>
         <%= stylesheet_link_tag    "admin", media: "all", "data-turbolinks-track" => true %>
         <%= javascript_include_tag "admin", "data-turbolinks-track" => true %>
         <!--[if lte IE 8]><script language="javascript" type="text/javascript" src="http://flot.googlecode.com/svn/trunk/excanvas.min.js"></script><![endif]-->
@@ -34,7 +34,7 @@
                      <span class="icon-bar"></span>
                      <span class="icon-bar"></span>
                     </a>
-                    <%= link_to "댓글기부 앱 관리자", admin_path, class: "brand" %>
+                    <%= link_to "쿠크다스 페북앱 관리자", admin_path, class: "brand" %>
                     <div class="nav-collapse collapse">
                       <ul class="nav pull-right">
                         <li class="dropdown">
@@ -75,22 +75,22 @@
                           <% end %>
                         </li>
                         <li>
-                          <%= link_to admin_wall_posts_path do %>
-                            <i class="icon-chevron-right"></i>댓글 목록
+                          <%= link_to admin_users_path do %>
+                            <i class="icon-chevron-right"></i>참여자 목록
                           <% end %>
                         </li>
-                        <!--<li>
-                          <%= link_to admin_wall_posts_count_path do %>
-                            <i class="icon-chevron-right"></i>이번 달 댓글 통계
+                        <li>
+                          <%= link_to admin_winners_path do %>
+                            <i class="icon-chevron-right"></i>당첨자 목록
                           <% end %>
-                        </li> -->
+                        </li>
                     </ul>
                 </div>
                 <!--/span-->
                 <div class="span9" id="content">
                   <div>
-                    <p class="flash_notice"><%#= notice %></p>
-                    <p class="flash_alert"><%#= alert %></p>
+                    <p class="flash_notice"><%= notice %></p>
+                    <p class="flash_alert"><%= alert %></p>
                   </div>
                   <%= yield %>
                 </div>

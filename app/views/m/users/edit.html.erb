@@ -1,0 +1,5 @@
+<%= simple_form_for [:m, @user], html:{id:"edit_m_user"} do |f| %>
+  <%= f.input :name, input_html: {class: "input_name"}, label: false, required: false%>
+  <%= f.input :phone_number, input_html: {class: "input_phone_number"}, label: false, required: false%>
+  <%= image_submit_tag("page_tab/pop/btn_comment.png", class: "button", id: "comment_submit") %>
+<% end %>

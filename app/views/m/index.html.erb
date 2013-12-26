@@ -3,34 +3,31 @@
     <fb:like href="<%= FACEBOOK_CONFIG[:page_address]%>" colorscheme="light" layout="button_count" action="like" show_faces="false" send="false"></fb:like>
   </div>
     <header id="main_header">	
-    <div class="title">
+      <div class="title">
    	 		<p class="logo">
-              <%= image_tag "m/logo.jpg", width: 68 %>
-            </p>
-        	<p class="main_title">
-            <%= image_tag "m/title.jpg", width: 215 %>
-            </p>
-            <p class="sub_title">
-              <%=  image_tag "m/sub_img.jpg" %>
-            </p>
-        </div>
+          <%= image_tag "m/logo.jpg", width: 68 %>
+        </p>
+      	<p class="main_title">
+          <%= image_tag "m/title.jpg", width: 215 %>
+        </p>
+        <p class="sub_title">
+          <%=  image_tag "m/sub_img.jpg" %>
+        </p>
+      </div>
     </header>
     <section id="content">
     	<div class="count">
-            <ul class="clearfix">
-              <%= raw number_to_image_tag(Hero.registerd_heroes_count) %>
-                <li>명</li>
-            </ul>
-        </div>
-  <div class="movie" style="text-align:center;">
-        	<iframe width="300" height="169" src="//www.youtube.com/embed/pOZgnkEPxJc" frameborder="0" allowfullscreen></iframe>
-        </div>
-
-	<div class="btn_block">
-		<p>
-      <%= link_to image_tag("m/btn_comment.jpg",width: 194),nil, title: "comment", id: "comment_open" %>
-		</p>
-	</div>
+        <ul class="clearfix">
+          <%= raw number_to_image_tag(Hero.registerd_heroes_count) %>
+          <li>명</li>
+        </ul>
+      </div>
+    	<div class="btn_block">
+        <p><%= link_to "응모", edit_m_user_path(current_user) %></p>
+    		<p>
+          <%= link_to image_tag("m/btn_comment.jpg",width: 194), nil, title: "comment", id: "comment_open" %>
+    		</p>
+    	</div>
         <div class="sub_btn_block clearfix" style="display:none;">
         	<div class="first">
             <%= link_to image_tag("m/sub_btn_01.jpg") %>
@@ -42,7 +39,7 @@
         <div class="text_block">
         	<p>
         	주변에 몸이 조금 불편한 아이들에게 재활치료는 시급하지만, 
-            대한민국에 장애어린이를 위한 재활병원은 턱없이 부족하기 때문에
+            대한민국에 장애어린이를 위한 재활병원은 턱없이 부족하기 때문에
             대기시간은 수개월이 걸리기도 합니다. 
             이제 아이들이 맘편하게 치료받을 수 있는 기적의 어린이재활병원을 건립하려합니다. 
             지금 아이들을 위해 응원메시지를남겨주세요. 당신의 응원메시지가 기업의 기부금으로 전환되어 병원 건립에 쓰입니다. 
@@ -57,7 +54,7 @@
     	<div>
           	<h3>참여방법</h3>
             <p>
-            - '영웅의 한마디'를  눌러서  어린이에게 응원메시지를 남겨주세요.<br> 
+            - '영웅의 한마디'를  눌러서 어린이에게 응원메시지를 남겨주세요.<br> 
             - 여러분들의 '영웅의 한마디'가 기업의 기부금으로 전환되어 전달됩니다.<br>
             - 이벤트 참여 시 페이스북 담벼락에 응모 내용이 자동으로 게시됩니다. 
             </p>
