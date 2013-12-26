@@ -21,6 +21,148 @@
   
 </script>
 
+<style>
+.modal {
+  opacity:1.0; 
+  width: 500px; 
+  height: 377px;
+  display: none;
+  background: url('<%= asset_path("page_tab/CQDS/Popup/thanks.png") %>') no-repeat 0 0;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -o-border-radius: 8px;
+  -ms-border-radius: 8px;
+  border-radius: 8px;
+  -webkit-box-shadow: 0 0 10px #000;
+  -moz-box-shadow: 0 0 10px #000;
+  -o-box-shadow: 0 0 10px #000;
+  -ms-box-shadow: 0 0 10px #000;
+  box-shadow: 0 0 10px #000;
+ }
+ 
+.modal_fail {
+  opacity:1.0; 
+  width: 500px; 
+  height: 245px;
+  display: none;
+  background: url('<%= asset_path("page_tab/CQDS/Popup2/fail.png") %>') no-repeat 0 0;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -o-border-radius: 8px;
+  -ms-border-radius: 8px;
+  border-radius: 8px;
+  -webkit-box-shadow: 0 0 10px #000;
+  -moz-box-shadow: 0 0 10px #000;
+  -o-box-shadow: 0 0 10px #000;
+  -ms-box-shadow: 0 0 10px #000;
+  box-shadow: 0 0 10px #000;
+ } 
+ 
+.modal_success {
+  opacity:1.0; 
+  width: 500px; 
+  height: 581px;
+  display: none;
+  background: url('<%= asset_path("page_tab/CQDS/Popup3/congratulation.png") %>') no-repeat 0 0;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -o-border-radius: 8px;
+  -ms-border-radius: 8px;
+  border-radius: 8px;
+  -webkit-box-shadow: 0 0 10px #000;
+  -moz-box-shadow: 0 0 10px #000;
+  -o-box-shadow: 0 0 10px #000;
+  -ms-box-shadow: 0 0 10px #000;
+  box-shadow: 0 0 10px #000;
+ }  
+ 
+.modal a.close-modal {
+  display: none;
+}
+
+.modal-spinner {
+  display: none;
+  width: 64px;
+  height: 64px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-right: -32px;
+  margin-top: -32px;
+  background: url(spinner.gif) #111 no-repeat center center;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -o-border-radius: 8px;
+  -ms-border-radius: 8px;
+  border-radius: 8px;
+ }
+.popup1_check{
+  width: 176px;
+  margin: 0 auto;
+  padding-top: 280px;
+}
+
+.popup2_check{
+  width: 176px;	
+  margin: 0 auto;
+  padding-top: 160px;
+  outline:none; 
+}
+.popup3_check{
+  width: 176px;
+  margin: 0 auto;
+  padding-top: 490px;
+  outline:none; 
+}
+
+.name {
+	padding-top: 186px;
+	padding-left: 161px;	
+	width: 179; height: 31;
+}
+
+.phone {
+	padding-top: 6px;
+}
+.phone_ul{
+	padding-left: 161px;
+}
+.phone_first{
+}
+.phone_middle{
+	padding-left: 17px;
+}
+.phone_last{
+	padding-left: 17px;
+}
+.check{
+	padding-top: 46px;
+	
+}
+input[type=checkbox]
+{
+  /* Double-sized Checkboxes */
+  -ms-transform: scale(1.5); /* IE */
+  -moz-transform: scale(1.5); /* FF */
+  -webkit-transform: scale(1.5); /* Safari and Chrome */
+  -o-transform: scale(1.5); /* Opera */
+}
+
+.check_ul {
+	padding-left: 206px;
+}
+.check_agree {
+}
+.check_disagree{
+	padding-left: 86px;
+}
+
+.provision  {
+	padding-left: 42px;
+}
+
+
+</style>
 
 <div class="cqds_wrap">
 	<!--background -->
@@ -37,11 +179,12 @@
 			</ul>
 		</div>
 		<div class="cqds_youtube_view">
-			<iframe id="youtube" width="557" height="309" src="//www.youtube.com/embed/1C2bJ6_9QxQ?feature=player_detailpage" frameborder="0" allowfullscreen></iframe>
+			<iframe id="youtube" width="557" height="309" src="//www.youtube.com/embed/1C2bJ6_9QxQ?wmode=opaque" frameborder="0" allowfullscreen></iframe>
 		</div>
 
 		<div class="cqds_donate">
-			<a href="#ex1" rel="modal:open"> <img src='<%= asset_path("page_tab/CQDS/donation.jpg") %>'/></a>
+			<a href="#pop_start" id="popup1" rel="modal:open"> <img src='<%= asset_path("page_tab/CQDS/donation.jpg") %>'/></a> 
+			
 		</div>
 	</div>
 	<div class="cqds_down_field">
@@ -56,6 +199,45 @@
 	</div>	
 </div>
 
-<div class="modal" id="ex1" style="display:none;">
-  <p>Thanks for clicking.  That felt good.  <br />Click <a href="#" rel="modal:close">close</a>, click the overlay, or press ESC</p>
+<div id="pop_start" class="modal" style="display:none;">
+	<a href="#" rel="modal:close"><img width="38" height="36" src='<%= asset_path("page_tab/CQDS/Popup/close.png") %>'style="float:right;"></a>
+	<div class="popup1_check">
+		<a href="#pop_fail" rel="modal:open" ><img src='<%= asset_path("page_tab/CQDS/Popup/check.png") %>'/></a> 	
+	</div>	
+</div>
+
+<div id="pop_fail" class="modal_fail" style="display:none;">
+	<a href="#" rel="modal:close"><img width="38" height="36" src='<%= asset_path("page_tab/CQDS/Popup2/close.png") %>'style="float:right;"/></a>
+	<div class="popup2_check">
+		<a href="#pop_success" rel="modal:open"><img src='<%= asset_path("page_tab/CQDS/Popup2/check.png") %>'/></a> 	
+	</div>	
+</div>
+<div id="pop_success" class="modal_success" style="display:none;">
+	<a href="#" rel="modal:close"><img width="38" height="36" src='<%= asset_path("page_tab/CQDS/Popup3/close.png") %>'style="float:right;"/></a>
+	<div class="name">
+	<input type="text" name="Name" style="padding: 2px 2px 2px 2px; width:179px; height:31px">
+	</div>
+	<div class="phone">
+		<ul class="phone_ul">
+				<li class="phone_first"> <input type="number" name="phone1" style="padding: 2px 2px 2px 2px; width:81px; height:31px; " > </li> 
+				<li class="phone_middle"> <input type="number" name="phone2" style="padding: 2px 2px 2px 2px; width:81px; height:31px; "> </li>
+				<li class="phone_last">   <input type="number" name="phone3" style="padding: 2px 2px 2px 2px; width:81px; height:31px; 	"></li>
+		</ul>
+	</div>
+	<div class="check">
+		<ul class="check_ul">
+			<div class= "check_inner_agree">
+				<li class="check_agree"> <input type="checkbox" class="info_check" value="agree" style="width:18px; height:18px;"> </li>
+			</div>
+			<div class= "check_inner_disagree">
+				<li class="check_disagree"> <input type="checkbox" class="info_check" value="disagree"> </li>
+			</div>
+			<div class= "provision_button">
+				<li class="provision"><img src='<%= asset_path("page_tab/CQDS/Popup3/content.png") %>'/>  </li>
+			</div>
+		</ul>
+	</div>
+	<div class="popup3_check">
+		<a href="#" rel="modal:close"><img src='<%= asset_path("page_tab/CQDS/Popup3/check.png") %>'/></a> 	
+	</div>	
 </div>

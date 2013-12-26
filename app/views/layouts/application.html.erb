@@ -17,6 +17,11 @@
   <div id="fb-root"></div>
 <script type="text/javascript">
 
+$("pop_success").modal_success ({
+  clickClose: false;
+});
+
+
 var cb = function(response){
   if (response.status === 'connected') {
     comment_popup(response);
@@ -40,6 +45,13 @@ function comment_popup(response){
 };
 
 $(document).ready(function() {
+/*
+	  $('#popup1').click(function() {
+      $.modal.resize();
+      return false;
+    });
+*/
+	
   $.ajaxSetup({ cache: true });
   $.getScript('//connect.facebook.net/ko_KR/all.js', function(){
     FB.init({
