@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  include DailyCount
+    
   has_one :token, as: :identifiable
   has_many :wall_posts
   
@@ -29,10 +31,5 @@ class User < ActiveRecord::Base
     self.location = profile["location"]["name"]
     self.profile_image = graph.get_picture(profile["id"])
     self.relationship = relationship.first["relationship_status"]
-
-  end
-  
-  def fans_to_boxes(integer)
-    
-  end
+  end  
 end

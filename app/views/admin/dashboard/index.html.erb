@@ -1,10 +1,10 @@
-<div class="">동영상 플레이 횟수: <%#= %> 건</p>
-<div class="">캠페인 전체 참여자: <%#=  %> 명</p>
+<div class="">참여자 수: <%#= %> 건</p>
+<div class="">당첨자 수: <%#=  %> 명</p>
 <div class="row-fluid">
   <!-- block -->
   <div class="block">
     <div class="navbar navbar-inner block-header">
-      <div class="muted pull-left">응원 참여 통계</div>
+      <div class="muted pull-left">참여 통계</div>
     </div>
     <div class="block-content collapse in">
       <div class="span12">
@@ -12,18 +12,18 @@
           <thead>
             <tr>
               <th>날짜</th>
-              <th>실 참여 인원</th>
-              <th>응원 참여 댓글 수</th>
+              <th>참여자</th>
+              <th>당첨자</th>
             </tr>
           </thead>
           <tbody>
-            <%# time_iterate(Time.now.beginning_of_month, Time.now.end_of_month, 1.day) do |time|%>
+            <% time_iterate(Time.now.beginning_of_month, Time.now.end_of_month, 1.day) do |time|%>
               <tr class="">
-                <td><%#= time.strftime("%m-%d")%></td>
-                <td><%#= Hero.daily_count time %></td>
-                <td><%#= WallPost.daily_count time %></td>
+                <td><%= time.strftime("%m-%d")%></td>
+                <td><%= User.daily_count time %></td>
+                <td><%= Winner.daily_count time %></td>
               </tr>
-            <%# end %>
+            <% end %>
           </tbody>
         </table>
       </div>
