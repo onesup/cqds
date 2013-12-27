@@ -2,20 +2,20 @@
   function changeFocus(pos) {
   	if(pos==1) { 
   		document.getElementById("youtube").src="//www.youtube.com/embed/1C2bJ6_9QxQ?wmode=opaque" ;
-  		document.getElementById("youtube_01").src='<%= asset_path("page_tab/CQDS_M/tvc_c.jpg") %>' ;
-    	document.getElementById("youtube_02").src='<%= asset_path("page_tab/CQDS_M/not.jpg") %>' ;
-  		document.getElementById("youtube_03").src='<%= asset_path("page_tab/CQDS_M/not.jpg") %>' ;
+  		document.getElementById("youtube_01").src='<%= asset_path("page_tab/CQDS_M/tvc_c.png") %>' ;
+    	document.getElementById("youtube_02").src='<%= asset_path("page_tab/CQDS_M/not.png") %>' ;
+  		document.getElementById("youtube_03").src='<%= asset_path("page_tab/CQDS_M/not.png") %>' ;
     }
     else if(pos==2) {
     	document.getElementById("youtube").src="//www.youtube.com/embed/pOZgnkEPxJc?wmode=opaque" ;
-    	document.getElementById("youtube_01").src='<%= asset_path("page_tab/CQDS_M/tvc.jpg") %>' ;
-    	document.getElementById("youtube_02").src='<%= asset_path("page_tab/CQDS_M/tvc_c.jpg") %>' ;
-  		document.getElementById("youtube_03").src='<%= asset_path("page_tab/CQDS_M/not.jpg") %>' ;
+    	document.getElementById("youtube_01").src='<%= asset_path("page_tab/CQDS_M/tvc.png") %>' ;
+    	document.getElementById("youtube_02").src='<%= asset_path("page_tab/CQDS_M/tvc_c.png") %>' ;
+  		document.getElementById("youtube_03").src='<%= asset_path("page_tab/CQDS_M/not.png") %>' ;
   	} else if(pos==3) {
   		document.getElementById("youtube").src="//www.youtube.com/embed/pOZgnkEPxJc?wmode=opaque" ;
-  		document.getElementById("youtube_01").src='<%= asset_path("page_tab/CQDS_M/tvc.jpg") %>' ;
-    	document.getElementById("youtube_02").src='<%= asset_path("page_tab/CQDS_M/not.jpg") %>' ;
-  		document.getElementById("youtube_03").src='<%= asset_path("page_tab/CQDS_M/tvc_c.jpg") %>' ;	
+  		document.getElementById("youtube_01").src='<%= asset_path("page_tab/CQDS_M/tvc.png") %>' ;
+    	document.getElementById("youtube_02").src='<%= asset_path("page_tab/CQDS_M/not.png") %>' ;
+  		document.getElementById("youtube_03").src='<%= asset_path("page_tab/CQDS_M/tvc_c.png") %>' ;	
   	}
   } 
   
@@ -44,7 +44,7 @@
   width: 579px; 
   height: 537px;
   display: none;
-  background: url('<%= asset_path("page_tab/CQDS/Popup2/back.png") %>') no-repeat 0 0;
+  background: url('<%= asset_path("page_tab/CQDS_M/Popup2/back.png") %>') no-repeat 0 0;
   -webkit-border-radius: 8px;
   -moz-border-radius: 8px;
   -o-border-radius: 8px;
@@ -62,7 +62,7 @@
   width: 564px; 
   height: 882px;
   display: none;
-  background: url('<%= asset_path("page_tab/CQDS/Popup3/back.png") %>') no-repeat 0 0;
+  background: url('<%= asset_path("page_tab/CQDS_M/Popup3/back.png") %>') no-repeat 0 0;
   -webkit-border-radius: 8px;
   -moz-border-radius: 8px;
   -o-border-radius: 8px;
@@ -95,34 +95,34 @@
   outline:none; 
 }
 .popup3_check{
-  padding-top: 232px;
-  width: 176px;
+  width: 312px;
   margin: 0 auto;
+  margin-top: 365px;
   outline:none; 
 }
 
 .name {
-	padding-top: 186px;
-	padding-left: 161px;	
-	width: 179; height: 31;
+	padding-top: 252px;
+	padding-left: 172px;	
+	width: 241; height: 42px;
 }
 
 .phone {
-	padding-top: 6px;
+	padding-top: 16px;
 }
 .phone_ul{
-	padding-left: 161px;
+	padding-left: 173px;
 }
 .phone_first{
 }
 .phone_middle{
-	padding-left: 17px;
+	padding-left: 20px;
 }
 .phone_last{
-	padding-left: 17px;
+	padding-left: 20px;
 }
 .check{
-	padding-top: 45px;
+	padding-top: 77px;
 	
 }
 input[type=checkbox]
@@ -135,7 +135,7 @@ input[type=checkbox]
 }
 
 .check_ul {
-	padding-left: 206px;
+	padding-left: 233px;
 }
 .check_agree {
 }
@@ -145,19 +145,17 @@ input[type=checkbox]
 </style>
 
 
-
-
 <div class="cqds_wrap">
 	<!--background -->
 	<div class="cqds_youtube">
 		<div class="cqds_youtube_select">
 			<ul class="youtube_select_button">
 				<li class="youtube_select_button01">
-					<img id='youtube_01' src='<%= asset_path("page_tab/CQDS_M/tvc_c.jpg") %>' onclick='changeFocus(1);'/> </li>
+					<img id='youtube_01' src='<%= asset_path("page_tab/CQDS_M/tvc_c.png") %>' onclick='changeFocus(1);'/> </li>
 				<li class="youtube_select_button02">
-					<img src='<%= asset_path("page_tab/CQDS_M/not.jpg") %>' id='youtube_02' onclick='changeFocus(2);'/> </li>
+					<img src='<%= asset_path("page_tab/CQDS_M/not.png") %>' id='youtube_02' onclick='changeFocus(2);'/> </li>
 				<li class="youtube_select_button03">
-					<img src='<%= asset_path("page_tab/CQDS_M/not.jpg") %>' id='youtube_03' onclick='changeFocus(3);'/> </li>
+					<img src='<%= asset_path("page_tab/CQDS_M/not.png") %>' id='youtube_03' onclick='changeFocus(3);'/> </li>
 			</ul>
 		</div>
 		<div class="cqds_youtube_view">
@@ -165,7 +163,7 @@ input[type=checkbox]
 		</div>
 
 		<div class="cqds_donate">
-			<a href="#pop_start" id="popup1" rel="modal:open"> <img src='<%= asset_path("page_tab/CQDS_M/donation.jpg") %>'/></a> 
+			<a href="#pop_start" id="popup1" rel="modal:open"> <img src='<%= asset_path("page_tab/CQDS_M/donation.png") %>'/></a> 
 		</div>
 	</div>
 	<div class="cqds_down_field">
@@ -191,19 +189,19 @@ input[type=checkbox]
 <div id="pop_fail" class="modal_fail" style="display:none;">
 	<a href="#" rel="modal:close"><img width="58" height="56" src='<%= asset_path("page_tab/CQDS_M/Popup2/close.png") %>'style="float:right;"/></a>
 	<div class="popup2_check">
-		<a href="#pop_success" rel="modal:open"><img src='<%= asset_path("page_tab/CQDS/Popup2/check.png") %>'/></a> 	
+		<a href="#pop_success" rel="modal:open"><img src='<%= asset_path("page_tab/CQDS_M/Popup2/check.png") %>'/></a> 	
 	</div>	
 </div>
 <div id="pop_success" class="modal_success" style="display:none;">
 	<a href="#" rel="modal:close"><img width="58" height="56" src='<%= asset_path("page_tab/CQDS_M/Popup3/close.png") %>'style="float:right;"/></a>
 	<div class="name">
-	<input type="text" name="Name" style="padding: 2px 2px 2px 2px; width:179px; height:31px; font-size:13pt; ">
+	<input type="text" name="Name" style="padding: 2px 2px 2px 2px; width:242px; height:46px; font-size:13pt; ">
 	</div>
 	<div class="phone">
 		<ul class="phone_ul">
-				<li class="phone_first"> <input type="number" name="phone1"  maxlength="4" style="font-size:13pt; padding: 2px 2px 2px 2px; width:81px; height:31px; " > </li> 
-				<li class="phone_middle"> <input type="number" name="phone2"  maxlength="4" style="font-size:13pt; padding: 2px 2px 2px 2px; width:81px; height:31px; "> </li>
-				<li class="phone_last">   <input type="number" name="phone3"   maxlength="4" style="font-size:13pt; padding: 2px 2px 2px 2px; width:81px; height:31px; 	"></li>
+				<li class="phone_first"> <input type="text" name="phone1"  onKeyPress="if ((event.keyCode < 48) || (event.keyCode > 57)){event.returnValue = false;};" maxlength="4" style="font-size:15pt; padding: 2px 2px 2px 2px; width:110px; height:46px; ime-mode: disabled;" > </li> 
+				<li class="phone_middle"> <input type="text" name="phone2" onKeyPress="if ((event.keyCode < 48) || (event.keyCode > 57)){event.returnValue = false;};" maxlength="4" style="font-size:15pt; padding: 2px 2px 2px 2px; width:110px; height:46px; ime-mode: disabled; "> </li>
+				<li class="phone_last">   <input type="text" name="phone3"  onKeyPress="if ((event.keyCode < 48) || (event.keyCode > 57)){event.returnValue = false;};" maxlength="4" style="font-size:15pt; padding: 2px 2px 2px 2px; width:110px; height:46px; ime-mode: disabled;"></li>
 		</ul>
 	</div>
 	<div class="check">
@@ -212,12 +210,12 @@ input[type=checkbox]
 				<li class="check_agree"> <input type="checkbox" class="info_check" value="agree" style="width:18px; height:18px;"> </li>
 			</div>
 			<div class= "provision_button">
-				<li class="provision"><img src='<%= asset_path("page_tab/CQDS/Popup3/content.png") %>'/>  </li>
+				<li class="provision"><img src='<%= asset_path("page_tab/CQDS_M/Popup3/content.png") %>'/>  </li>
 			</div>
 		</ul>
 	</div>
 	<div class="popup3_check">
-		<a href="#" rel="modal:close"><img src='<%= asset_path("page_tab/CQDS/Popup3/check.png") %>'/></a> 	
+		<a href="#" rel="modal:close"><img src='<%= asset_path("page_tab/CQDS_M/Popup3/check.png") %>' /></a> 	
 	</div>	
 </div>
 

@@ -116,7 +116,7 @@
 }
 
 .name {
-	padding-top: 186px;
+	padding-top: 170px;
 	padding-left: 161px;	
 	width: 179; height: 31;
 }
@@ -211,15 +211,15 @@ input[type=checkbox]
 	</div>
 	<div class="phone">
 		<ul class="phone_ul">
-				<li class="phone_first"> <input type="number" name="phone1"  maxlength="4" style="font-size:13pt; padding: 2px 2px 2px 2px; width:81px; height:31px; " > </li> 
-				<li class="phone_middle"> <input type="number" name="phone2"  maxlength="4" style="font-size:13pt; padding: 2px 2px 2px 2px; width:81px; height:31px; "> </li>
-				<li class="phone_last">   <input type="number" name="phone3"   maxlength="4" style="font-size:13pt; padding: 2px 2px 2px 2px; width:81px; height:31px; 	"></li>
+				<li class="phone_first"> <input type="text" name="phone1"  onKeyPress="if ((event.keyCode < 48) || (event.keyCode > 57)){event.returnValue = false;};" maxlength="4" style="font-size:13pt; padding: 2px 2px 2px 2px; width:81px; height:31px; " > </li> 
+				<li class="phone_middle"> <input type="text" name="phone2" onKeyPress="if ((event.keyCode < 48) || (event.keyCode > 57)){event.returnValue = false;};" maxlength="4" style="font-size:13pt; padding: 2px 2px 2px 2px; width:81px; height:31px; "> </li>
+				<li class="phone_last">   <input type="text" name="phone3" onKeyPress="if ((event.keyCode < 48) || (event.keyCode > 57)){event.returnValue = false;};"  maxlength="4" style="font-size:13pt; padding: 2px 2px 2px 2px; width:81px; height:31px; 	"></li>
 		</ul>
 	</div>
 	<div class="check">
 		<ul class="check_ul">
 			<div class= "check_inner_agree">
-				<li class="check_agree"> <input type="checkbox" class="info_check" value="agree" style="width:18px; height:18px;"> </li>
+				<li class="check_agree"> <input type="checkbox" class="info_check" value="agree" > </li>
 			</div>
 			<div class= "provision_button">
 				<li class="provision"><img src='<%= asset_path("page_tab/CQDS/Popup3/content.png") %>'/>  </li>

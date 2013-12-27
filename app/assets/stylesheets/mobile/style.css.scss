@@ -56,18 +56,46 @@ a:link{text-decoration:none; color:#000;}
 a:visited{text-decoration:none; color:#000;}
 a:hover{text-decoration:none; color:#000;}
 a:active{text-decoration:none; color:#000;}
-
+.clear {
+  clear:both;
+  display:block;
+  overflow:hidden;
+  visibility:hidden;
+  width:0;
+  height:0
+}
+.clearfix:before, .clearfix:after, .container_24:before, .container_24:after {
+  content:'.';
+  display:block;
+  overflow:hidden;
+  visibility:hidden;
+  font-size:0;
+  line-height:0;
+  width:0;
+  height:0
+}
+.clearfix:after, .container_24:after {
+  clear:both
+}
+.clearfix, .container_24 {
+  zoom:1
+}
 .cqds_wrap{ 
   width:640px;
   height:1498px;
   margin: 0 auto; 
   background: image-url("page_tab/CQDS_M/main.png") 0 0 no-repeat;
 }
-.cqds_youtube_select { 
-  width: 558px;
-  margin: 0 auto;
+.cqds_youtube_select {  
   padding-top:462px;
+  margin: 0 auto;
+  width: 558px;
+  
 }
+li {
+  float: left;  
+}
+
 .cqds_youtube_view { 
   width: 558px;
   margin: 0 auto;
