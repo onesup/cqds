@@ -1,8 +1,6 @@
 @charset "utf-8";
-
 /*
 */
-
 /* Reset */
 html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,
 table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video {margin:0;padding:0;border:0;vertical-align:baseline;}
@@ -37,7 +35,6 @@ hr {display:none;}
 img {max-width:100%;}
 
 
-@charset "utf-8";
 * { margin:0; padding:0;}
 html, body { margin:0; padding:0; height:100%;}
 body {font-family: 'AppleSDGothicNeo-Thin','Malgun Gothic','Dotum',sans-serif, Arial !important ; font-size:12px; position:relative;} 
@@ -97,28 +94,63 @@ li {
   float: left;  
 }
 
-.cqds_youtube_view { 
-  width: 558px;
-  margin: 0 auto;
-  padding-top:76px;
+.mobile1
+{ 
+     background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    width: 100%;
 }
 
-.cqds_donate { 
-  padding-top:40px;
-  width: 312px;
-  margin: 0 auto;
+.mobile2
+{ 
+     background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    width: 100%;
 }
+.mobile3
+{ 
+     background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    width: 100%;
+}
+.mobile4
+{ 
+     background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    
+    width: 100%;
+}   
+.mobile5-1
+{ 
+     background-size:      cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    width: 100%;
+    float: left;
+    }
 
-.cqds_down_field { 
-  padding-top:60px;
-  width: 580px;
-  margin: 0 auto;
+.mobile5-2 { 
+    
+     background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    float: left;
+     float: left;
 }
-li.down_select_button02 {
-  margin-left: 10px;
-  width:280x;
-}
-li.down_select_button01 {
-  margin-right: 10px;
-  width:280px;
+.mobile6
+{ 
+     background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }

@@ -5,7 +5,7 @@ class MController < ApplicationController
     unless session[:facebook_uid].nil?
       #redirect_to mobile_gate_path unless check_like
     else
-      redirect_to fb_login_path
+      #redirect_to fb_login_path
     end
   end
   
