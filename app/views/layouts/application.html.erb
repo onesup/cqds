@@ -25,6 +25,21 @@ var cb = function(response){
   }
 };
 
+function get_game_result(){
+	$.ajax({
+		'url':'/game_result.json',
+		'dataType':'json',
+		'data':{},
+		'success':function(data){
+			if(data.result == true){
+				$("#pop_success").modal();
+			}else{
+				$("#pop_fail").modal();
+			}
+		}
+	});
+}
+
 function event_popup(response){
   var uid = response.authResponse.userID;
   var accessToken = response.authResponse.accessToken;
@@ -56,6 +71,11 @@ $(document).ready(function() {
     
     FB.Canvas.setSize();
     FB.Canvas.setAutoGrow();
+    
+    $('#game_result').bind('click', function(e) {
+      e.preventDefault();
+      get_game_result();
+    });
     
     $('#event_popup').bind('click', function(e) {
       e.preventDefault();

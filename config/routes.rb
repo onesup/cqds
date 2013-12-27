@@ -7,6 +7,7 @@ Cqds::Application.routes.draw do
   get 'switch' => 'home#index'
   get 'please_like_this_page' => 'home#please_like_this_page'
   get 'canvas' => 'home#canvas'
+  get 'game_result' => 'home#game_result'
   get 'mobile' => 'm#index'
   get 'mobile_gate' => 'm#fan_gate'
   get 'fb_login' => 'm#fb_login'

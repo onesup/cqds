@@ -169,12 +169,7 @@ input[type=checkbox]
 </style>
 
 <div class="cqds_wrap">
-<<<<<<< HEAD
 	<!--background -->	
-	
-=======
-	<!--background -->
->>>>>>> 3514a13bfd6f2be93da7d6be8f03ed4643ca871d
 	<div class="cqds_youtube">
 		<div class="cqds_youtube_select">
 			<ul class="youtube_select_button">
@@ -191,7 +186,7 @@ input[type=checkbox]
 		</div>
 
 		<div class="cqds_donate">
-			<a id="event_popup"> 
+			<a href="#" id="event_popup"> 
         <%= image_tag "page_tab/CQDS/donation.jpg" %>
       </a> 
 			
@@ -212,14 +207,18 @@ input[type=checkbox]
 <div id="pop_start" class="modal" style="display:none;">
 	<a href="#" rel="modal:close"><img width="38" height="36" src='<%= asset_path("page_tab/CQDS/Popup/close.png") %>'style="float:right;"></a>
 	<div class="popup1_check">
-		<a href="#pop_fail" rel="modal:open" ><img src='<%= asset_path("page_tab/CQDS/Popup/check.png") %>'/></a> 	
+		<a href="#" id="game_result" >
+      <%= image_tag "page_tab/CQDS/Popup/check.png" %>
+    </a> 	
 	</div>	
 </div>
 
 <div id="pop_fail" class="modal_fail" style="display:none;">
 	<a href="#" rel="modal:close"><img width="38" height="36" src='<%= asset_path("page_tab/CQDS/Popup2/close.png") %>'style="float:right;"/></a>
 	<div class="popup2_check">
-		<a href="#pop_success" rel="modal:open"><img src='<%= asset_path("page_tab/CQDS/Popup2/check.png") %>'/></a> 	
+		<a href="#" rel="modal:close">
+      <%= image_tag "page_tab/CQDS/Popup2/check.png" %>
+    </a> 	
 	</div>	
 </div>
 <div id="pop_success" class="modal_success" style="display:none;">
@@ -229,9 +228,15 @@ input[type=checkbox]
 	</div>
 	<div class="phone">
 		<ul class="phone_ul">
-				<li class="phone_first"> <input type="text" name="phone1"  onKeyPress="if ((event.keyCode < 48) || (event.keyCode > 57)){event.returnValue = false;};" maxlength="4" style="font-size:13pt; padding: 2px 2px 2px 2px; width:75px; height:31px; " > </li> 
-				<li class="phone_middle"> <input type="text" name="phone2" onKeyPress="if ((event.keyCode < 48) || (event.keyCode > 57)){event.returnValue = false;};" maxlength="4" style="font-size:13pt; padding: 2px 2px 2px 2px; width:74px; height:31px; "> </li>
-				<li class="phone_last">   <input type="text" name="phone3" onKeyPress="if ((event.keyCode < 48) || (event.keyCode > 57)){event.returnValue = false;};"  maxlength="4" style="font-size:13pt; padding: 4px 2px 2px 2px; width:81px; height:31px; 	"></li>
+				<li class="phone_first"> 
+          <input type="text" name="phone1"  onKeyPress="if ((event.keyCode < 48) || (event.keyCode > 57)){event.returnValue = false;};" maxlength="4" style="font-size:13pt; padding: 2px 2px 2px 2px; width:75px; height:31px; " >
+        </li> 
+				<li class="phone_middle"> 
+          <input type="text" name="phone2" onKeyPress="if ((event.keyCode < 48) || (event.keyCode > 57)){event.returnValue = false;};" maxlength="4" style="font-size:13pt; padding: 2px 2px 2px 2px; width:74px; height:31px; "> 
+        </li>
+				<li class="phone_last">
+          <input type="text" name="phone3" onKeyPress="if ((event.keyCode < 48) || (event.keyCode > 57)){event.returnValue = false;};"  maxlength="4" style="font-size:13pt; padding: 4px 2px 2px 2px; width:81px; height:31px;">
+        </li>
 		</ul>
 	</div>
 	<div class="check">

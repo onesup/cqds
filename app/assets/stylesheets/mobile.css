@@ -10,5 +10,5 @@
  *
  *= require_self
  *= require_directory ./mobile
- *= require jquery.modal.css
+ * require jquery.modal.css
  */

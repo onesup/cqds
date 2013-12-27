@@ -23,6 +23,13 @@ class HomeController < ApplicationController
 
   end
   
+  def game_result
+    puts "@@@@@@@@@@@@@"
+    puts current_user
+    puts "@@@@@@@@@@@@@"
+    @result = Gift.first.is_win?(current_user, Time.now)
+  end
+  
   def canvas
     page_id = FACEBOOK_CONFIG[:page_id]
     @oauth = Koala::Facebook::OAuth.new(FACEBOOK_CONFIG[:app_id], FACEBOOK_CONFIG[:app_secret])
