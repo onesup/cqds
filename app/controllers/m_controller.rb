@@ -34,10 +34,10 @@ class MController < ApplicationController
         query = api.get_connections("me","likes/" + page_id)
       rescue Koala::Facebook::AuthenticationError
         puts "auth error"
-        query = []
+        query = [1]
       rescue Koala::Facebook::ClientError
         puts "client error"
-        query = []
+        query = [1]
       end
       result = query.empty? ? false : true
       return result

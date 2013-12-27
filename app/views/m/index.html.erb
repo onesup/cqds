@@ -1,173 +1,223 @@
-<div id="wrap">
-  <div class="like_button" id="like_button">
-    <fb:like href="<%= FACEBOOK_CONFIG[:page_address]%>" colorscheme="light" layout="button_count" action="like" show_faces="false" send="false"></fb:like>
-  </div>
-    <header id="main_header">	
-      <div class="title">
-   	 		<p class="logo">
-          <%= image_tag "m/logo.jpg", width: 68 %>
-        </p>
-      	<p class="main_title">
-          <%= image_tag "m/title.jpg", width: 215 %>
-        </p>
-        <p class="sub_title">
-          <%=  image_tag "m/sub_img.jpg" %>
-        </p>
-      </div>
-    </header>
-    <section id="content">
-    	<div class="count">
-        <ul class="clearfix">
-          <%#= raw number_to_image_tag(Hero.registerd_heroes_count) %>
-          <li>명</li>
-        </ul>
-      </div>
-    	<div class="btn_block">
-        <p><%= link_to "응모", edit_m_user_path(current_user) %></p>
-    		<p>
-          <%= link_to image_tag("m/btn_comment.jpg",width: 194), nil, title: "comment", id: "comment_open" %>
-    		</p>
-    	</div>
-        <div class="sub_btn_block clearfix" style="display:none;">
-        	<div class="first">
-            <%= link_to image_tag("m/sub_btn_01.jpg") %>
-            </div>
-            <div>
-              <%= link_to image_tag("m/sub_btn_02.jpg") %>
-            </div>
-        </div>
-        <div class="text_block">
-        	<p>
-        	주변에 몸이 조금 불편한 아이들에게 재활치료는 시급하지만, 
-            대한민국에 장애어린이를 위한 재활병원은 턱없이 부족하기 때문에
-            대기시간은 수개월이 걸리기도 합니다. 
-            이제 아이들이 맘편하게 치료받을 수 있는 기적의 어린이재활병원을 건립하려합니다. 
-            지금 아이들을 위해 응원메시지를남겨주세요. 당신의 응원메시지가 기업의 기부금으로 전환되어 병원 건립에 쓰입니다. 
-            </p>
-        </div>
-    </section>
-    <footer id="mobile">
-    	<div>
-        <h3>참여기간</h3>
-        <p>- 2013년 10월 18일~ 12월 31일</p>
-      </div>
-    	<div>
-          	<h3>참여방법</h3>
-            <p>
-            - '영웅의 한마디'를  눌러서 어린이에게 응원메시지를 남겨주세요.<br> 
-            - 여러분들의 '영웅의 한마디'가 기업의 기부금으로 전환되어 전달됩니다.<br>
-            - 이벤트 참여 시 페이스북 담벼락에 응모 내용이 자동으로 게시됩니다. 
-            </p>
-        </div>
-    	<div>
-          	<h3>추가기부</h3>
-            <p>
-            - 또 다른 방법의 기부를 원하시면 홈페이지를 통해 참여가능합니다.<br>
-            <a href="http://miracle365.org", target="_blank"><홈페이지 바로가기></a>
-            </p>
-        </div>
-        <div>
-        	<p>
-            -이 캠페인은 푸르메와 어린이를 사랑하는 기업 넥슨과 함께합니다.
-          </p>
-          <p><a href="http://www.miraclehospital.org/side/privacy.asp", target="_blank">개인정보보호정책</a></p>
-        </div>
+<script type="text/javascript">
+  function changeFocus(pos) {
+  	if(pos==1) { 
+  		document.getElementById("youtube").src="//www.youtube.com/embed/1C2bJ6_9QxQ?wmode=opaque" ;
+  		document.getElementById("youtube_01").src='<%= asset_path("page_tab/CQDS_M/tvc_c.jpg") %>' ;
+    	document.getElementById("youtube_02").src='<%= asset_path("page_tab/CQDS_M/not.jpg") %>' ;
+  		document.getElementById("youtube_03").src='<%= asset_path("page_tab/CQDS_M/not.jpg") %>' ;
+    }
+    else if(pos==2) {
+    	document.getElementById("youtube").src="//www.youtube.com/embed/pOZgnkEPxJc?wmode=opaque" ;
+    	document.getElementById("youtube_01").src='<%= asset_path("page_tab/CQDS_M/tvc.jpg") %>' ;
+    	document.getElementById("youtube_02").src='<%= asset_path("page_tab/CQDS_M/tvc_c.jpg") %>' ;
+  		document.getElementById("youtube_03").src='<%= asset_path("page_tab/CQDS_M/not.jpg") %>' ;
+  	} else if(pos==3) {
+  		document.getElementById("youtube").src="//www.youtube.com/embed/pOZgnkEPxJc?wmode=opaque" ;
+  		document.getElementById("youtube_01").src='<%= asset_path("page_tab/CQDS_M/tvc.jpg") %>' ;
+    	document.getElementById("youtube_02").src='<%= asset_path("page_tab/CQDS_M/not.jpg") %>' ;
+  		document.getElementById("youtube_03").src='<%= asset_path("page_tab/CQDS_M/tvc_c.jpg") %>' ;	
+  	}
+  } 
+  
+</script>
+<style>
+.modal {
+  opacity:1.0; 
+  width: 579px; 
+  height: 364px;
+  display: none;
+  background: url('<%= asset_path("page_tab/CQDS_M/Popup/back.png") %>') no-repeat 0 0;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -o-border-radius: 8px;
+  -ms-border-radius: 8px;
+  border-radius: 8px;
+  -webkit-box-shadow: 0 0 10px #000;
+  -moz-box-shadow: 0 0 10px #000;
+  -o-box-shadow: 0 0 10px #000;
+  -ms-box-shadow: 0 0 10px #000;
+  box-shadow: 0 0 10px #000;
+ }
+ 
+.modal_fail {
+  opacity:1.0; 
+  width: 579px; 
+  height: 537px;
+  display: none;
+  background: url('<%= asset_path("page_tab/CQDS/Popup2/back.png") %>') no-repeat 0 0;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -o-border-radius: 8px;
+  -ms-border-radius: 8px;
+  border-radius: 8px;
+  -webkit-box-shadow: 0 0 10px #000;
+  -moz-box-shadow: 0 0 10px #000;
+  -o-box-shadow: 0 0 10px #000;
+  -ms-box-shadow: 0 0 10px #000;
+  box-shadow: 0 0 10px #000;
+ } 
+ 
+.modal_success {
+  opacity:1.0; 
+  width: 564px; 
+  height: 882px;
+  display: none;
+  background: url('<%= asset_path("page_tab/CQDS/Popup3/back.png") %>') no-repeat 0 0;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -o-border-radius: 8px;
+  -ms-border-radius: 8px;
+  border-radius: 8px;
+  -webkit-box-shadow: 0 0 10px #000;
+  -moz-box-shadow: 0 0 10px #000;
+  -o-box-shadow: 0 0 10px #000;
+  -ms-box-shadow: 0 0 10px #000;
+  box-shadow: 0 0 10px #000;
+ }  
+ 
+.modal a.close-modal {
+  display: none;
+}
 
-          
+.modal-spinner {
+  display: none;
+}
+.popup1_check{
+  width: 312px;
+  margin: 0 auto;
+  padding-top: 236px;
+}
 
-    </footer>
+.popup2_check{
+  width: 312px;	
+  margin: 0 auto;
+  padding-top: 404px;
+  outline:none; 
+}
+.popup3_check{
+  padding-top: 232px;
+  width: 176px;
+  margin: 0 auto;
+  outline:none; 
+}
+
+.name {
+	padding-top: 186px;
+	padding-left: 161px;	
+	width: 179; height: 31;
+}
+
+.phone {
+	padding-top: 6px;
+}
+.phone_ul{
+	padding-left: 161px;
+}
+.phone_first{
+}
+.phone_middle{
+	padding-left: 17px;
+}
+.phone_last{
+	padding-left: 17px;
+}
+.check{
+	padding-top: 45px;
+	
+}
+input[type=checkbox]
+{
+  /* Double-sized Checkboxes */
+  -ms-transform: scale(1.5); /* IE */
+  -moz-transform: scale(1.5); /* FF */
+  -webkit-transform: scale(1.5); /* Safari and Chrome */
+  -o-transform: scale(1.5); /* Opera */
+}
+
+.check_ul {
+	padding-left: 206px;
+}
+.check_agree {
+}
+.provision  {
+	padding-left: 41px;
+}
+</style>
+
+
+<fb:like href="<%= FACEBOOK_CONFIG[:page_address]%>" colorscheme="light" layout="button_count" action="like" show_faces="false" send="false"></fb:like>
+
+<div class="cqds_wrap">
+	<!--background -->
+	<div class="cqds_youtube">
+		<div class="cqds_youtube_select">
+			<ul class="youtube_select_button">
+				<li class="youtube_select_button01">
+					<img id='youtube_01' src='<%= asset_path("page_tab/CQDS_M/tvc_c.jpg") %>' onclick='changeFocus(1);'/> </li>
+				<li class="youtube_select_button02">
+					<img src='<%= asset_path("page_tab/CQDS_M/not.jpg") %>' id='youtube_02' onclick='changeFocus(2);'/> </li>
+				<li class="youtube_select_button03">
+					<img src='<%= asset_path("page_tab/CQDS_M/not.jpg") %>' id='youtube_03' onclick='changeFocus(3);'/> </li>
+			</ul>
+		</div>
+		<div class="cqds_youtube_view">
+			<iframe id="youtube" width="558" height="309" src="//www.youtube.com/embed/1C2bJ6_9QxQ?wmode=opaque" frameborder="0" allowfullscreen></iframe>
+		</div>
+
+		<div class="cqds_donate">
+			<a href="#pop_start" id="popup1" rel="modal:open"> <img src='<%= asset_path("page_tab/CQDS_M/donation.jpg") %>'/></a> 
+		</div>
+	</div>
+	<div class="cqds_down_field">
+		<ul class="down_select_button">
+				<li class="down_select_button01">
+					<%= image_tag asset_path("page_tab/CQDS_M/ring.png") %> </li>
+				<li class="down_select_button02">
+					<%= image_tag asset_path("page_tab/CQDS_M/notify.png") %></li>
+		</ul>
+	</div>	
 </div>
 
-<div class="pop_wrap" id="comment_complete_popup">
-  <div class="pop_comment_complete">
-    <a href="#" class="btn_close b-close" id="comment_close">Close</a>
-    <a href="#" class="btn_ok b-close" id="comment_complete_ok_btn">ok</a>
-  </div>
-</div>
-<div class="pop_wrap" id="comment_invalid_popup">
-  <div class="pop_comment_invalid">
-    <a href="#" class="btn_close b-close" id="comment_close">Close</a>
-    <a href="#" class="btn_ok b-close" id="comment_invalid_ok_btn">ok</a>
-  </div>
-</div>
-<div class="alert">
-  <div id="mobile_comment_complete_popup">
-    <header id="comment_header">	
-      <div class="title_alert">
-        <%= image_tag("m/pop/title_alert_01.jpg", width: "163") %>
-      </div>
-    </header>
-    <section id="content">
-      <div class="alert comment btn_block">
-      <p>
-        <%= link_to image_tag("m/pop/btn_alert_01.jpg", width: "120"), nil, class: "b-close" %>
-      </p>
-      </div>
-    </section>
-  </div>
-  
-  <div id="mobile_comment_invalid_popup" class="alert">
-    <header id="comment_header">	
-    <div class="title_alert">
-      <%= image_tag("m/pop/title_alert_02.jpg", width: "222") %>
-    </div>
-    </header>
-    <section id="content">
-    <div class="alert comment btn_block">
-    <p>
-      <%= link_to image_tag("m/pop/btn_alert_02.jpg", width: "112"), nil, class: "b-close" %>
-    </p>
-    </div>
-    </section>
-  </div>
-  
-  
-  
-  <div id="mobile_need_like" class="alert">
-    <header id="comment_header">	
-      <div class="btn_block">
-        <%= link_to image_tag("m/pop/btn_close.jpg", width: "21"), nil, class: "b-close" %>
-      </div>
-      <div class="title_like">
-      <%= image_tag "m/pop/likepage_title.jpg", width: 231 %>
-      </div>
-    </header>
-    <section id="content">
-      <div class="like_page">
-        <div class="btn_like">
-          <fb:like href="https://www.facebook.com/miraclehospital" colorscheme="light" layout="button_count" action="like" show_faces="false" send="false"></fb:like>
-        </div>
-        <p class="hero_image">
-        <%= image_tag "m/pop/likepage_img.jpg", width: 183 %>
-        </p>
-      </div>
-    </section>
-  </div>
-  
+
+
+
+<div id="pop_start" class="modal" style="display:none;">
+	<a href="#" rel="modal:close"><img width="58" height="56" src='<%= asset_path("page_tab/CQDS_M/Popup/close.png") %>'style="float:right;"></a>
+	<div class="popup1_check">
+		<a href="#pop_fail" rel="modal:open" ><img src='<%= asset_path("page_tab/CQDS_M/Popup/check.png") %>'/></a> 	
+	</div>	
 </div>
 
-<div id="comment_popup">
-  <header id="comment_header">	
-    <div class="btn_block">
-      <%= link_to image_tag("m/pop/btn_close.jpg", width: "21"), nil, class: "b-close" %>
-    </div>
-    <div class="title">
-      <%= image_tag("m/pop/title_comment.jpg", width: "281") %>
-    </div>
-  </header>
-  <section id="content">
-    <%#= simple_form_for [:m, @wall_post], html:{id:"new_mobile_wall_post"} do |f| %>
-      <div>
-        <%#= f.input :message, input_html: {class: "input_comment", id: "wall_post_text_area_input"}, 
-          label: false, required: false %>
-        <%#= hidden_field_tag 'access_token' %>
-        <%#= hidden_field_tag 'uid' %>
-      </div>
-    <div class="comment btn_block">
-      <p>
-        <%= image_submit_tag("m/pop/btn_comment.png", class: "button", id: "comment_submit") %>
-      </p>
-    </div>
-    <%# end %>
-  </section>
+<div id="pop_fail" class="modal_fail" style="display:none;">
+	<a href="#" rel="modal:close"><img width="58" height="56" src='<%= asset_path("page_tab/CQDS_M/Popup2/close.png") %>'style="float:right;"/></a>
+	<div class="popup2_check">
+		<a href="#pop_success" rel="modal:open"><img src='<%= asset_path("page_tab/CQDS/Popup2/check.png") %>'/></a> 	
+	</div>	
 </div>
+<div id="pop_success" class="modal_success" style="display:none;">
+	<a href="#" rel="modal:close"><img width="58" height="56" src='<%= asset_path("page_tab/CQDS_M/Popup3/close.png") %>'style="float:right;"/></a>
+	<div class="name">
+	<input type="text" name="Name" style="padding: 2px 2px 2px 2px; width:179px; height:31px; font-size:13pt; ">
+	</div>
+	<div class="phone">
+		<ul class="phone_ul">
+				<li class="phone_first"> <input type="number" name="phone1"  maxlength="4" style="font-size:13pt; padding: 2px 2px 2px 2px; width:81px; height:31px; " > </li> 
+				<li class="phone_middle"> <input type="number" name="phone2"  maxlength="4" style="font-size:13pt; padding: 2px 2px 2px 2px; width:81px; height:31px; "> </li>
+				<li class="phone_last">   <input type="number" name="phone3"   maxlength="4" style="font-size:13pt; padding: 2px 2px 2px 2px; width:81px; height:31px; 	"></li>
+		</ul>
+	</div>
+	<div class="check">
+		<ul class="check_ul">
+			<div class= "check_inner_agree">
+				<li class="check_agree"> <input type="checkbox" class="info_check" value="agree" style="width:18px; height:18px;"> </li>
+			</div>
+			<div class= "provision_button">
+				<li class="provision"><img src='<%= asset_path("page_tab/CQDS/Popup3/content.png") %>'/>  </li>
+			</div>
+		</ul>
+	</div>
+	<div class="popup3_check">
+		<a href="#" rel="modal:close"><img src='<%= asset_path("page_tab/CQDS/Popup3/check.png") %>'/></a> 	
+	</div>	
+</div>
+
