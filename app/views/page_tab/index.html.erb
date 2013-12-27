@@ -105,7 +105,7 @@
 .popup2_check{
   width: 176px;	
   margin: 0 auto;
-  padding-top: 160px;
+  padding-top: 154px;
   outline:none; 
 }
 .popup3_check{
@@ -136,8 +136,18 @@
 	padding-left: 17px;
 }
 .check{
-	padding-top: 45px;
-	
+	padding-top: 9px;
+  padding-left: 210px;
+  width: 200px;
+  clear: both;
+}
+.check_inner_agree{
+  float: left;
+  padding-top: 3px;
+  
+}
+input[type=text]{
+  font-size: 11px;
 }
 input[type=checkbox]
 {
@@ -153,8 +163,9 @@ input[type=checkbox]
 }
 .check_agree {
 }
-.provision  {
-	padding-left: 41px;
+.provision_button  {
+	padding-left: 38px;
+  float: left;
 }
 </style>
 
@@ -208,24 +219,28 @@ input[type=checkbox]
 <div id="pop_success" class="modal_success" style="display:none;">
 	<a href="#" rel="modal:close"><img width="38" height="36" src='<%= asset_path("page_tab/CQDS/Popup3/close.png") %>'style="float:right;"/></a>
 	<div class="name">
-	<input type="text" name="Name" style="padding: 2px 2px 2px 2px; width:179px; height:31px; font-size:13pt; ">
+	<input type="text" name="Name" style="padding: 2px 2px 2px 2px; width:278px; height:31px; font-size:13pt; ">
 	</div>
 	<div class="phone">
 		<ul class="phone_ul">
-				<li class="phone_first"> <input type="text" name="phone1"  onKeyPress="if ((event.keyCode < 48) || (event.keyCode > 57)){event.returnValue = false;};" maxlength="4" style="font-size:13pt; padding: 2px 2px 2px 2px; width:81px; height:31px; " > </li> 
-				<li class="phone_middle"> <input type="text" name="phone2" onKeyPress="if ((event.keyCode < 48) || (event.keyCode > 57)){event.returnValue = false;};" maxlength="4" style="font-size:13pt; padding: 2px 2px 2px 2px; width:81px; height:31px; "> </li>
-				<li class="phone_last">   <input type="text" name="phone3" onKeyPress="if ((event.keyCode < 48) || (event.keyCode > 57)){event.returnValue = false;};"  maxlength="4" style="font-size:13pt; padding: 2px 2px 2px 2px; width:81px; height:31px; 	"></li>
+				<li class="phone_first"> <input type="text" name="phone1"  onKeyPress="if ((event.keyCode < 48) || (event.keyCode > 57)){event.returnValue = false;};" maxlength="4" style="font-size:13pt; padding: 2px 2px 2px 2px; width:75px; height:31px; " > </li> 
+				<li class="phone_middle"> <input type="text" name="phone2" onKeyPress="if ((event.keyCode < 48) || (event.keyCode > 57)){event.returnValue = false;};" maxlength="4" style="font-size:13pt; padding: 2px 2px 2px 2px; width:74px; height:31px; "> </li>
+				<li class="phone_last">   <input type="text" name="phone3" onKeyPress="if ((event.keyCode < 48) || (event.keyCode > 57)){event.returnValue = false;};"  maxlength="4" style="font-size:13pt; padding: 4px 2px 2px 2px; width:81px; height:31px; 	"></li>
 		</ul>
 	</div>
 	<div class="check">
-		<ul class="check_ul">
+    <!-- <ul class="check_ul"> -->
 			<div class= "check_inner_agree">
-				<li class="check_agree"> <input type="checkbox" class="info_check" value="agree" > </li>
+				<!-- <li class="check_agree">  -->
+          <input type="checkbox" class="info_check" value="agree" >
+        <!-- </li> -->
 			</div>
 			<div class= "provision_button">
-				<li class="provision"><img src='<%= asset_path("page_tab/CQDS/Popup3/content.png") %>'/>  </li>
+				<!-- <li class="provision"> -->
+          <img src='<%= asset_path("page_tab/CQDS/Popup3/content.png") %>'/>
+        <!-- </li> -->
 			</div>
-		</ul>
+    <!-- </ul> -->
 	</div>
 	<div class="popup3_check">
 		<a href="#" rel="modal:close"><img src='<%= asset_path("page_tab/CQDS/Popup3/check.png") %>'/></a> 	

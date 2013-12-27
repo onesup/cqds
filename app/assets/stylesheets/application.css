@@ -10,6 +10,6 @@
  *
  *= require_self
  *= require_directory ./page_tab
- *= require style
+ *= require normalize
  *= require jquery.modal.css
  */
