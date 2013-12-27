@@ -11,5 +11,4 @@
  *= require_self
  *= require_directory ./page_tab
  *= require normalize
- *= require jquery.modal.css
  */

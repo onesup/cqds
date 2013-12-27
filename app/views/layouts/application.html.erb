@@ -1,17 +1,15 @@
 <!DOCTYPE html>
 <html xmlns:fb="http://ogp.me/ns/fb#" xmlns:og="http://ogp.me/ns#">
 <head prefix="og: http://ogp.me/ns#">
-  <title>Hospital</title>
-
+  <title>쿠크다스</title>
   <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
-  <meta property="fb:app_id" content="<%= FACEBOOK_CONFIG[:app_id] %>" />
-  <meta property="og:type"   content="myapp:myobject" />
-  <meta property="og:url"  content="http://bit.ly/173wYGA" />
-  <meta property="og:title"  content="기적의 어린이재활병원" />
-  <meta property="og:image"  content="http://farm4.staticflickr.com/3665/10288523825_3fea0316ef_o.jpg" />
-
+  <meta property="fb:app_id"  content="<%= FACEBOOK_CONFIG[:app_id] %>" />
+  <meta property="og:type"    content="myapp:myobject" />
+  <meta property="og:url"     content="" />
+  <meta property="og:title"   content="쿠크다스" />
+  <meta property="og:image"   content="http://farm4.staticflickr.com/3665/10288523825_3fea0316ef_o.jpg" />
 </head>
 <body id="main">
   <div id="fb-root"></div>
@@ -19,7 +17,7 @@
 
 var cb = function(response){
   if (response.status === 'connected') {
-    comment_popup(response);
+    event_popup(response);
   } else if (response.status === 'not_authorized') {
     alert('캠페인 참여를 위해 페이스북 로그인이 필요합니다.');
   } else {
@@ -27,16 +25,13 @@ var cb = function(response){
   }
 };
 
-function comment_popup(response){
+function event_popup(response){
   var uid = response.authResponse.userID;
   var accessToken = response.authResponse.accessToken;
   $("#uid").val(uid);
   $("#access_token").val(accessToken);
   $.post( "/users", {uid: uid, access_token: accessToken}, function( data ) {});
-  $('#comment_popup').bPopup({
-  follow: [false, false], //x, y
-  position: [101, 850] //x, y
-  });
+  $("#pop_start").modal();
 };
 
 $(document).ready(function() {
@@ -62,7 +57,7 @@ $(document).ready(function() {
     FB.Canvas.setSize();
     FB.Canvas.setAutoGrow();
     
-    $('#comment_open').bind('click', function(e) {
+    $('#event_popup').bind('click', function(e) {
       e.preventDefault();
       FB.getLoginStatus(function(response) {
         if (response.status === 'not_authorized') {
@@ -70,25 +65,12 @@ $(document).ready(function() {
             scope: 'email, user_birthday, user_photos'
           });
         }else if (response.status === 'connected'){
-          comment_popup(response);
+          event_popup(response);
         }else{
           alert("캠페인에 참여하기 위해서는 페이스북 로그인이 필요합니다.");
         }
       });
     });
-
-    <% if flash[:popup] == "complete" %>
-      $('#comment_complete_popup').bPopup({
-        follow: [false, false], //x, y
-        position: [200, 850] //x, y
-      });
-    <% elsif flash[:popup] == "invalid" %>
-      $('#comment_invalid_popup').bPopup({
-        follow: [false, false], //x, y
-        position: [200, 850] //x, y
-      });
-    <% end %>
-
   });
 });
 

@@ -17,8 +17,7 @@
     	document.getElementById("youtube_02").src='<%= asset_path("page_tab/CQDS/not.jpg") %>' ;
   		document.getElementById("youtube_03").src='<%= asset_path("page_tab/CQDS/tvc_c.jpg") %>' ;	
   	}
-  } 
-  
+  }
 </script>
 
 <style>
@@ -187,7 +186,9 @@ input[type=checkbox]
 		</div>
 
 		<div class="cqds_donate">
-			<a href="#pop_start" id="popup1" rel="modal:open"> <img src='<%= asset_path("page_tab/CQDS/donation.jpg") %>'/></a> 
+			<a id="event_popup"> 
+        <%= image_tag "page_tab/CQDS/donation.jpg" %>
+      </a> 
 			
 		</div>
 	</div>
@@ -229,18 +230,14 @@ input[type=checkbox]
 		</ul>
 	</div>
 	<div class="check">
-    <!-- <ul class="check_ul"> -->
 			<div class= "check_inner_agree">
-				<!-- <li class="check_agree">  -->
           <input type="checkbox" class="info_check" value="agree" >
-        <!-- </li> -->
 			</div>
 			<div class= "provision_button">
-				<!-- <li class="provision"> -->
-          <img src='<%= asset_path("page_tab/CQDS/Popup3/content.png") %>'/>
-        <!-- </li> -->
+        <a href="https://www.crown.co.kr/member/pop_private.asp" target="_blank">
+          <%= image_tag "page_tab/CQDS/Popup3/content.png" %>
+        </a>
 			</div>
-    <!-- </ul> -->
 	</div>
 	<div class="popup3_check">
 		<a href="#" rel="modal:close"><img src='<%= asset_path("page_tab/CQDS/Popup3/check.png") %>'/></a> 	
