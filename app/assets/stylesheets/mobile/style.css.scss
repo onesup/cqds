@@ -48,52 +48,10 @@ ul, li, dl, dt, dd{list-style-type : none; }
 caption { text-indent:-5000px; line-height:0; font-size:0;}
 legend{ text-indent:-5000px; line-height:0; font-size:0; position:absolute; top:0; left:0;}
 hr{display:none;}
-
 a:link{text-decoration:none; color:#000;}
 a:visited{text-decoration:none; color:#000;}
 a:hover{text-decoration:none; color:#000;}
 a:active{text-decoration:none; color:#000;}
-.clear {
-  clear:both;
-  display:block;
-  overflow:hidden;
-  visibility:hidden;
-  width:0;
-  height:0
-}
-.clearfix:before, .clearfix:after, .container_24:before, .container_24:after {
-  content:'.';
-  display:block;
-  overflow:hidden;
-  visibility:hidden;
-  font-size:0;
-  line-height:0;
-  width:0;
-  height:0
-}
-.clearfix:after, .container_24:after {
-  clear:both
-}
-.clearfix, .container_24 {
-  zoom:1
-}
-.cqds_wrap{ 
-  width:100%;
-  margin: 0 auto; 
-  background: image-url("page_tab/CQDS_M/main.png") 0 0 no-repeat;
-  background-size: 100% auto;
-  background-position:center top;
-}
-.cqds_youtube_select {  
-  padding-top:462px;
-  margin: 0 auto;
-  width: 558px;
-  
-}
-li {
-  float: left;  
-}
-
 .mobile1
 { 
      background-size: cover;
@@ -102,50 +60,169 @@ li {
     background-attachment: fixed;
     width: 100%;
 }
+.mobile2-1
+{ 
+     background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    line-height: 0px;
+    width: 100%;
+}
 
-.mobile2
+.mobile2-2-1
+{ 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    float:left;
+    overflow: auto;
+}
+.mobile2-2-2
+{ 
+     background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    float:left;
+}
+.mobile2-2-3
+{ 
+     background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    float:left;
+}
+.mobile2-2-4
+{ 
+     background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    float:left;
+}
+.mobile2-2-5
+{ 
+     background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    float:left;
+}
+.mobile2-2-6
+{ 
+     background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    float:left;
+}
+.mobile2-2-7
+{ 
+     background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    float:left;
+}
+.mobile2-3
 { 
      background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
     width: 100%;
+    overflow: auto;
+    line-height: 0px;
 }
-.mobile3
+.mobile3-1
 { 
-     background-size: cover;
+    background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    width: 100%;
+    float: left;
+    line-height:0px;
 }
-.mobile4
+.mobile3-2
 { 
-     background-size: cover;
+    background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    
+    line-height:0px;
+    float: left;
+}
+.mobile3-3
+{ 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    float: left;
+    line-height:0px;
+}
+.mobile4-1
+{ 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    overflow: auto;
+    margin-top: 0px;
     width: 100%;
 }   
-.mobile5-1
+.mobile4-2-1
 { 
-     background-size:      cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    width: 100%;
-    float: left;
-    }
-
-.mobile5-2 { 
-    
      background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    float: left;
-     float: left;
+    float:left;
+}   
+.mobile4-2-2
+{ 
+     background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    float:left;
+}   
+.mobile4-2-3
+{ 
+     background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    float:left;
+}   
+.mobile4-3
+{ 
+     background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    overflow: auto;
+    width: 100%;
+}   
+
+.mobile5-1
+{ 
+    background-size:  cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    float:left;
+ }
+
+.mobile5-2 { 
+     background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+     width: 50%;
 }
 .mobile6
 { 

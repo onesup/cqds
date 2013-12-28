@@ -1,14 +1,202 @@
+<script type="text/javascript">
+  function changeFocus(pos) {
+  	if(pos==1) { 	
+  		document.getElementById("youtube").src="//www.youtube.com/embed/1C2bJ6_9QxQ?wmode=opaque" ;
+  		document.getElementById("youtube_01").src='<%= asset_path("page_tab/CQDS_M/tvc_c.png") %>' ;
+    	document.getElementById("youtube_02").src='<%= asset_path("page_tab/CQDS_M/not.png") %>' ;
+  		document.getElementById("youtube_03").src='<%= asset_path("page_tab/CQDS_M/not.png") %>' ;
+    }
+    else if(pos==2) {
+    	document.getElementById("youtube").src="//www.youtube.com/embed/pOZgnkEPxJc?wmode=opaque" ;
+    	document.getElementById("youtube_01").src='<%= asset_path("page_tab/CQDS_M/tvc.png") %>' ;
+    	document.getElementById("youtube_02").src='<%= asset_path("page_tab/CQDS_M/tvc_c.png") %>' ;
+  		document.getElementById("youtube_03").src='<%= asset_path("page_tab/CQDS_M/not.png") %>' ;
+  	} else if(pos==3) {
+  		document.getElementById("youtube").src="//www.youtube.com/embed/pOZgnkEPxJc?wmode=opaque" ;
+  		document.getElementById("youtube_01").src='<%= asset_path("page_tab/CQDS_M/tvc.png") %>' ;
+    	document.getElementById("youtube_02").src='<%= asset_path("page_tab/CQDS_M/not.png") %>' ;
+  		document.getElementById("youtube_03").src='<%= asset_path("page_tab/CQDS_M/tvc_c.png") %>' ;	
+  	}
+  } 
+</script>
+<style>
+.modal {
+  opacity:1.0; 
+  width: 579px; 
+  height: 364px;
+  display: none;
+  background: url('<%= asset_path("page_tab/CQDS_M/Popup/back.png") %>') no-repeat 0 0;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -o-border-radius: 8px;
+  -ms-border-radius: 8px;
+  border-radius: 8px;
+  -webkit-box-shadow: 0 0 10px #000;
+  -moz-box-shadow: 0 0 10px #000;
+  -o-box-shadow: 0 0 10px #000;
+  -ms-box-shadow: 0 0 10px #000;
+  box-shadow: 0 0 10px #000;
+ }
+ 
+.modal_fail {
+  opacity:1.0; 
+  width: 579px; 
+  height: 537px;
+  display: none;
+  background: url('<%= asset_path("page_tab/CQDS_M/Popup2/back.png") %>') no-repeat 0 0;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -o-border-radius: 8px;
+  -ms-border-radius: 8px;
+  border-radius: 8px;
+  -webkit-box-shadow: 0 0 10px #000;
+  -moz-box-shadow: 0 0 10px #000;
+  -o-box-shadow: 0 0 10px #000;
+  -ms-box-shadow: 0 0 10px #000;
+  box-shadow: 0 0 10px #000;
+ } 
+ 
+.modal_success {
+  opacity:1.0; 
+  width: 564px; 
+  height: 882px;
+  display: none;
+  background: url('<%= asset_path("page_tab/CQDS_M/Popup3/back.png") %>') no-repeat 0 0;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -o-border-radius: 8px;
+  -ms-border-radius: 8px;
+  border-radius: 8px;
+  -webkit-box-shadow: 0 0 10px #000;
+  -moz-box-shadow: 0 0 10px #000;
+  -o-box-shadow: 0 0 10px #000;
+  -ms-box-shadow: 0 0 10px #000;
+  box-shadow: 0 0 10px #000;
+ }  
+ 
+.modal a.close-modal {
+  display: none;
+}
+
+.modal-spinner {
+  display: none;
+}
+.popup1_check{
+  width: 312px;
+  margin: 0 auto;
+  padding-top: 236px;
+}
+
+.popup2_check{
+  width: 312px;	
+  margin: 0 auto;
+  padding-top: 404px;
+  outline:none; 
+}
+.popup3_check{
+  width: 312px;
+  margin: 0 auto;
+  margin-top: 365px;
+  outline:none; 
+}
+
+.name {
+	padding-top: 252px;
+	padding-left: 172px;	
+	width: 241; height: 42px;
+}
+
+.phone {
+	padding-top: 16px;
+}
+.phone_ul{
+	padding-left: 173px;
+}
+.phone_first{
+}
+.phone_middle{
+	padding-left: 20px;
+}
+.phone_last{
+	padding-left: 20px;
+}
+.check{
+	padding-top: 77px;
+	
+}
+input[type=checkbox]
+{
+  /* Double-sized Checkboxes */
+  -ms-transform: scale(1.5); /* IE */
+  -moz-transform: scale(1.5); /* FF */
+  -webkit-transform: scale(1.5); /* Safari and Chrome */
+  -o-transform: scale(1.5); /* Opera */
+}
+
+.check_ul {
+	padding-left: 233px;
+}
+.check_agree {
+}
+.provision  {
+	padding-left: 41px;
+}
+</style>
+
 <div class="mobile1">
-	<img src='<%= asset_path("page_tab/CQDS_Mobile/1.png") %>'/>
+	<img src='<%= asset_path("page_tab/CQDS_Mobile/1.png") %>' width="640px"/>
 </div>
-<div class="mobile2">
-	<img src='<%= asset_path("page_tab/CQDS_Mobile/2.png") %>'/>
+
+<div class="mobile2-1">
+	<img src='<%= asset_path("page_tab/CQDS_Mobile/2-1.png") %>'/>
 </div>
-<div class="mobile3">
-	<img src='<%= asset_path("page_tab/CQDS_Mobile/3.png") %>'/>
+<div class="mobile2-2-1">
+	<img src='<%= asset_path("page_tab/CQDS_Mobile/2-2-1.png") %>'/>
 </div>
-<div class="mobile4">
-	<img src='<%= asset_path("page_tab/CQDS_Mobile/4.png") %>'/>
+<div class="mobile2-2-2">
+	<img src='<%= asset_path("page_tab/CQDS_Mobile/tvc_c.png") %>'/>
+</div>
+<div class="mobile2-2-3">
+	<img src='<%= asset_path("page_tab/CQDS_Mobile/2-6.png") %>'/>
+</div>
+<div class="mobile2-2-4">
+	<img src='<%= asset_path("page_tab/CQDS_Mobile/not.png") %>'/>
+</div>
+<div class="mobile2-2-5">
+	<img src='<%= asset_path("page_tab/CQDS_Mobile/2-6.png") %>'/>
+</div>
+<div class="mobile2-2-6">
+	<img src='<%= asset_path("page_tab/CQDS_Mobile/not.png") %>'/>
+</div>
+<div class="mobile2-2-7">
+	<img src='<%= asset_path("page_tab/CQDS_Mobile/2-2-5.png") %>'/>
+</div>
+<div class="mobile2-3">
+	<img src='<%= asset_path("page_tab/CQDS_Mobile/2-3.png") %>'/>
+</div>
+<div class="mobile3-1">
+	<img src='<%= asset_path("page_tab/CQDS_Mobile/3-1.png") %>'/>
+</div>
+<div class="mobile3-2">
+  <!-- <iframe id="youtube" width="558" height="309" src="//www.youtube.com/embed/1C2bJ6_9QxQ?wmode=opaque" frameborder="0" allowfullscreen ></iframe> -->
+</div>
+<div class="mobile3-3">
+	<img src='<%= asset_path("page_tab/CQDS_Mobile/3-3.png") %>'/>
+</div>
+<div class="mobile4-1">
+	<img src='<%= asset_path("page_tab/CQDS_Mobile/4-1.png") %>'/>
+</div>
+<div class="mobile4-2-1">
+	<img src='<%= asset_path("page_tab/CQDS_Mobile/4-2-1.png") %>'/>
+</div>
+<div class="mobile4-2-2">
+	<a href="#pop_start" id="popup1" rel="modal:open"> <img src='<%= asset_path("page_tab/CQDS_Mobile/4-2-2.png") %>'/></a> 
+</div>
+<div class="mobile4-2-3">
+	<img src='<%= asset_path("page_tab/CQDS_Mobile/4-2-3.png") %>'/>
+</div>
+<div class="mobile4-3">
+	<img src='<%= asset_path("page_tab/CQDS_Mobile/4-3.png") %>'/>
 </div>
 <div class="mobile5-1">
 	<img src='<%= asset_path("page_tab/CQDS_Mobile/5-1.png") %>'/>
@@ -20,6 +208,49 @@
 	<img src='<%= asset_path("page_tab/CQDS_Mobile/6.png") %>'/>
 </div>
 
+
+
+
+
+<div id="pop_start" class="modal" style="display:none;">
+	<a href="#" rel="modal:close"><img width="58" height="56" src='<%= asset_path("page_tab/CQDS_M/Popup/close.png") %>'style="float:right;"></a>
+	<div class="popup1_check">
+		<a href="#pop_fail" rel="modal:open" ><img src='<%= asset_path("page_tab/CQDS_M/Popup/check.png") %>'/></a> 	
+	</div>	
+</div>
+
+<div id="pop_fail" class="modal_fail" style="display:none;">
+	<a href="#" rel="modal:close"><img width="58" height="56" src='<%= asset_path("page_tab/CQDS_M/Popup2/close.png") %>'style="float:right;"/></a>
+	<div class="popup2_check">
+		<a href="#pop_success" rel="modal:open"><img src='<%= asset_path("page_tab/CQDS_M/Popup2/check.png") %>'/></a> 	
+	</div>	
+</div>
+<div id="pop_success" class="modal_success" style="display:none;">
+	<a href="#" rel="modal:close"><img width="58" height="56" src='<%= asset_path("page_tab/CQDS_M/Popup3/close.png") %>'style="float:right;"/></a>
+	<div class="name">
+	<input type="text" name="Name" style="padding: 2px 2px 2px 2px; width:242px; height:46px; font-size:13pt; ">
+	</div>
+	<div class="phone">
+		<ul class="phone_ul">
+				<li class="phone_first"> <input type="text" name="phone1"  onKeyPress="if ((event.keyCode < 48) || (event.keyCode > 57)){event.returnValue = false;};" maxlength="4" style="font-size:15pt; padding: 2px 2px 2px 2px; width:110px; height:46px; ime-mode: disabled;" > </li> 
+				<li class="phone_middle"> <input type="text" name="phone2" onKeyPress="if ((event.keyCode < 48) || (event.keyCode > 57)){event.returnValue = false;};" maxlength="4" style="font-size:15pt; padding: 2px 2px 2px 2px; width:110px; height:46px; ime-mode: disabled; "> </li>
+				<li class="phone_last">   <input type="text" name="phone3"  onKeyPress="if ((event.keyCode < 48) || (event.keyCode > 57)){event.returnValue = false;};" maxlength="4" style="font-size:15pt; padding: 2px 2px 2px 2px; width:110px; height:46px; ime-mode: disabled;"></li>
+		</ul>
+	</div>
+	<div class="check">
+		<ul class="check_ul">
+			<div class= "check_inner_agree">
+				<li class="check_agree"> <input type="checkbox" class="info_check" value="agree" style="width:18px; height:18px;"> </li>
+			</div>
+			<div class= "provision_button">
+				<li class="provision"><img src='<%= asset_path("page_tab/CQDS_M/Popup3/content.png") %>'/>  </li>
+			</div>
+		</ul>
+	</div>
+	<div class="popup3_check">
+		<a href="#" rel="modal:close"><img src='<%= asset_path("page_tab/CQDS_M/Popup3/check.png") %>' /></a> 	
+	</div>	
+</div>
 <!--
 <script type="text/javascript">
   function changeFocus(pos) {
