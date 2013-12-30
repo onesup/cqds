@@ -50,7 +50,7 @@ a:active{text-decoration:none; color:#000;}
 .cqds_wrap{ 
   width:810px;
   height:1316px;
-  background: image-url("page_tab/CQDS/main.jpg") 0 0 no-repeat;
+  background: asset-url("page_tab/CQDS/main.jpg") 0 0 no-repeat;
 }
 .cqds_youtube_select { 
   width: 557px;
@@ -90,3 +90,154 @@ li.down_select_button01 {
   
 }
 li { float:left; }
+.modal {
+  opacity:1.0; 
+  width: 500px; 
+  height: 377px;
+  display: none;
+  background: asset-url("page_tab/CQDS/Popup/thanks.png") no-repeat 0 0;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -o-border-radius: 8px;
+  -ms-border-radius: 8px;
+  border-radius: 8px;
+  -webkit-box-shadow: 0 0 10px #000;
+  -moz-box-shadow: 0 0 10px #000;
+  -o-box-shadow: 0 0 10px #000;
+  -ms-box-shadow: 0 0 10px #000;
+  box-shadow: 0 0 10px #000;
+ }
+ 
+.modal_fail {
+  opacity:1.0; 
+  width: 500px; 
+  height: 245px;
+  display: none;
+  background: asset-url('page_tab/CQDS/Popup2/fail.png') no-repeat 0 0;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -o-border-radius: 8px;
+  -ms-border-radius: 8px;
+  border-radius: 8px;
+  -webkit-box-shadow: 0 0 10px #000;
+  -moz-box-shadow: 0 0 10px #000;
+  -o-box-shadow: 0 0 10px #000;
+  -ms-box-shadow: 0 0 10px #000;
+  box-shadow: 0 0 10px #000;
+ } 
+ 
+.modal_success {
+  opacity:1.0; 
+  width: 500px; 
+  height: 581px;
+  display: none;
+  background: asset-url("page_tab/CQDS/Popup3/congratulation.png") no-repeat 0 0;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -o-border-radius: 8px;
+  -ms-border-radius: 8px;
+  border-radius: 8px;
+  -webkit-box-shadow: 0 0 10px #000;
+  -moz-box-shadow: 0 0 10px #000;
+  -o-box-shadow: 0 0 10px #000;
+  -ms-box-shadow: 0 0 10px #000;
+  box-shadow: 0 0 10px #000;
+ }  
+ 
+.modal a.close-modal {
+  display: none;
+}
+
+.modal-spinner {
+  display: none;
+  width: 64px;
+  height: 64px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-right: -32px;
+  margin-top: -32px;
+  background: asset-url("page_tab/spinner.gif") #111 no-repeat center center;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -o-border-radius: 8px;
+  -ms-border-radius: 8px;
+  border-radius: 8px;
+ }
+.popup1_check{
+  width: 176px;
+  margin: 0 auto;
+  padding-top: 280px;
+}
+
+.popup2_check{
+  width: 176px;	
+  margin: 0 auto;
+  padding-top: 154px;
+  outline:none; 
+}
+.popup3_check{
+  padding-top: 232px;
+  width: 176px;
+  margin: 0 auto;
+  outline:none; 
+}
+
+.name {
+	padding-top: 186px;
+	padding-left: 161px;	
+	width: 179; height: 31;
+}
+
+.phone {
+	padding-top: 6px;
+}
+.phone_ul{
+	padding-left: 161px;
+}
+.phone_first{
+}
+.phone_middle{
+	padding-left: 17px;
+}
+.phone_last{
+	padding-left: 17px;
+}
+.check{
+	padding-top: 9px;
+  padding-left: 210px;
+  width: 236px;
+  clear: both;
+}
+.check_inner_agree{
+  float: left;
+  padding-top: 3px;
+  width: 115px;
+  label.error{
+    width: 120px;
+  }
+}
+label.error{
+  margin-left: 5px;
+}
+input[type=text]{
+  font-size: 11px;
+}
+input[type=checkbox]
+{
+  /* Double-sized Checkboxes */
+  -ms-transform: scale(1.5); /* IE */
+  -moz-transform: scale(1.5); /* FF */
+  -webkit-transform: scale(1.5); /* Safari and Chrome */
+  -o-transform: scale(1.5); /* Opera */
+}
+
+.check_ul {
+	padding-left: 206px;
+}
+.check_agree {
+}
+.provision_button  {
+	padding-left: 38px;
+  float: left;
+}

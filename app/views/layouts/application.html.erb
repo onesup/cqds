@@ -50,7 +50,6 @@ function event_popup(response){
 };
 
 $(document).ready(function() {
-	
   $.ajaxSetup({ cache: true });
   $.getScript('//connect.facebook.net/ko_KR/all.js', function(){
     FB.init({
@@ -92,12 +91,32 @@ $(document).ready(function() {
       });
     });
   });
+  
+  $('#edit_winner').validate({
+    rules: {
+      user_name: { required: true },
+      user_info_check: { required: true },
+    },
+    messages: {
+      user_name: {
+        required: "필수",
+      },
+      user_info_check: {
+        required: "필수"
+      }
+    },
+    submitHandler: function (frm) {
+      $("#pop_success").close();
+      frm.submit();
+    },
+    success: function (e) { 
+
+    }
+  });
 });
 
 
 </script>
 <%= yield %>
-
-
 </body>
 </html>

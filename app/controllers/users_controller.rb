@@ -8,10 +8,24 @@ class UsersController < ApplicationController
     render nothing: true
   end
   
-  private  
+  def update
+    @user = User.find params[:id]
+    @user.update(user_params)
+    # respond_to do |format|
+    #   if @user.update(user_params)
+    #     format.html { redirect_to root_path, notice: 'User was successfully updated.' }
+    #     # format.json { head :no_content }
+    #   else
+    #     format.html { render action: 'edit' }
+    #     format.json { render json: @user.errors, status: :unprocessable_entity }
+    #   end
+    # end
+  end
+  
+  private 
   
   def user_params
-    # params.require(:wall_post).permit(:uid, :user_id)
+    params.require(:user).permit(:id, :uid, :name, :email, :phone_number)
   end
   
 end
