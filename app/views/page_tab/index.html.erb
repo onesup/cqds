@@ -78,38 +78,44 @@
 	<a href="#" rel="modal:close">
     <%= image_tag("page_tab/CQDS/Popup3/close.png", width: "38", height: "36", style: "float: right;") %>
   </a>
-	<%= simple_form_for @user, html:{id: "edit_winner"} do |f| %>
-    <div class="name">
-      <%= f.input :name, input_html: {name: "user_name", style: "padding: 2px 2px 2px 2px; width:278px; height:22px; font-size:13pt;"}, label: false%>
-  	</div>
-  	<div class="phone">
-  		<ul class="phone_ul">
-  				<li class="phone_first"> 
-            <input type="text" name="phone1"  onKeyPress="if ((event.keyCode < 48) || (event.keyCode > 57)){event.returnValue = false;};" maxlength="4" style="font-size:13pt; padding: 2px 2px 2px 2px; width:75px; height:22px; " >
-          </li> 
-  				<li class="phone_middle"> 
-            <input type="text" name="phone2" onKeyPress="if ((event.keyCode < 48) || (event.keyCode > 57)){event.returnValue = false;};" maxlength="4" style="font-size:13pt; padding: 2px 2px 2px 2px; width:74px; height:22px; "> 
-          </li>
-  				<li class="phone_last">
-            <input type="text" name="phone3" onKeyPress="if ((event.keyCode < 48) || (event.keyCode > 57)){event.returnValue = false;};"  maxlength="4" style="font-size:13pt; padding: 4px 2px 2px 2px; width:81px; height:22px;">
-          </li>
-  		</ul>
-  	</div>
-  	<div class="check">
-  			<div class= "check_inner_agree">
-            <input type="checkbox" class="info_check" value="agree" name="user_info_check">
-  			</div>
-  			<div class= "provision_button">
-          <a href="https://www.crown.co.kr/member/pop_private.asp" target="_blank">
-            <%= image_tag "page_tab/CQDS/Popup3/content.png" %>
-          </a>
-  			</div>
-  	</div>
-  	<div class="popup3_check">
-      <%= image_submit_tag("page_tab/CQDS/Popup3/check.png", class: "button", id: "winner_submit") %>
-      <!-- <a href="#" rel="modal:close" id="winner_submit">
-        <%#= image_tag "page_tab/CQDS/Popup3/check.png" %>
-      </a>    -->
-  	</div>
+  <!-- <form id="edit_winner"> -->
+    <% unless current_user.nil? %>
+    	<%= simple_form_for @user, html:{id: "edit_winner"} do |f| %>
+        <!-- <input type="hidden" name="id" id="user[id]" value="<%= current_user.id%>"> -->
+        <%= f.input :id, as: :hidden, value: @user.id %>
+        <div class="name">
+          <!-- <input type="text" name="name", id="user[name]" style="padding: 2px 2px 2px 2px; width:278px; height:22px; font-size:13pt;"> -->
+          <%= f.input :name, input_html: {style: "padding: 2px 2px 2px 2px; width:278px; height:22px; font-size:13pt;"}, label: false%>
+      	</div>
+      	<div class="phone">
+      		<ul class="phone_ul">
+      				<li class="phone_first"> 
+                <input type="text" id="phone1" name="phone1"  onKeyPress="if ((event.keyCode < 48) || (event.keyCode > 57)){event.returnValue = false;};" maxlength="4" style="font-size:13pt; padding: 2px 2px 2px 2px; width:75px; height:22px; " >
+              </li> 
+      				<li class="phone_middle"> 
+                <input type="text" id="phone2" name="phone2" onKeyPress="if ((event.keyCode < 48) || (event.keyCode > 57)){event.returnValue = false;};" maxlength="4" style="font-size:13pt; padding: 2px 2px 2px 2px; width:74px; height:22px; "> 
+              </li>
+      				<li class="phone_last">
+                <input type="text" id="phone3" name="phone3" onKeyPress="if ((event.keyCode < 48) || (event.keyCode > 57)){event.returnValue = false;};"  maxlength="4" style="font-size:13pt; padding: 4px 2px 2px 2px; width:81px; height:22px;">
+              </li>
+      		</ul>
+      	</div>
+      	<div class="check">
+      			<div class= "check_inner_agree">
+                <input type="checkbox" class="info_check" value="agree" name="user_info_check">
+      			</div>
+      			<div class= "provision_button">
+              <a href="https://www.crown.co.kr/member/pop_private.asp" target="_blank">
+                <%= image_tag "page_tab/CQDS/Popup3/content.png" %>
+              </a>
+      			</div>
+      	</div>
+      	<div class="popup3_check">
+          <%= image_submit_tag("page_tab/CQDS/Popup3/check.png", class: "button", id: "winner_submit") %>
+          <!-- <a href="#" rel="modal:close" id="winner_submit">
+            <%#= image_tag "page_tab/CQDS/Popup3/check.png" %>
+          </a>    -->
+      	</div>
+      <% end %>
   <% end %>
 </div>

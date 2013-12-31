@@ -9,7 +9,7 @@
   <meta property="og:type"    content="myapp:myobject" />
   <meta property="og:url"     content="" />
   <meta property="og:title"   content="쿠크다스" />
-  <meta property="og:image"   content="http://farm4.staticflickr.com/3665/10288523825_3fea0316ef_o.jpg" />
+  <meta property="og:image"   content="" />
 </head>
 <body id="main">
   <div id="fb-root"></div>
@@ -39,6 +39,13 @@ function get_game_result(){
 		}
 	});
 }
+function login(response){
+  var uid = response.authResponse.userID;
+  var accessToken = response.authResponse.accessToken;
+  $("#uid").val(uid);
+  $("#access_token").val(accessToken);
+  $.post( "/users", {uid: uid, access_token: accessToken}, function( data ) {});  
+};
 
 function event_popup(response){
   var uid = response.authResponse.userID;
@@ -62,7 +69,20 @@ $(document).ready(function() {
     
     FB.getLoginStatus(function(response) {
       if (response.status === 'not_authorized') {
+        FB.login(function(response) {
+           if (response.authResponse) {
+             console.log('Welcome!  Fetching your information.... ');
+             FB.api('/me', function(response) {
+               console.log('Good to see you, ' + response.name + '.');
+               login(response);
+               location.reload();
+             });
+           } else {
+             console.log('User cancelled login or did not fully authorize.');
+           }
+         },{scope: 'email, user_birthday, user_photos'});
       }else if (response.status === 'connected'){
+        login(response);
       }else{
         alert("캠페인에 참여하기 위해서는 페이스북 로그인이 필요합니다.");
       }
@@ -83,6 +103,7 @@ $(document).ready(function() {
           FB.login(cb,{
             scope: 'email, user_birthday, user_photos'
           });
+          login(response);
         }else if (response.status === 'connected'){
           event_popup(response);
         }else{
@@ -91,32 +112,41 @@ $(document).ready(function() {
       });
     });
   });
+  var action = $("#edit_winner").attr("action");
+  var winner_id = $("#user_id").attr("value");
+  var winner_name = $("#user_name").attr("value");
   
-  $('#edit_winner').validate({
+  $('#edit_winner').submit(function(e){
+    e.preventDefault();
+  }).validate({
     rules: {
-      user_name: { required: true },
+      "user[name]": { required: true },
       user_info_check: { required: true },
     },
     messages: {
-      user_name: {
+      "user[name]": {
         required: "필수",
       },
       user_info_check: {
         required: "필수"
       }
     },
-    submitHandler: function (frm) {
-      $("#pop_success").close();
-      frm.submit();
+    submitHandler: function (form) {
+      var winner_phone = $("#phone1").val() + "-" + $("#phone2").val() + "-" + $("#phone3").val();
+      $.post(action,{
+        "user[id]": winner_id,
+        "user[name]": winner_name,
+        "user[phone_number]": winner_phone
+      });
+      $.modal.close();
     },
-    success: function (e) { 
-
-    }
   });
 });
 
 
 </script>
+<%= current_user.name unless current_user.nil? %>
+<%= session[:facebook_uid]%>
 <%= yield %>
 </body>
 </html>

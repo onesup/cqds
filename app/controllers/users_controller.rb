@@ -11,15 +11,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find params[:id]
     @user.update(user_params)
-    # respond_to do |format|
-    #   if @user.update(user_params)
-    #     format.html { redirect_to root_path, notice: 'User was successfully updated.' }
-    #     # format.json { head :no_content }
-    #   else
-    #     format.html { render action: 'edit' }
-    #     format.json { render json: @user.errors, status: :unprocessable_entity }
-    #   end
-    # end
+    render nothing: true
   end
   
   private 

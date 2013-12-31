@@ -31,6 +31,10 @@ Cqds::Application.routes.draw do
   end
 
   resources :wall_posts, only: [:create]
-  resources :users, only: [:create, :update]
+  resources :users, only: [:create, :update] do
+    member do 
+      post :update
+    end
+  end
   root 'page_tab#index'  
 end
