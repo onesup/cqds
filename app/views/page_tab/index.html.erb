@@ -2,20 +2,13 @@
   function changeFocus(pos) {
   	if(pos==1) { 
   		document.getElementById("youtube").src="//www.youtube.com/embed/1C2bJ6_9QxQ?wmode=opaque" ;
-  		document.getElementById("youtube_01").src='<%= asset_path("page_tab/CQDS/tvc_c.jpg") %>' ;
-    	document.getElementById("youtube_02").src='<%= asset_path("page_tab/CQDS/not.jpg") %>' ;
-  		document.getElementById("youtube_03").src='<%= asset_path("page_tab/CQDS/not.jpg") %>' ;
+  		document.getElementById("youtube_01").src='<%= asset_path("page_tab/CQDS/tvcf_c.png") %>' ;
+    	document.getElementById("youtube_02").src='<%= asset_path("page_tab/CQDS/interview.png") %>' ;
     }
     else if(pos==2) {
     	document.getElementById("youtube").src="//www.youtube.com/embed/pOZgnkEPxJc?wmode=opaque" ;
-    	document.getElementById("youtube_01").src='<%= asset_path("page_tab/CQDS/tvc.jpg") %>' ;
-    	document.getElementById("youtube_02").src='<%= asset_path("page_tab/CQDS/tvc_c.jpg") %>' ;
-  		document.getElementById("youtube_03").src='<%= asset_path("page_tab/CQDS/not.jpg") %>' ;
-  	} else if(pos==3) {
-  		document.getElementById("youtube").src="//www.youtube.com/embed/pOZgnkEPxJc?wmode=opaque" ;
-  		document.getElementById("youtube_01").src='<%= asset_path("page_tab/CQDS/tvc.jpg") %>' ;
-    	document.getElementById("youtube_02").src='<%= asset_path("page_tab/CQDS/not.jpg") %>' ;
-  		document.getElementById("youtube_03").src='<%= asset_path("page_tab/CQDS/tvc_c.jpg") %>' ;	
+    	document.getElementById("youtube_01").src='<%= asset_path("page_tab/CQDS/tvcf.png") %>' ;
+    	document.getElementById("youtube_02").src='<%= asset_path("page_tab/CQDS/interview_c.png") %>' ;
   	}
   }
 </script>
@@ -26,11 +19,9 @@
 		<div class="cqds_youtube_select">
 			<ul class="youtube_select_button">
 				<li class="youtube_select_button01">
-					<img id='youtube_01' src='<%= asset_path("page_tab/CQDS/tvc_c.jpg") %>' onclick='changeFocus(1);'/> </li>
+					<img id='youtube_01' src='<%= asset_path("page_tab/CQDS/tvcf_c.png") %>' onclick='changeFocus(1);'/> </li>
 				<li class="youtube_select_button02">
-					<img src='<%= asset_path("page_tab/CQDS/not.jpg") %>' id='youtube_02' onclick='changeFocus(2);'/> </li>
-				<li class="youtube_select_button03">
-					<img src='<%= asset_path("page_tab/CQDS/not.jpg") %>' id='youtube_03' onclick='changeFocus(3);'/> </li>
+					<img src='<%= asset_path("page_tab/CQDS/interview.png") %>' id='youtube_02' onclick='changeFocus(2);'/> </li>
 			</ul>
 		</div>
 		<div class="cqds_youtube_view">
