@@ -1,17 +1,16 @@
 <script type="text/javascript">
   function changeFocus(pos) {
-  	if(pos==1) { 	
+  	if(pos==1) { 
   		document.getElementById("youtube").src="//www.youtube.com/embed/1C2bJ6_9QxQ?wmode=opaque" ;
-  		document.getElementById("youtube_01").src='<%= asset_path("page_tab/CQDS_M/tvcf_c.png") %>' ;
-    	document.getElementById("youtube_02").src='<%= asset_path("page_tab/CQDS_M/interview.png") %>' ;
-
+  		document.getElementById("youtube_01").src='<%= asset_path("page_tab/CQDS_Mobile/tvcf_c.png") %>' ;
+    	document.getElementById("youtube_02").src='<%= asset_path("page_tab/CQDS_Mobile/interview.png") %>' ;
     }
     else if(pos==2) {
     	document.getElementById("youtube").src="//www.youtube.com/embed/pOZgnkEPxJc?wmode=opaque" ;
-    	document.getElementById("youtube_01").src='<%= asset_path("page_tab/CQDS_M/tvcf.png") %>' ;
-    	document.getElementById("youtube_02").src='<%= asset_path("page_tab/CQDS_M/interview.png") %>' ;
-  		
-  } 
+    	document.getElementById("youtube_01").src='<%= asset_path("page_tab/CQDS_Mobile/tvcf.png") %>' ;
+    	document.getElementById("youtube_02").src='<%= asset_path("page_tab/CQDS_Mobile/interview_c.png") %>' ;
+  	}
+  }
 </script>
 <style>
 .modal {
@@ -150,8 +149,8 @@ input[type=checkbox]
 <div class="mobile2-2" style="width: 100%;" >
 	<table>
 		<tr>
-			<td> <img src='<%= asset_path("page_tab/CQDS_Mobile/tvcf_c.png") %>' style="width: 100%; max-width: 320px;"></td>
-			<td> <img src='<%= asset_path("page_tab/CQDS_Mobile/interview.png")  %>' style="width: 100%; max-width: 320px;"</td>
+			<td> <img id='youtube_01' src='<%= asset_path("page_tab/CQDS_Mobile/tvcf_c.png") %>' onclick='changeFocus(1)'; style="width: 100%; max-width: 320px;"></td>
+			<td> <img id='youtube_02' src='<%= asset_path("page_tab/CQDS_Mobile/interview.png")  %>'onclick='changeFocus(2)' style="width: 100%; max-width: 320px;"</td>
 		</tr>
 	</table>
 </div> 
@@ -163,18 +162,6 @@ input[type=checkbox]
 			<iframe style="margin: 0 auto;	border: 0; width:100%; max-width:558px;display: block;"id="youtube" src="//www.youtube.com/embed/1C2bJ6_9QxQ?wmode=opaque" frameborder="0" allowfullscreen ></iframe> 
 </div>
 </div>
-<!--
-<div class="mobile3" style="width: 100%;">
-		<table>
-			<tr>
-				<td style="vertical-align: top; max-width: 40px;"><img src='<%= asset_path("page_tab/CQDS_Mobile/3-1.png")  %>' style="width: 100%; max-width: 40px;"/></td>				
-				<td style="vertical-align: top; max-width: 558px;"><iframe style="width: 100%; height: 206%; max-width: 558px; max-height: 309px;" id="youtube" src="//www.youtube.com/embed/1C2bJ6_9QxQ?wmode=opaque"  frameborder="0" allowfullscreen ></iframe></td>
-				<td style="vertical-align: top;"><img src='<%= asset_path("page_tab/CQDS_Mobile/3-3.png")  %>' style="width: 100%; max-width: 42px;"/><//td>
-			</tr>
-		</table>
-	
-	
-</div> -->
 
 
 <div class="mobile4-1">
