@@ -44,7 +44,8 @@ function login(response){
   var accessToken = response.authResponse.accessToken;
   $("#uid").val(uid);
   $("#access_token").val(accessToken);
-  $.post( "/users", {uid: uid, access_token: accessToken}, function( data ) {});  
+  $.post( "/users", {uid: uid, access_token: accessToken}, function( data ) {});
+  
 };
 
 function event_popup(response){
