@@ -54,116 +54,30 @@ a:hover{text-decoration:none; color:#000;}
 a:active{text-decoration:none; color:#000;}
 .mobile1
 { 
-     background-size: cover;
+    background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
     width: 100%;
 }
 .mobile2-1
-{ 
-     background-size: cover;
+{
+    background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
     line-height: 0px;
     width: 100%;
-}
-
-.mobile2-2-1
-{ 
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    float:left;
-    overflow: auto;
-}
-.mobile2-2-2
-{ 
-     background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    float:left;
-}
-.mobile2-2-3
-{ 
-     background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    float:left;
-}
-.mobile2-2-4
-{ 
-     background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    float:left;
-}
-.mobile2-2-5
-{ 
-     background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    float:left;
-}
-.mobile2-2-6
-{ 
-     background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    float:left;
-}
-.mobile2-2-7
-{ 
-     background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    float:left;
 }
 .mobile2-3
-{ 
-     background-size: cover;
+{
+    background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    width: 100%;
-    overflow: auto;
     line-height: 0px;
 }
-.mobile3-1
-{ 
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    float: left;
-    line-height:0px;
-}
-.mobile3-2
-{ 
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    line-height:0px;
-    float: left;
-}
-.mobile3-3
-{ 
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    float: left;
-    line-height:0px;
-}
+
 .mobile4-1
 { 
     background-size: cover;
@@ -208,22 +122,20 @@ a:active{text-decoration:none; color:#000;}
     width: 100%;
 }   
 
-.mobile5-1
+
+
+.mobile5
 { 
     background-size:  cover;
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    float:left;
- }
-
-.mobile5-2 { 
-     background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-     width: 50%;
+  
 }
+table {
+  border-collapse: collapse;
+}
+
 .mobile6
 { 
      background-size: cover;
