@@ -6,7 +6,7 @@
     	document.getElementById("youtube_02").src='<%= asset_path("page_tab/CQDS_Mobile/interview.png") %>' ;
     }
     else if(pos==2) {
-    	document.getElementById("youtube").src="//www.youtube.com/embed/pOZgnkEPxJc?wmode=opaque" ;
+    	document.getElementById("youtube").src="//www.youtube.com/embed/lO18Q7qkCRM?wmode=opaque" ;
     	document.getElementById("youtube_01").src='<%= asset_path("page_tab/CQDS_Mobile/tvcf.png") %>' ;
     	document.getElementById("youtube_02").src='<%= asset_path("page_tab/CQDS_Mobile/interview_c.png") %>' ;
   	}
@@ -135,9 +135,9 @@ input[type=checkbox]
 	<img src='<%= asset_path("page_tab/CQDS_Mobile/2-3.png") %>'/>
 </div>
 <div style="width: 100%;">
-<div class="mobile3">
-			<iframe style="" id="youtube" src="//www.youtube.com/embed/1C2bJ6_9QxQ?wmode=opaque" frameborder="0" allowfullscreen ></iframe> 
-</div>
+  <div class="mobile3">
+			<iframe id="youtube" src="//www.youtube.com/embed/hAa0OTP9eWE?wmode=opaque" frameborder="0" allowfullscreen ></iframe> 
+  </div>
 </div>
 
 
@@ -147,9 +147,17 @@ input[type=checkbox]
 <div class="mobile4-2" style="width: 100%;" >
 	<table>
 		<tr>
-			<td> <img src='<%= asset_path("page_tab/CQDS_Mobile/4-2-1.png") %>' style="width: 100%; max-width: 164px;"/></td>
-			<td> <a href="#pop_start" id="popup1" rel="modal:open"> <img src='<%= asset_path("page_tab/CQDS_Mobile/4-2-2.png") %>'style="width: 100%; max-width: 312px;"/></a> </td>
-			<td> <img src='<%= asset_path("page_tab/CQDS_Mobile/4-2-3.png") %>' style=	"width: 100%; max-width: 164px;"/></td>
+			<td>
+        <img src='<%= asset_path("page_tab/CQDS_Mobile/4-2-1.png") %>' />
+      </td>
+			<td> 
+        <a href="#pop_start" id="popup1" rel="modal:open"> 
+          <img src='<%= asset_path("page_tab/CQDS_Mobile/4-2-2.png") %>'>
+        </a> 
+      </td>
+			<td> 
+        <img src='<%= asset_path("page_tab/CQDS_Mobile/4-2-3.png") %>'>
+      </td>
 		</tr>
 	</table>
 </div> 
@@ -183,7 +191,8 @@ input[type=checkbox]
 	</div>	
 </div>
 <div id="pop_success" class="modal_success" style="display:none;">
-	<a href="#" rel="modal:close"><img width="58" height="56" src='<%= asset_path("page_tab/CQDS_M/Popup3/close.png") %>'style="float:right;"/></a>
+	<a href="#" rel="modal:close"><img width="58" height="56" 
+    src='<%= asset_path("page_tab/CQDS_M/Popup3/close.png") %>'style="float:right;"/></a>
 	<div class="name">
 	<input type="text" name="Name" style="padding: 2px 2px 2px 2px; width:242px; height:46px; font-size:13pt; ">
 	</div>

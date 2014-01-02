@@ -6,7 +6,7 @@
     	document.getElementById("youtube_02").src='<%= asset_path("page_tab/CQDS/interview.png") %>' ;
     }
     else if(pos==2) {
-    	document.getElementById("youtube").src="//www.youtube.com/embed/pOZgnkEPxJc?wmode=opaque" ;
+    	document.getElementById("youtube").src="//www.youtube.com/embed/lO18Q7qkCRM?wmode=opaque" ;
     	document.getElementById("youtube_01").src='<%= asset_path("page_tab/CQDS/tvcf.png") %>' ;
     	document.getElementById("youtube_02").src='<%= asset_path("page_tab/CQDS/interview_c.png") %>' ;
   	}
@@ -38,12 +38,12 @@
 	<div class="cqds_down_field">
 		<ul class="down_select_button">
 				<li class="down_select_button01">
-          <a href="#">
+          <a href="<%= asset_path("cqds-rcm-coloring.mp4")%>" class="coloring">
 					  <%= image_tag "page_tab/CQDS/ring.png" %> 
           </a>
         </li>
 				<li class="down_select_button02">
-          <a href="#">
+          <a href="<%= asset_path("cqds-rcm-bizring.mp4")%>" class="alram">
             <%= image_tag "page_tab/CQDS/notify.png" %>
           </a>
         </li>
