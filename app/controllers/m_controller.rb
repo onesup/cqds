@@ -2,46 +2,71 @@ class MController < ApplicationController
   layout 'mobile'
 
   def index
+    puts "@@@@@@index"
+    puts session[:facebook_uid] unless session[:facebook_uid].nil?
     unless session[:facebook_uid].nil?
-      @user = current_user
-      redirect_to mobile_gate_path unless check_like
+      if check_like == true
+        puts "@@@@@@ go to mobile_path"
+        @user = current_user
+      else
+        puts "@@@@@@ go to mobile_gate_path"
+        redirect_to mobile_gate_path
+      end
     else
       redirect_to fb_login_path
     end
   end
   
   def fb_login
-    unless session[:facebook_uid].nil?    
-      redirect_to mobile_gate_path if check_like
+    puts "@@@@@@fb_login"
+    puts session[:facebook_uid] unless session[:facebook_uid].nil?
+    unless session[:facebook_uid].nil?
+      if check_like == true
+        puts "@@@@@@ go to mobile_path"
+        redirect_to mobile_path
+      else
+        puts "@@@@@@ go to mobile_gate_path"
+        redirect_to mobile_gate_path
+      end
     else
       render :layout => false
     end    
   end
   
   def fan_gate
-    if session[:facebook_uid].nil?
+    puts "@@@@@@fan_gate"
+    puts session[:facebook_uid] unless session[:facebook_uid].nil?
+    unless session[:facebook_uid].nil?
+      if check_like == true
+        puts "@@@@@@ go to mobile_path"
+        redirect_to mobile_path
+      else
+        puts "@@@@@@ go to mobile_gate_path"
+      end
+    else
       redirect_to fb_login_path
-    else 
-      redirect_to mobile_path if check_like
-    end
+    end    
+    
   end
   
   private
     def check_like
       page_id = FACEBOOK_CONFIG[:page_id]
-      access_token = session[:facebook_token]
-      api = Koala::Facebook::API.new(access_token)
+      token = current_user.token.access_token
+      # access_token = session[:facebook_token]
+      api = Koala::Facebook::API.new(token)
+      result = false
       begin
         query = api.get_connections("me","likes/" + page_id)
       rescue Koala::Facebook::AuthenticationError
         puts "auth error"
-        query = [1]
+        query = []
       rescue Koala::Facebook::ClientError
         puts "client error"
-        query = [1]
+        query = []
       end
-      result = query.empty? ? false : true
-      puts "@@@@@like@@@@"
+      result = true unless query.empty?
+      puts "@@@@@check_like@@@@"
       puts result
       puts "@@@@@@@@@"
       return result

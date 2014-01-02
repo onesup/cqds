@@ -23,7 +23,9 @@
 function verifyUserLikesPage() {
   FB.api("/me/likes/"+<%= FACEBOOK_CONFIG[:page_id]%>, function(apiResponse){
     if (apiResponse.data && apiResponse.data.length > 0){
-      location.reload();
+      window.location.href = "/mobile?like=true"
+    }else{
+      window.location.href = "/mobile?like=false"
     }
   });
 };
@@ -122,12 +124,13 @@ $(document).ready(function() {
     });
     FB.Event.subscribe('edge.create', function(href, widget){
       spin();
-      window.location.href = "<%= mobile_path %>";
+      verifyUserLikesPage();
+      // window.location.href = "<%= mobile_path %>";
       // location.reload();
     });
     FB.Event.subscribe('edge.remove', function(href, widget){
       spin();
-      location.reload();
+      verifyUserLikesPage();
     });
     $('#game_result').bind('click', function(e) {
       e.preventDefault();
