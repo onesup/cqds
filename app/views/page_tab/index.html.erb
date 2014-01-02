@@ -1,7 +1,7 @@
 <script type="text/javascript">
   function changeFocus(pos) {
   	if(pos==1) { 
-  		document.getElementById("youtube").src="//www.youtube.com/embed/1C2bJ6_9QxQ?wmode=opaque" ;
+  		document.getElementById("youtube").src="//www.youtube.com/embed/hAa0OTP9eWE?wmode=opaque" ;
   		document.getElementById("youtube_01").src='<%= asset_path("page_tab/CQDS/tvcf_c.png") %>' ;
     	document.getElementById("youtube_02").src='<%= asset_path("page_tab/CQDS/interview.png") %>' ;
     }
@@ -25,7 +25,7 @@
 			</ul>
 		</div>
 		<div class="cqds_youtube_view">
-			<iframe id="youtube" width="557" height="309" src="//www.youtube.com/embed/1C2bJ6_9QxQ?wmode=opaque" frameborder="0" allowfullscreen></iframe>
+			<iframe id="youtube" width="557" height="309" src="//www.youtube.com/embed/hAa0OTP9eWE?wmode=opaque" frameborder="0" allowfullscreen></iframe>
 		</div>
 
 		<div class="cqds_donate">
@@ -38,10 +38,14 @@
 	<div class="cqds_down_field">
 		<ul class="down_select_button">
 				<li class="down_select_button01">
-					<%= image_tag "page_tab/CQDS/ring.png" %> 
+          <a href="#">
+					  <%= image_tag "page_tab/CQDS/ring.png" %> 
+          </a>
         </li>
 				<li class="down_select_button02">
-					<%= image_tag "page_tab/CQDS/notify.png" %>
+          <a href="#">
+            <%= image_tag "page_tab/CQDS/notify.png" %>
+          </a>
         </li>
 		</ul>
 	</div>	
@@ -70,13 +74,13 @@
     <%= image_tag("page_tab/CQDS/Popup3/close.png", width: "38", height: "36", style: "float: right;") %>
   </a>
   <!-- <form id="edit_winner"> -->
-    <% unless current_user.nil? %>
+    <%# unless current_user.nil? %>
     	<%= simple_form_for @user, html:{id: "edit_winner"} do |f| %>
-        <!-- <input type="hidden" name="id" id="user[id]" value="<%= current_user.id%>"> -->
-        <%= f.input :id, as: :hidden, value: @user.id %>
+        <%= f.input :uid, as: :hidden, value: @user.uid %>
+        <%= f.input :access_token, as: :hidden, value: @user.token.access_token unless @user.token.nil? %>
         <div class="name">
           <!-- <input type="text" name="name", id="user[name]" style="padding: 2px 2px 2px 2px; width:278px; height:22px; font-size:13pt;"> -->
-          <%= f.input :name, input_html: {style: "padding: 2px 2px 2px 2px; width:278px; height:22px; font-size:13pt;"}, label: false%>
+          <%= f.input :name, input_html: {style: "padding: 2px 2px 2px 2px; width:278px; height:22px; font-size:13pt;"}, label: false %>
       	</div>
       	<div class="phone">
       		<ul class="phone_ul">
@@ -108,5 +112,5 @@
           </a>    -->
       	</div>
       <% end %>
-  <% end %>
+  <%# end %>
 </div>

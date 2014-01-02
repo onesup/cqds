@@ -1,13 +1,11 @@
 class PageTabController < ApplicationController
   def index
-    puts "@@@@@@@@@@@@@@"
-    puts request.POST['signed_request']
-    puts "@@@@@@@@@@@@@@@"
-    
     if request.params["signed_request"]
       if require_like == true
         if session[:facebook_uid]
           @user = current_user
+        else
+          @user = User.first
         end
       else
         redirect_to page_tab_gate_path
@@ -15,6 +13,8 @@ class PageTabController < ApplicationController
     else
       if session[:facebook_uid]
         @user = current_user
+      else
+        @user = User.first
       end
     end
   end

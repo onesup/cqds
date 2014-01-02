@@ -26,8 +26,9 @@ var cb = function(response){
 };
 
 function get_game_result(){
+  var uid = $("#user_uid").val();
 	$.ajax({
-		'url':'/game_result.json',
+		'url':'/game_result.json?uid=' + uid,
 		'dataType':'json',
 		'data':{},
 		'success':function(data){
@@ -42,8 +43,9 @@ function get_game_result(){
 function login(response){
   var uid = response.authResponse.userID;
   var accessToken = response.authResponse.accessToken;
-  $("#uid").val(uid);
-  $("#access_token").val(accessToken);
+  $("#user_uid").val(uid);
+  $("#user_access_token").val(accessToken);
+  $("#edit_winner").attr("action", "/users/"+uid);
   $.post( "/users", {uid: uid, access_token: accessToken}, function( data ) {});
   
 };
@@ -51,9 +53,11 @@ function login(response){
 function event_popup(response){
   var uid = response.authResponse.userID;
   var accessToken = response.authResponse.accessToken;
-  $("#uid").val(uid);
-  $("#access_token").val(accessToken);
+  $("#user_uid").val(uid);
+  $("#user_access_token").val(accessToken);
+  $("#edit_winner").attr("action", "/users/"+uid);
   $.post( "/users", {uid: uid, access_token: accessToken}, function( data ) {});
+  
   $("#pop_start").modal();
 };
 
@@ -70,18 +74,13 @@ $(document).ready(function() {
     
     FB.getLoginStatus(function(response) {
       if (response.status === 'not_authorized') {
-        FB.login(function(response) {
-           if (response.authResponse) {
-             console.log('Welcome!  Fetching your information.... ');
-             FB.api('/me', function(response) {
-               console.log('Good to see you, ' + response.name + '.');
-               login(response);
-               location.reload();
-             });
-           } else {
-             console.log('User cancelled login or did not fully authorize.');
-           }
-         },{scope: 'email, user_birthday, user_photos'});
+        // FB.login(function(response) {
+        //    if (response.authResponse) {
+        //      login(response);
+        //    } else {
+        //      console.log('User cancelled login or did not fully authorize.');
+        //    }
+        //  },{scope: 'email, user_birthday, user_photos'});
       }else if (response.status === 'connected'){
         login(response);
       }else{
@@ -113,9 +112,6 @@ $(document).ready(function() {
       });
     });
   });
-  var action = $("#edit_winner").attr("action");
-  var winner_id = $("#user_id").attr("value");
-  var winner_name = $("#user_name").attr("value");
   
   $('#edit_winner').submit(function(e){
     e.preventDefault();
@@ -133,9 +129,12 @@ $(document).ready(function() {
       }
     },
     submitHandler: function (form) {
+      var action = $("#edit_winner").attr("action");
+      var winner_uid = $("#user_uid").val();
+      var winner_name = $("#user_name").val();
       var winner_phone = $("#phone1").val() + "-" + $("#phone2").val() + "-" + $("#phone3").val();
       $.post(action,{
-        "user[id]": winner_id,
+        "user[uid]": winner_uid,
         "user[name]": winner_name,
         "user[phone_number]": winner_phone
       });
@@ -146,8 +145,8 @@ $(document).ready(function() {
 
 
 </script>
-<%= current_user.name unless current_user.nil? %>
-<%= session[:facebook_uid]%>
+<%#= current_user.name unless current_user.nil? %>
+<%#= session[:facebook_uid]%>
 <%= yield %>
 </body>
 </html>

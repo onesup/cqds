@@ -2,7 +2,8 @@
 <html xmlns:fb="http://ogp.me/ns/fb#" xmlns:og="http://ogp.me/ns#">
 <head prefix="og: http://ogp.me/ns#">
   <title>기적의 어린이재활병원 '영웅의 한마디'</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" /> 
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />  -->
+<meta name="viewport" content="width=device-width, initial-scale=0, maximum-scale=1, user-scalable=yes" />
   <%= stylesheet_link_tag    "mobile", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "mobile", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
@@ -27,7 +28,11 @@ function verifyUserLikesPage() {
     }
   });
 };
-
+function setBodyWidth(){
+  var w = screen.width;
+  $("body").style.width = w+"px";
+  var h = screen.height;
+};
 var cb = function(response){
   if (response.status === 'connected') { 
     comment_popup(response);
@@ -69,6 +74,7 @@ function spin(){
   var spinner = new Spinner(opts).spin(target);
 };
 $(document).ready(function() {
+  setBodyWidth();
   $.ajaxSetup({ cache: true });
   $.getScript('//connect.facebook.net/ko_KR/all.js', function(){
     FB.init({

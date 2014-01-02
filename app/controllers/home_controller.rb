@@ -27,7 +27,8 @@ class HomeController < ApplicationController
   end
   
   def game_result
-    @result = Gift.first.is_win?(current_user, Time.now)
+    user = User.find_by_uid params[:uid]
+    @result = Gift.first.is_win?(user, Time.now)
   end
   
   def canvas
