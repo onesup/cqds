@@ -38,7 +38,7 @@
   
  }
  
-.modal {
+.modal_start {
   opacity:1.0; 
   width: 579px; 
   height: 537px;
@@ -141,12 +141,12 @@
 	<table>
 		<tr>
 			<td> 
-        <a href="<%= asset_path('cqds-rcm-coloring.mp4') %>" class="coloring" target="_blank">
+        <a href="<%= download_coloring_path %>" class="coloring">
           <%= image_tag("page_tab/CQDS_Mobile/5-1.png", class:"coloring_link") %>
         </a>
       </td>
 			<td>
-        <a href="<%= asset_path('cqds-rcm-bizring.mp4')%>" class="alram" target="_blank">
+        <a href="<%= download_bizring_path %>" class="alram">
           <%= image_tag("page_tab/CQDS_Mobile/5-2.png", class:"coloring_link") %>
         </a>
       </td>
@@ -158,7 +158,7 @@
 </div>
 
 
-<div id="pop_start" class="modal" style="display:none;">
+<div id="pop_start" class="modal_start" style="display:none;">
 	<a href="#" rel="modal:close">
     <img width="58" height="56" src='<%= asset_path("page_tab/CQDS_M/Popup2/close.png") %>'style="float:right;"/>
   </a>
@@ -173,7 +173,7 @@
 	<a href="#" rel="modal:close">
     <img width="58" height="56" src='<%= asset_path("page_tab/CQDS_M/Popup/close.png") %>'style="float:right;">
   </a>
-	<div class="popup2_check">
+	<div class="popup1_check">
 		<a href="#" rel="modal:close" >
       <%= image_tag "page_tab/CQDS_M/Popup/check.png" %>
     </a> 	
@@ -210,7 +210,9 @@
           <input type="checkbox" name="user_info_check" class="info_check" value="agree" style="width:18px; height:18px;"> 
         </li>
   			<li class="provision">
-          <img src='<%= asset_path("page_tab/CQDS_M/Popup3/content.png") %>'/>  
+          <a href="https://www.crown.co.kr/member/pop_private.asp" target="_blank">
+            <%= image_tag("page_tab/CQDS_M/Popup3/content.png") %>
+          </a>
         </li>
   		</ul>
   	</div>
@@ -219,4 +221,4 @@
   	</div>	
   <% end %>
 </div>
-<fb:like href="<%= FACEBOOK_CONFIG[:page_address]%>" colorscheme="light" layout="button_count" action="like" show_faces="false" send="false"></fb:like>
+<!-- <fb:like href="<%= FACEBOOK_CONFIG[:page_address]%>" colorscheme="light" layout="button_count" action="like" show_faces="false" send="false"></fb:like> -->

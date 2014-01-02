@@ -23,6 +23,14 @@ class HomeController < ApplicationController
 
   end
   
+  def download_bizring
+    send_file Rails.root+"app/assets/images/cqds-rcm-bizring.mp4", :type=>"audio/mp3", :filename => "cqds-rcm-bizring.mp4"
+  end
+  
+  def download_coloring
+    send_file Rails.root+"app/assets/images/cqds-rcm-bizring.mp4", :type=>"audio/mp3", :filename => "cqds-rcm-bizring.mp4"
+  end
+  
   def game_result
     user = User.find_by_uid params[:uid]
     puts "@@@@game_result@@@@"
