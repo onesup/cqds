@@ -19,3 +19,11 @@
 //= require jquery.infinitescroll.js
 //= require spin
 //= require jquery.modal
+
+$(function() {
+  $.ajaxSetup({
+    beforeSend: function ( xhr ) {
+      xhr.setRequestHeader("Accept", "text/javascript") 
+    }
+  }
+}
