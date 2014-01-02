@@ -7,10 +7,10 @@ class Token < ActiveRecord::Base
     unless token
       token = user_or_page.build_token
       token.access_token = access_token
-      token.save
+      token.save!
     else
       token.access_token = access_token
-      token.save
+      token.save!
     end
   end
 end

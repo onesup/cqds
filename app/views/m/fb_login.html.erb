@@ -36,9 +36,28 @@ function spin(){
   var spinner = new Spinner(opts).spin(target);
 };
 
+function reload(){
+  location.reload();
+};
+function login(response){
+  spin();
+  var uid = response.authResponse.userID;
+  var accessToken = response.authResponse.accessToken;
+  $.ajax({
+    type: "POST",
+    url: "/users",
+    data: {uid: uid, access_token: accessToken, test: "test"},
+    headers: {
+      'X-Transaction': 'POST Example',
+      'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+    },
+    success: reload
+  });
+};
+
 var cb = function(response){
   if (response.status === 'connected') {
-    after_login(response);
+    login(response);
   } else if (response.status === 'not_authorized') {
     alert('캠페인 참여를 위해 페이스북 로그인이 필요합니다.');
   } else {
@@ -46,26 +65,22 @@ var cb = function(response){
   }
 };
 
-function after_login(response){
-  spin();
-  var uid = response.authResponse.userID;
-  var accessToken = response.authResponse.accessToken;
-  $("#uid").val(uid);
-  $("#access_token").val(accessToken);
-  $.ajax({
-    type: "POST",
-    url: "/users",
-    data: {uid: uid, access_token: accessToken},
-    headers: {
-      'X-Transaction': 'POST Example',
-      'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
-    }
-  });
-  $.post( "/users", {uid: uid, access_token: accessToken}, function( data ) {
-    var url = "<%= mobile_gate_url %>";    
-    $(location).attr('href',url);
-  });
-};
+// function after_login(response){
+//   spin();
+//   var uid = response.authResponse.userID;
+//   var accessToken = response.authResponse.accessToken;
+//   $("#uid").val(uid);
+//   $("#access_token").val(accessToken);
+//   $.ajax({
+//     type: "POST",
+//     url: "/users",
+//     data: {uid: uid, access_token: accessToken, test: "after_login"},
+//     headers: {
+//       'X-Transaction': 'POST Example',
+//       'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+//     }
+//   });
+// };
 
 function fb_auth(e){
   e.preventDefault();
@@ -74,12 +89,14 @@ function fb_auth(e){
       FB.login(cb,{
         scope: 'email, user_birthday, user_photos'
       });
+      login(response);
     }else if (response.status === 'connected'){
-      after_login(response);
+      login(response);
     }else{
       FB.login(cb,{
         scope: 'email, user_birthday, user_photos'
       });
+      login(response);
     }
   });
 };
@@ -96,6 +113,7 @@ $(document).ready(function() {
     });
     
     $('#join').bind('click', function(e) {
+      
       fb_auth(e);
     });
   });
