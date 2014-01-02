@@ -79,7 +79,7 @@ function login(response){
 function event_popup(response){
   FB.api('/me', function(response) {
     var name = response.name;
-    $("#user_name").val(name);
+    $("#user_name").val("");
   });
   var uid = response.authResponse.userID;
   var accessToken = response.authResponse.accessToken;

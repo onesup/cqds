@@ -24,11 +24,13 @@ class HomeController < ApplicationController
   end
   
   def download_bizring
-    send_file Rails.root+"app/assets/images/cqds-rcm-bizring.mp4", :type=>"audio/mp3", :filename => "cqds-rcm-bizring.mp4"
+    send_file Rails.root+"app/assets/images/cqds-rcm-bizring.mp4", :x_sendfile => true,
+    :type=>"audio/mp3", :filename => "cqds-rcm-bizring.mp4", :disposition => 'attachment'
   end
   
   def download_coloring
-    send_file Rails.root+"app/assets/images/cqds-rcm-bizring.mp4", :type=>"audio/mp3", :filename => "cqds-rcm-bizring.mp4"
+    send_file Rails.root+"app/assets/images/cqds-rcm-coloring.mp4", :x_sendfile => true,
+    :type=>"audio/mp3", :filename => "cqds-rcm-bizring.mp4", :disposition => 'attachment'
   end
   
   def game_result
