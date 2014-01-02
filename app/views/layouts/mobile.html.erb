@@ -27,29 +27,53 @@ function verifyUserLikesPage() {
     }
   });
 };
-function setBodyWidth(){
-  var w = screen.width;
-  $("body").style.width = w+"px";
-  var h = screen.height;
-};
+
 var cb = function(response){
-  if (response.status === 'connected') { 
-    comment_popup(response);
+  if (response.status === 'connected') {
+    event_popup(response);
   } else if (response.status === 'not_authorized') {
     FB.login(cb,{scope: 'email, user_birthday, user_photos'});
   } else {
-    alert("쿠심붕괴")
+    alert('캠페인 참여를 위해 페이스북 로그인이 필요합니다.');
   }
 };
 
-function comment_popup(response){
+function get_game_result(){
+  var uid = $("#user_uid").val();
+	$.ajax({
+		'url':'/game_result.json?uid=' + uid,
+		'dataType':'json',
+		'data':{},
+		'success':function(data){
+			if(data.result == true){
+				$("#pop_success").modal();
+			}else{
+				$("#pop_fail").modal();
+			}
+		}
+	});
+}
+function login(response){
   var uid = response.authResponse.userID;
   var accessToken = response.authResponse.accessToken;
-  $("#uid").val(uid);
-  $("#access_token").val(accessToken);
+  $("#user_uid").val(uid);
+  $("#user_access_token").val(accessToken);
+  $("#edit_winner").attr("action", "/users/"+uid);
   $.post( "/users", {uid: uid, access_token: accessToken}, function( data ) {});
-
+  
 };
+
+function event_popup(response){
+  var uid = response.authResponse.userID;
+  var accessToken = response.authResponse.accessToken;
+  $("#user_uid").val(uid);
+  $("#user_access_token").val(accessToken);
+  $("#edit_winner").attr("action", "/users/"+uid);
+  $.post( "/users", {uid: uid, access_token: accessToken}, function( data ) {});
+  
+  $("#pop_start").modal();
+};
+
 function spin(){
   var opts = {
     lines: 13, // The number of lines to draw
@@ -73,7 +97,6 @@ function spin(){
   var spinner = new Spinner(opts).spin(target);
 };
 $(document).ready(function() {
-  setBodyWidth();
   $.ajaxSetup({ cache: true });
   $.getScript('//connect.facebook.net/ko_KR/all.js', function(){
     FB.init({
@@ -90,6 +113,28 @@ $(document).ready(function() {
     FB.Event.subscribe('edge.remove', function(href, widget){
       spin();
       location.reload();
+    });
+    $('#game_result').bind('click', function(e) {
+      e.preventDefault();
+      get_game_result();
+    });
+    
+    $('#event_popup').bind('click', function(e) {
+      e.preventDefault();
+      FB.getLoginStatus(function(response) {
+        if (response.status === 'not_authorized') {
+          FB.login(cb,{
+            scope: 'email, user_birthday, user_photos'
+          });
+          login(response);
+          event_popup(response);
+        }else if (response.status === 'connected'){
+          login(response)
+          event_popup(response);
+        }else{
+          alert("캠페인에 참여하기 위해서는 페이스북 로그인이 필요합니다.");
+        }
+      });
     });
   });  
 });

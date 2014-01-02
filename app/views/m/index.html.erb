@@ -151,7 +151,7 @@ input[type=checkbox]
         <img src='<%= asset_path("page_tab/CQDS_Mobile/4-2-1.png") %>' />
       </td>
 			<td> 
-        <a href="#pop_start" id="popup1" rel="modal:open"> 
+        <a href="#" id="event_popup"> 
           <img src='<%= asset_path("page_tab/CQDS_Mobile/4-2-2.png") %>'>
         </a> 
       </td>
@@ -178,23 +178,33 @@ input[type=checkbox]
 
 
 <div id="pop_start" class="modal" style="display:none;">
-	<a href="#" rel="modal:close"><img width="58" height="56" src='<%= asset_path("page_tab/CQDS_M/Popup/close.png") %>'style="float:right;"></a>
+	<a href="#" rel="modal:close">
+    <img width="58" height="56" src='<%= asset_path("page_tab/CQDS_M/Popup/close.png") %>'style="float:right;">
+  </a>
 	<div class="popup1_check">
-		<a href="#pop_fail" rel="modal:open" ><img src='<%= asset_path("page_tab/CQDS_M/Popup/check.png") %>'/></a> 	
+		<a href="#pop_fail" rel="modal:open" >
+      <img src='<%= asset_path("page_tab/CQDS_M/Popup/check.png") %>'/>
+    </a> 	
 	</div>	
 </div>
 
 <div id="pop_fail" class="modal_fail" style="display:none;">
-	<a href="#" rel="modal:close"><img width="58" height="56" src='<%= asset_path("page_tab/CQDS_M/Popup2/close.png") %>'style="float:right;"/></a>
+	<a href="#" rel="modal:close">
+    <img width="58" height="56" src='<%= asset_path("page_tab/CQDS_M/Popup2/close.png") %>'style="float:right;"/>
+  </a>
 	<div class="popup2_check">
-		<a href="#pop_success" rel="modal:open"><img src='<%= asset_path("page_tab/CQDS_M/Popup2/check.png") %>'/></a> 	
+		<a href="#pop_success" rel="modal:open">
+      <img src='<%= asset_path("page_tab/CQDS_M/Popup2/check.png") %>'/>
+    </a> 	
 	</div>	
 </div>
 <div id="pop_success" class="modal_success" style="display:none;">
-	<a href="#" rel="modal:close"><img width="58" height="56" 
-    src='<%= asset_path("page_tab/CQDS_M/Popup3/close.png") %>'style="float:right;"/></a>
+	<a href="#" rel="modal:close">
+    <img width="58" height="56" 
+    src='<%= asset_path("page_tab/CQDS_M/Popup3/close.png") %>'style="float:right;"/>
+  </a>
 	<div class="name">
-	<input type="text" name="Name" style="padding: 2px 2px 2px 2px; width:242px; height:46px; font-size:13pt; ">
+	  <input type="text" name="Name" style="padding: 2px 2px 2px 2px; width:242px; height:46px; font-size:13pt; ">
 	</div>
 	<div class="phone">
 		<ul class="phone_ul">

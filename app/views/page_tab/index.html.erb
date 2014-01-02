@@ -19,31 +19,31 @@
 		<div class="cqds_youtube_select">
 			<ul class="youtube_select_button">
 				<li class="youtube_select_button01">
-					<img id='youtube_01' src='<%= asset_path("page_tab/CQDS/tvcf_c.png") %>' onclick='changeFocus(1);'/> </li>
+					<img id='youtube_01' src='<%= asset_path("page_tab/CQDS/tvcf_c.png") %>' onclick='changeFocus(1);'/> 
+        </li>
 				<li class="youtube_select_button02">
-					<img src='<%= asset_path("page_tab/CQDS/interview.png") %>' id='youtube_02' onclick='changeFocus(2);'/> </li>
+					<img src='<%= asset_path("page_tab/CQDS/interview.png") %>' id='youtube_02' onclick='changeFocus(2);'/> 
+        </li>
 			</ul>
 		</div>
 		<div class="cqds_youtube_view">
 			<iframe id="youtube" width="557" height="309" src="//www.youtube.com/embed/hAa0OTP9eWE?wmode=opaque" frameborder="0" allowfullscreen></iframe>
 		</div>
-
 		<div class="cqds_donate">
 			<a href="#" id="event_popup"> 
         <%= image_tag "page_tab/CQDS/donation.jpg" %>
       </a> 
-			
 		</div>
 	</div>
 	<div class="cqds_down_field">
 		<ul class="down_select_button">
 				<li class="down_select_button01">
-          <a href="<%= asset_path("cqds-rcm-coloring.mp4")%>" class="coloring">
+          <a href="<%= asset_path("cqds-rcm-coloring.mp4")%>" class="coloring" target="_blank">
 					  <%= image_tag "page_tab/CQDS/ring.png" %> 
           </a>
         </li>
 				<li class="down_select_button02">
-          <a href="<%= asset_path("cqds-rcm-bizring.mp4")%>" class="alram">
+          <a href="<%= asset_path("cqds-rcm-bizring.mp4")%>" class="alram" target="_blank">
             <%= image_tag "page_tab/CQDS/notify.png" %>
           </a>
         </li>
@@ -52,7 +52,9 @@
 </div>
 
 <div id="pop_start" class="modal" style="display:none;">
-	<a href="#" rel="modal:close"><img width="38" height="36" src='<%= asset_path("page_tab/CQDS/Popup/close.png") %>'style="float:right;"></a>
+	<a href="#" rel="modal:close">
+    <img width="38" height="36" src='<%= asset_path("page_tab/CQDS/Popup/close.png") %>'style="float:right;">
+  </a>
 	<div class="popup1_check">
 		<a href="#" id="game_result" >
       <%= image_tag "page_tab/CQDS/Popup/check.png" %>
@@ -61,7 +63,9 @@
 </div>
 
 <div id="pop_fail" class="modal_fail" style="display:none;">
-	<a href="#" rel="modal:close"><img width="38" height="36" src='<%= asset_path("page_tab/CQDS/Popup2/close.png") %>'style="float:right;"/></a>
+	<a href="#" rel="modal:close">
+    <img width="38" height="36" src='<%= asset_path("page_tab/CQDS/Popup2/close.png") %>'style="float:right;"/>
+  </a>
 	<div class="popup2_check">
 		<a href="#" rel="modal:close">
       <%= image_tag "page_tab/CQDS/Popup2/check.png" %>
@@ -69,15 +73,13 @@
 	</div>	
 </div>
 <div id="pop_success" class="modal_success" style="display:none;">
-<!-- <div id="pop_success"> -->
 	<a href="#" rel="modal:close">
     <%= image_tag("page_tab/CQDS/Popup3/close.png", width: "38", height: "36", style: "float: right;") %>
   </a>
-  <!-- <form id="edit_winner"> -->
     <%# unless current_user.nil? %>
     	<%= simple_form_for @user, html:{id: "edit_winner"} do |f| %>
         <%= f.input :uid, as: :hidden, value: @user.uid %>
-        <%= f.input :access_token, as: :hidden, value: @user.token.access_token unless @user.token.nil? %>
+        <%= hidden_field_tag :access_token, value: @user.token.access_token unless @user.token.nil? %>
         <div class="name">
           <!-- <input type="text" name="name", id="user[name]" style="padding: 2px 2px 2px 2px; width:278px; height:22px; font-size:13pt;"> -->
           <%= f.input :name, input_html: {style: "padding: 2px 2px 2px 2px; width:278px; height:22px; font-size:13pt;"}, label: false %>

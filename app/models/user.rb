@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
     
   has_one :token, as: :identifiable
   has_many :wall_posts
-  attr_accessor :access_token
+  # attr_accessor :access_token
   
   
   def self.create_or_find_fan!(uid, access_token)
