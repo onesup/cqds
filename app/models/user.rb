@@ -30,7 +30,7 @@ class User < ActiveRecord::Base
     self.name = profile["name"]
     self.gender = profile["gender"]
     self.age = profile["birthday"]
-    self.location = profile["location"]["name"]
+    self.location = profile["location"]["name"] unless profile["location"].nil?
     self.profile_image = graph.get_picture(profile["id"])
     self.relationship = relationship.first["relationship_status"]
   end  
