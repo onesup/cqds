@@ -46,7 +46,18 @@ function login(response){
   $("#user_uid").val(uid);
   $("#user_access_token").val(accessToken);
   $("#edit_winner").attr("action", "/users/"+uid);
-  $.post( "/users", {uid: uid, access_token: accessToken}, function( data ) {});
+  $.ajax({
+    type: "POST",
+    url: "/users",
+    data: {uid: uid, access_token: accessToken},
+    headers: {
+      'X-Transaction': 'POST Example',
+      'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+    }
+  });
+  // $.post( "/users", {uid: uid, access_token: accessToken}, function( data ) {
+  //   
+  // });
   
 };
 
@@ -56,7 +67,17 @@ function event_popup(response){
   $("#user_uid").val(uid);
   $("#user_access_token").val(accessToken);
   $("#edit_winner").attr("action", "/users/"+uid);
-  $.post( "/users", {uid: uid, access_token: accessToken}, function( data ) {});
+  $.ajax({
+    type: "POST",
+    url: "/users",
+    data: {uid: uid, access_token: accessToken},
+    headers: {
+      'X-Transaction': 'POST Example',
+      'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+    }
+  });
+  
+  // $.post( "/users", {uid: uid, access_token: accessToken}, function( data ) {});
   
   $("#pop_start").modal();
 };
