@@ -3,9 +3,6 @@ class Gift < ActiveRecord::Base
   has_many :winners
   
   def is_win?(user, betted_at)
-    puts "@@@@@@@@@@@@"
-    puts user.uid
-    puts "@@@@@@@@@@@@"
     result = false
     golden_time = latest_golden_time(betted_at)
     unless is_before_win?(user)
@@ -30,7 +27,7 @@ class Gift < ActiveRecord::Base
     
   def is_before_win?(user)
     result = false
-    result = true unless winners.where(user_id: user.id).empty?
+    result = true unless winners.find_by_user_id(user.id).nil?
   end
   
   def latest_golden_time(betted_at)

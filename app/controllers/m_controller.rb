@@ -3,9 +3,10 @@ class MController < ApplicationController
 
   def index
     unless session[:facebook_uid].nil?
-      #redirect_to mobile_gate_path unless check_like
+      @user = current_user
+      redirect_to mobile_gate_path unless check_like
     else
-      #redirect_to fb_login_path
+      redirect_to fb_login_path
     end
   end
   
@@ -40,6 +41,9 @@ class MController < ApplicationController
         query = [1]
       end
       result = query.empty? ? false : true
+      puts "@@@@@like@@@@"
+      puts result
+      puts "@@@@@@@@@"
       return result
     end
         

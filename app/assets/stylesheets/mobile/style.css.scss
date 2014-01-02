@@ -186,7 +186,6 @@ table {
     padding: 2px 2px 2px 2px; 
     width:100px; 
     height:46px; 
-    ime-mode: disabled;
   }
 }
 .check{
@@ -199,11 +198,81 @@ table {
 
 .check_agree {
   float: left;
+  width: 56px;
   input{
+    float: left;
     margin-top: 8px;
+  }
+  label{
+    float: left;
+    margin-top: 8px;
+    margin-left: 2px;
   }
 }
 .provision  {
   float: left;
 	padding-left: 41px;
+}
+
+.modal a.close-modal {
+  display: none;
+}
+
+.modal-spinner {
+  display: none;
+}
+.popup1_check{
+  width: 312px;
+  margin: 0 auto;
+  padding-top: 236px;
+}
+
+.popup2_check{
+  width: 312px;	
+  margin: 0 auto;
+  padding-top: 404px;
+  outline:none; 
+}
+.popup3_check{
+  width: 312px;
+  margin: 0 auto;
+  margin-top: 365px;
+  outline:none; 
+}
+div.user_name{
+  input{
+    float: left;
+  }
+  label{
+    float: left;
+    margin-top: 18px;
+    margin-left: 8px;
+  }
+}
+.name {
+	padding-top: 252px;
+	padding-left: 172px;	
+	width: 241; height: 42px;
+}
+
+.phone {
+	padding-top: 16px;
+}
+.phone_ul{
+	padding-left: 173px;
+}
+input[type=checkbox]
+{
+  /* Double-sized Checkboxes */
+  -ms-transform: scale(1.5); /* IE */
+  -moz-transform: scale(1.5); /* FF */
+  -webkit-transform: scale(1.5); /* Safari and Chrome */
+  -o-transform: scale(1.5); /* Opera */
+}
+.coloring_link{
+  width: 100%; max-width: 320px;
+}
+#join img{
+  margin: 0 auto;
+  margin-top: 40px;
 }
