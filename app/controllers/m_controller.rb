@@ -61,7 +61,7 @@ class MController < ApplicationController
       rescue Koala::Facebook::AuthenticationError
         puts "auth error"
         session[:facebook_uid] = nil
-        redirect_to fb_login_path
+        # redirect_to fb_login_path
         query = []
       rescue Koala::Facebook::ClientError
         puts "client error"
