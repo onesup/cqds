@@ -78,9 +78,9 @@ a:active{text-decoration:none; color:#000;}
     line-height: 0px;
 }
 .mobile3{
-  width: 100%; 
   max-width: 640px; 
   background-image: image-url("page_tab/CQDS_Mobile/youtube_back.png");
+  background-size: 100% auto;
   background-repeat: repeat-y;
   iframe{
     margin: 0 auto;	
