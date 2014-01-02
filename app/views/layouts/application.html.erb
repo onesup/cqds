@@ -72,21 +72,21 @@ $(document).ready(function() {
       xfbml      : true  // parse XFBML
     });
     
-    FB.getLoginStatus(function(response) {
-      if (response.status === 'not_authorized') {
-        // FB.login(function(response) {
-        //    if (response.authResponse) {
-        //      login(response);
-        //    } else {
-        //      console.log('User cancelled login or did not fully authorize.');
-        //    }
-        //  },{scope: 'email, user_birthday, user_photos'});
-      }else if (response.status === 'connected'){
-        login(response);
-      }else{
-        alert("캠페인에 참여하기 위해서는 페이스북 로그인이 필요합니다.");
-      }
-    });
+    // FB.getLoginStatus(function(response) {
+    //   if (response.status === 'not_authorized') {
+    //     // FB.login(function(response) {
+    //     //    if (response.authResponse) {
+    //     //      login(response);
+    //     //    } else {
+    //     //      console.log('User cancelled login or did not fully authorize.');
+    //     //    }
+    //     //  },{scope: 'email, user_birthday, user_photos'});
+    //   }else if (response.status === 'connected'){
+    //     login(response);
+    //   }else{
+    //     alert("캠페인에 참여하기 위해서는 페이스북 로그인이 필요합니다.");
+    //   }
+    // });
     
     FB.Canvas.setSize();
     FB.Canvas.setAutoGrow();
@@ -104,7 +104,9 @@ $(document).ready(function() {
             scope: 'email, user_birthday, user_photos'
           });
           login(response);
+          event_popup(response);
         }else if (response.status === 'connected'){
+          login(response)
           event_popup(response);
         }else{
           alert("캠페인에 참여하기 위해서는 페이스북 로그인이 필요합니다.");
