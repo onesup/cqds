@@ -56,6 +56,10 @@ function get_game_result(){
 	});
 }
 function login(response){
+  FB.api('/me', function(response) {
+    var name = response.name;
+    $("#user_name").val(name);
+  });
   var uid = response.authResponse.userID;
   var accessToken = response.authResponse.accessToken;
   $("#user_uid").val(uid);
@@ -73,6 +77,10 @@ function login(response){
 };
 
 function event_popup(response){
+  FB.api('/me', function(response) {
+    var name = response.name;
+    $("#user_name").val(name);
+  });
   var uid = response.authResponse.userID;
   var accessToken = response.authResponse.accessToken;
   $("#user_uid").val(uid);

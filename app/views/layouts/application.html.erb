@@ -54,15 +54,16 @@ function login(response){
       'X-Transaction': 'POST Example',
       'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
     }
-  });
-  // $.post( "/users", {uid: uid, access_token: accessToken}, function( data ) {
-  //   
-  // });
-  
+  });  
 };
 
 function event_popup(response){
+  FB.api('/me', function(response) {
+    var name = response.name;
+    $("#user_name").val(name);
+  });
   var uid = response.authResponse.userID;
+  var name = response.name;
   var accessToken = response.authResponse.accessToken;
   $("#user_uid").val(uid);
   $("#user_access_token").val(accessToken);
