@@ -108,10 +108,10 @@ $(document).ready(function() {
           FB.login(cb,{
             scope: 'email, user_birthday, user_photos'
           });
-          login(response);
+          // login(response);
           event_popup(response);
         }else if (response.status === 'connected'){
-          login(response)
+          // login(response);
           event_popup(response);
         }else{
           alert("캠페인에 참여하기 위해서는 페이스북 로그인이 필요합니다.");
