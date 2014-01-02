@@ -6,9 +6,6 @@ class HomeController < ApplicationController
       flash[:facebook_params] = request.env['facebook.params']
       redirect_to mobile_path
     else
-      puts "@@@@first@@@@@@@"
-      puts request.params["page"]
-      puts "@@@@@@@@@@"
       flash[:facebook_params] = request.env['facebook.params']
       redirect_to FACEBOOK_CONFIG[:page_tab_address]
     end
@@ -28,6 +25,9 @@ class HomeController < ApplicationController
   
   def game_result
     user = User.find_by_uid params[:uid]
+    puts "@@@@game_result@@@@"
+    puts user.uid
+    puts "@@@@@@@@"
     @result = Gift.first.is_win?(user, Time.now)
   end
   
