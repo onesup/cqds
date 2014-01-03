@@ -2,14 +2,14 @@ class MController < ApplicationController
   layout 'mobile'
 
   def index
-    puts "@@@@@@index"
-    puts session[:facebook_uid] unless session[:facebook_uid].nil?
+    Rails.logger.info "@@@@@@index"
+    Rails.logger.info session[:facebook_uid] unless session[:facebook_uid].nil?
     unless session[:facebook_uid].nil?
       if check_like == true
-        puts "@@@@@@ go to mobile_path"
+        Rails.logger.info "@@@@@@ go to mobile_path"
         @user = current_user
       else
-        puts "@@@@@@ go to mobile_gate_path"
+        Rails.logger.info "@@@@@@ go to mobile_gate_path"
         redirect_to mobile_gate_path
       end
     else
@@ -18,14 +18,14 @@ class MController < ApplicationController
   end
   
   def fb_login
-    puts "@@@@@@fb_login"
-    puts session[:facebook_uid] unless session[:facebook_uid].nil?
+    Rails.logger.info "@@@@@@fb_login"
+    Rails.logger.info session[:facebook_uid] unless session[:facebook_uid].nil?
     unless session[:facebook_uid].nil?
       if check_like == true
-        puts "@@@@@@ go to mobile_path"
+        Rails.logger.info "@@@@@@ go to mobile_path"
         redirect_to mobile_path
       else
-        puts "@@@@@@ go to mobile_gate_path"
+        Rails.logger.info "@@@@@@ go to mobile_gate_path"
         redirect_to mobile_gate_path
       end
     else
@@ -34,14 +34,18 @@ class MController < ApplicationController
   end
   
   def fan_gate
-    puts "@@@@@@fan_gate"
-    puts session[:facebook_uid] unless session[:facebook_uid].nil?
+    Rails.logger.info "@@@@@@fan_gate"
+    Rails.logger.info session[:facebook_uid] unless session[:facebook_uid].nil?
     unless session[:facebook_uid].nil?
       if check_like == true
-        puts "@@@@@@ go to mobile_path"
+        Rails.logger.info "@@@@@@ go to mobile_path"
         redirect_to mobile_path
       else
-        puts "@@@@@@ go to mobile_gate_path"
+        if check_like == "auth error"
+          redirect_to fb_login_path
+        else
+          Rails.logger.info "@@@@@@ go to mobile_gate_path"
+        end
       end
     else
       redirect_to fb_login_path
@@ -59,19 +63,20 @@ class MController < ApplicationController
       begin
         query = api.get_connections("me","likes/" + page_id)
       rescue Koala::Facebook::AuthenticationError
-        puts "auth error"
+        Rails.logger.info "auth error"
         session[:facebook_uid] = nil
         # redirect_to fb_login_path
-        query = []
+        query = "auth error"
       rescue Koala::Facebook::ClientError
-        puts "client error"
+        Rails.logger.info "client error"
         session[:facebook_uid] = nil
         query = []
       end
       result = true unless query.empty?
-      puts "@@@@@check_like@@@@"
-      puts result
-      puts "@@@@@@@@@"
+      result = "auth error" if query == "auth error"
+      Rails.logger.info "@@@@@check_like@@@@"
+      Rails.logger.info result
+      Rails.logger.info "@@@@@@@@@"
       return result
     end
         
