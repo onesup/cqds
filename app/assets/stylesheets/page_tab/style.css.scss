@@ -52,6 +52,9 @@ a:active{text-decoration:none; color:#000;}
   height:1316px;
   background: asset-url("page_tab/CQDS/main.jpg") 0 0 no-repeat;
 }
+.cqds_youtube{
+
+}
 .cqds_youtube_select { 
   width: 557px;
   margin: 0 auto;
@@ -61,22 +64,25 @@ a:active{text-decoration:none; color:#000;}
 .cqds_youtube_view { 
   width: 557px;
   margin: 0 auto;
-  padding-top:70px;
-}
-
-.cqds_donate { 
-  padding-top:30px;
-  width: 252px;
-  margin: 0 auto;
-}
-.cqds_donate { 
-  padding-top:30px;
-  width: 252px;
-  margin: 0 auto;
-}
-
-.cqds_down_field { 
   padding-top:65px;
+}
+
+.cqds_donate { 
+  width: 252px;
+  margin: 0 auto;
+  padding-top:20px;
+  padding-bottom: 0px;
+  margin-top: 5px;
+  .donation_count{
+    margin-top: -10px;
+    margin-bottom: 20px;
+    max-width: 640px;
+    color: white;
+    text-align: center;
+  }
+}
+.cqds_down_field { 
+  padding-top:45px;
   width: 642px;
   margin: 0 auto;
 }

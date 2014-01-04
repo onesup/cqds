@@ -124,14 +124,19 @@ a:active{text-decoration:none; color:#000;}
     background-attachment: fixed;
     float:left;
 }   
-.mobile4-3
-{ 
-     background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    overflow: auto;
-    width: 100%;
+.mobile4-3{ 
+  height: 50px;
+  background-image: image-url("page_tab/CQDS_Mobile/4-3.png");
+  background-repeat: repeat-y;
+  background-attachment: fixed;
+  overflow: auto;
+  height: 50px;
+  .donation_count{
+    margin-top: 20px;
+    max-width: 640px;
+    color: white;
+    text-align: center;
+  }
 }   
 
 
