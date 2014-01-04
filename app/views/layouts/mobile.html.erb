@@ -50,7 +50,6 @@ function get_game_result(){
 			if(data.result == true){
 				$("#pop_success").modal();
 			}else if(data.today_limit > 3){
-        alert("limit");
 				$("#pop_limit").modal();
 			}else{
 			  $("#pop_fail").modal();
