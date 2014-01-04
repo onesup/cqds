@@ -35,8 +35,11 @@ function get_game_result(){
       
 			if(data.result == true){
 				$("#pop_success").modal();
+			}else if(data.today_limit > 3){
+        alert("limit");
+				$("#pop_limit").modal();
 			}else{
-				$("#pop_fail").modal();
+			  $("#pop_fail").modal();
 			}
 		}
 	});
@@ -152,7 +155,7 @@ $(document).ready(function() {
         }
       });  
       $.modal.close();
-      alert(winner_name + "님, 당첨을 축하드립니다 ^^");
+      $.modal_congratulation.modal();
     },
   });
 });

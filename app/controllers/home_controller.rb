@@ -35,10 +35,12 @@ class HomeController < ApplicationController
   
   def game_result
     user = User.find_by_uid params[:uid]
+    Donation.registering(user)
     @result = Gift.first.is_win?(user, Time.now)
-    @today_count
-    @total_my_count
-    @total_count
+    @today_count = Donation.daily_count(Time.now)
+    @total_my_count = user.donations.count
+    @total_count = Donation.count
+    @today_limit = user.daily_donations(Time.now)
   end
   
   def canvas

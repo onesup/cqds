@@ -5,6 +5,12 @@ class User < ActiveRecord::Base
   has_many :donations
   # attr_accessor :access_token
   
+  def daily_donations(day)
+    start_date = day.beginning_of_day
+    end_date = day.end_of_day
+    count = self.donations.where("created_at >= :start_date AND created_at <= :end_date",
+      {start_date: start_date, end_date: end_date}).count
+  end
   
   def self.create_or_find_fan!(uid, access_token)
     unless exists?(uid: uid)

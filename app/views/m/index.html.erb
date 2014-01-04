@@ -37,6 +37,55 @@
   -o-transform: scale(0.5); /* Opera */
   
  }
+.modal_limit {
+ opacity:1.0;
+ width: 500px; 
+ height: 245px;
+ display: none;
+ background: url('<%= asset_path("page_tab/CQDS_M/Popup_limit/limit.png") %>') no-repeat 0 0;
+ -webkit-border-radius: 8px;
+ -moz-border-radius: 8px;
+ -o-border-radius: 8px;
+ -ms-border-radius: 8px;
+ border-radius: 8px;
+ -webkit-box-shadow: 0 0 10px #000;
+ -moz-box-shadow: 0 0 10px #000;
+ -o-box-shadow: 0 0 10px #000;
+ -ms-box-shadow: 0 0 10px #000;
+ box-shadow: 0 0 10px #000;
+
+ /* Double-sized Checkboxes */
+ -ms-transform: scale(0.5); /* IE */
+ -moz-transform: scale(0.5); /* FF */
+ -webkit-transform: scale(0.5); /* Safari and Chrome */
+ -o-transform: scale(0.5); /* Opera */
+
+}
+.modal_congratulation {
+ opacity:1.0;
+ width: 500px; 
+ height: 245px;
+ display: none;
+ background: url('<%= asset_path("page_tab/CQDS_M/Popup_limit/limit.png") %>') no-repeat 0 0;
+ -webkit-border-radius: 8px;
+ -moz-border-radius: 8px;
+ -o-border-radius: 8px;
+ -ms-border-radius: 8px;
+ border-radius: 8px;
+ -webkit-box-shadow: 0 0 10px #000;
+ -moz-box-shadow: 0 0 10px #000;
+ -o-box-shadow: 0 0 10px #000;
+ -ms-box-shadow: 0 0 10px #000;
+ box-shadow: 0 0 10px #000;
+
+ /* Double-sized Checkboxes */
+ -ms-transform: scale(0.5); /* IE */
+ -moz-transform: scale(0.5); /* FF */
+ -webkit-transform: scale(0.5); /* Safari and Chrome */
+ -o-transform: scale(0.5); /* Opera */
+
+}
+ 
  
 .modal_start {
   opacity:1.0; 
@@ -176,6 +225,26 @@
 	<div class="popup1_check">
 		<a href="#" rel="modal:close" >
       <%= image_tag "page_tab/CQDS_M/Popup/check.png" %>
+    </a> 	
+	</div>	
+</div>
+<div id="pop_limit" class="modal_limit" style="display:none;">
+	<a href="#" rel="modal:close">
+    <% image_tag "page_tab/CQDS_M/Popup2/close.png", class: "popup_close" %>
+  </a>
+	<div class="popup_limit_check">
+		<a href="#" rel="modal:close">
+      <%= image_tag "page_tab/CQDS_M/Popup_limit/check.png" %>
+    </a> 	
+	</div>	
+</div>
+<div id="pop_congratulation" class="modal_congratulation" style="display:none;">
+	<a href="#" rel="modal:close">
+    <% image_tag "page_tab/CQDS_M/Popup2/close.png", class: "popup_close" %>
+  </a>
+	<div class="popup_limit_check">
+		<a href="#" rel="modal:close">
+      <%= image_tag "page_tab/CQDS_M/Popup_congratulation/check.png" %>
     </a> 	
 	</div>	
 </div>
