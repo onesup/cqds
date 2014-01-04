@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   include DailyCount
     
   has_one :token, as: :identifiable
-  has_many :wall_posts
+  has_many :donations
   # attr_accessor :access_token
   
   

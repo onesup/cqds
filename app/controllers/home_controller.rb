@@ -35,10 +35,10 @@ class HomeController < ApplicationController
   
   def game_result
     user = User.find_by_uid params[:uid]
-    puts "@@@@game_result@@@@"
-    puts user.uid
-    puts "@@@@@@@@"
     @result = Gift.first.is_win?(user, Time.now)
+    @today_count
+    @total_my_count
+    @total_count
   end
   
   def canvas

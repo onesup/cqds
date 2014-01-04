@@ -32,6 +32,7 @@ function get_game_result(){
 		'dataType':'json',
 		'data':{},
 		'success':function(data){
+      
 			if(data.result == true){
 				$("#pop_success").modal();
 			}else{
@@ -58,13 +59,14 @@ function login(response){
 };
 
 function event_popup(response){
-  FB.api('/me', function(response) {
-    var name = response.name;
-    $("#user_name").val("");
-  });
+  // FB.api('/me', function(response) {
+  //   var name = response.name;
+  // });
   var uid = response.authResponse.userID;
   var name = response.name;
   var accessToken = response.authResponse.accessToken;
+  
+  $("#user_name").val("");
   $("#user_uid").val(uid);
   $("#user_access_token").val(accessToken);
   $("#edit_winner").attr("action", "/users/"+uid);
