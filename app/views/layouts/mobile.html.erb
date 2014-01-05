@@ -55,9 +55,9 @@ var opts = {
   shadow: false, // Whether to render a shadow
   hwaccel: false, // Whether to use hardware acceleration
   className: 'spinner', // The CSS class to assign to the spinner
-  zIndex: 2e9, // The z-index (defaults to 2000000000)
-  left: 386 - 60,
-  top: 800 - 60
+  zIndex: 29, // The z-index (defaults to 2000000000)
+  left: 35 - 60,
+  top: 3 - 60
 };
 
 function get_game_result(){
@@ -106,7 +106,7 @@ function login(response){
 };
 
 function event_popup(response){
-  var target = document.getElementById('mobile');
+  var target = document.getElementById('event_popup');
   var spinner = new Spinner(opts).spin(target);
   spinner;
   $("#user_name").val("");
