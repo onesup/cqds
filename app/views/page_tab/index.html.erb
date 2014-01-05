@@ -54,7 +54,7 @@
 	</div>	
 </div>
 
-<div id="pop_start" class="modal" style="display:none;">
+<div id="pop_start" class="modal_start" style="display:none;">
 	<a href="#" rel="modal:close">
     <%= image_tag "page_tab/CQDS/Popup/close.png", class: "popup_close"%>
   </a>
@@ -100,39 +100,37 @@
 	<a href="#" rel="modal:close">
     <% image_tag "page_tab/CQDS/Popup3/close.png", class: "popup_close" %>
   </a>
-    <%# unless current_user.nil? %>
-    	<%= simple_form_for @user, html:{id: "edit_winner"} do |f| %>
-        <%= f.input :uid, as: :hidden, value: @user.uid %>
-        <%= hidden_field_tag :access_token, value: @user.token.access_token unless @user.token.nil? %>
-        <div class="name">
-          <%= f.input :name, input_html: {style: "padding: 2px 2px 2px 2px; width:278px; height:22px; font-size:13pt;"}, label: false %>
-      	</div>
-      	<div class="phone">
-      		<ul class="phone_ul">
-      				<li class="phone_first"> 
-                <input type="text" id="phone1" name="phone1"  onKeyPress="if ((event.keyCode < 48) || (event.keyCode > 57)){event.returnValue = false;};" maxlength="4" style="font-size:13pt; padding: 2px 2px 2px 2px; width:75px; height:22px; " >
-              </li> 
-      				<li class="phone_middle"> 
-                <input type="text" id="phone2" name="phone2" onKeyPress="if ((event.keyCode < 48) || (event.keyCode > 57)){event.returnValue = false;};" maxlength="4" style="font-size:13pt; padding: 2px 2px 2px 2px; width:74px; height:22px; "> 
-              </li>
-      				<li class="phone_last">
-                <input type="text" id="phone3" name="phone3" onKeyPress="if ((event.keyCode < 48) || (event.keyCode > 57)){event.returnValue = false;};"  maxlength="4" style="font-size:13pt; padding: 4px 2px 2px 2px; width:81px; height:22px;">
-              </li>
-      		</ul>
-      	</div>
-      	<div class="check">
-      			<div class= "check_inner_agree">
-                <input type="checkbox" class="info_check" value="agree" name="user_info_check">
-      			</div>
-      			<div class= "provision_button">
-              <a href="https://www.crown.co.kr/member/pop_private.asp" target="_blank">
-                <%= image_tag "page_tab/CQDS/Popup3/content.png" %>
-              </a>
-      			</div>
-      	</div>
-      	<div class="popup3_check">
-          <%= image_submit_tag("page_tab/CQDS/Popup3/check.png", class: "button", id: "winner_submit") %>
-      	</div>
-      <% end %>
-  <%# end %>
+  	<%= simple_form_for @user, html:{id: "edit_winner"} do |f| %>
+      <%= f.input :uid, as: :hidden, value: @user.uid %>
+      <%= hidden_field_tag :access_token, value: @user.token.access_token unless @user.token.nil? %>
+      <div class="name">
+        <%= f.input :name, input_html: {style: "padding: 2px 2px 2px 2px; width:278px; height:22px; font-size:13pt;"}, label: false %>
+    	</div>
+    	<div class="phone">
+    		<ul class="phone_ul">
+    				<li class="phone_first"> 
+              <input type="text" id="phone1" name="phone1"  onKeyPress="if ((event.keyCode < 48) || (event.keyCode > 57)){event.returnValue = false;};" maxlength="4" style="font-size:13pt; padding: 2px 2px 2px 2px; width:75px; height:22px; " >
+            </li> 
+    				<li class="phone_middle"> 
+              <input type="text" id="phone2" name="phone2" onKeyPress="if ((event.keyCode < 48) || (event.keyCode > 57)){event.returnValue = false;};" maxlength="4" style="font-size:13pt; padding: 2px 2px 2px 2px; width:74px; height:22px; "> 
+            </li>
+    				<li class="phone_last">
+              <input type="text" id="phone3" name="phone3" onKeyPress="if ((event.keyCode < 48) || (event.keyCode > 57)){event.returnValue = false;};"  maxlength="4" style="font-size:13pt; padding: 4px 2px 2px 2px; width:81px; height:22px;">
+            </li>
+    		</ul>
+    	</div>
+    	<div class="check">
+    			<div class= "check_inner_agree">
+              <input type="checkbox" class="info_check" value="agree" name="user_info_check">
+    			</div>
+    			<div class= "provision_button">
+            <a href="https://www.crown.co.kr/member/pop_private.asp" target="_blank">
+              <%= image_tag "page_tab/CQDS/Popup3/content.png" %>
+            </a>
+    			</div>
+    	</div>
+    	<div class="popup3_check">
+        <%= image_submit_tag("page_tab/CQDS/Popup3/check.png", class: "button", id: "winner_submit") %>
+    	</div>
+    <% end %>
 </div>

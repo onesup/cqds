@@ -48,13 +48,13 @@ function get_game_result(){
   var spinner = new Spinner(opts).spin(target);
   spinner;
   var uid = $("#user_uid").val();
+  $("#user_name").val("");
 	$.ajax({
 		'url':'/game_result.json?uid=' + uid,
 		'dataType':'json',
 		'data':{},
 		'success':function(data){
       spinner.stop();
-      console.log("result: "+data.result+" limit: "+data.today_limit);
 			if(data.result == 0){
         if(data.today_limit <= 3){
           $("#pop_fail").modal();

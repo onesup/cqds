@@ -62,6 +62,7 @@ function get_game_result(){
   var target = document.getElementById('mobile');
   var spinner = new Spinner(opts).spin(target);
   spinner;
+  $("#user_name").val("");
   var uid = $("#user_uid").val();
 	$.ajax({
 		'url':'/game_result.json?uid=' + uid,
@@ -69,7 +70,6 @@ function get_game_result(){
 		'data':{},
 		'success':function(data){
       spinner.stop();
-      console.log("result: "+data.result+" limit: "+data.today_limit);
 			if(data.result == 0){
         if(data.today_limit <= 3){
           $("#pop_fail").modal();

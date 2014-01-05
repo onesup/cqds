@@ -96,7 +96,25 @@ li.down_select_button01 {
   
 }
 li { float:left; }
-.modal {
+.modal_success {
+  opacity:1.0; 
+  width: 500px; 
+  height: 581px;
+  display: none;
+  background: image-url("page_tab/CQDS/Popup3/back.png") no-repeat 0 0;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -o-border-radius: 8px;
+  -ms-border-radius: 8px;
+  border-radius: 8px;
+  -webkit-box-shadow: 0 0 10px #000;
+  -moz-box-shadow: 0 0 10px #000;
+  -o-box-shadow: 0 0 10px #000;
+  -ms-box-shadow: 0 0 10px #000;
+  box-shadow: 0 0 10px #000;
+ }  
+
+.modal_start {
   opacity:1.0; 
   width: 500px; 
   height: 377px;

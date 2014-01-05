@@ -3,15 +3,11 @@ class Donation < ActiveRecord::Base
   
   def self.registering(user)
     total_donation = Donation.order("created_at asc").last.total
-    puts "last_id: " + Donation.order("created_at asc").last.id.to_s
-    puts "@@@@@@"+total_donation.to_s
     if user.donations.count > 1
       user.donations.create!(total: total_donation)
-      puts "true"
       return false
     else
       d = user.donations.create!(total: total_donation+1)
-      puts "false"+d.total.to_s
       return d.total
     end
   end
