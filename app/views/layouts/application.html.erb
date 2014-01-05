@@ -46,8 +46,8 @@ var opts = {
 
 function get_game_result(){
   var target = document.getElementById('main');
-  var spinner = new Spinner(opts).spin(target);
-  spinner;
+  // var spinner = new Spinner(opts).spin(target);
+  // spinner;
   var uid = $("#user_uid").val();
   $("#user_name").val("");
 	$.ajax({
@@ -55,7 +55,7 @@ function get_game_result(){
 		'dataType':'json',
 		'data':{},
 		'success':function(data){
-      spinner.stop();
+      // spinner.stop();
 			if(data.result == 0){
         if(data.today_limit <= 3){
           $("#pop_fail").modal();
@@ -87,8 +87,8 @@ function login(response){
 
 function event_popup(response){
   var target = document.getElementById('main');
-  var spinner = new Spinner(opts).spin(target);
-  spinner;
+  // var spinner = new Spinner(opts).spin(target);
+  // spinner;
   $("#user_name").val("");
   var uid = response.authResponse.userID;
   var accessToken = response.authResponse.accessToken;
@@ -105,7 +105,7 @@ function event_popup(response){
       'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
     },
     success: function(data){
-      spinner.stop();
+      // spinner.stop();
       var text = "현재 "+data.total_donations+"원 적립";
       $('#total_donations').text(text);
       console.log(data.today_limit);
