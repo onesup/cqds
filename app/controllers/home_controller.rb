@@ -35,7 +35,6 @@ class HomeController < ApplicationController
   
   def game_result
     user = User.find_by_uid params[:uid]
-    Donation.registering(user)
     if Gift.first.is_win?(user, Time.now)
       @result = 1
     else
@@ -45,7 +44,6 @@ class HomeController < ApplicationController
     @total_my_count = user.donations.count
     @total_count = Donation.count
     @today_limit = user.daily_donations(Time.now)
-    Rails.logger.info("%%%%%%today_limit: "+@today_limit.to_s+"result: "+@result.to_s)
   end
   
   def canvas

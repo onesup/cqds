@@ -2,14 +2,24 @@ class Donation < ActiveRecord::Base
   belongs_to :user
   
   def self.registering(user)
-    total_donation = Donation.order("created_at asc").last.total
-    if user.donations.count > 1
-      user.donations.create!(total: total_donation)
-      return false
+    last_donation = Donation.order("created_at asc").last
+    unless last_donation.nil?
+      total_donation = last_donation.total 
     else
-      d = user.donations.create!(total: total_donation+1)
-      return d.total
+      total_donation = 1
     end
+    if user.donations.daily_count(Time.now) >= 4
+      result = "limit"
+    else
+      if user.donations.count > 1
+        user.donations.create!(total: total_donation)
+        result = false
+      else
+        d = user.donations.create!(total: total_donation+1)
+        result = d.total
+      end
+    end
+    return result
   end
   
   def self.daily_count(day)

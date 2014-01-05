@@ -95,13 +95,19 @@ function event_popup(response){
   $("#edit_winner").attr("action", "/users/"+uid);
   $.ajax({
     type: "POST",
-    url: "/users",
+    url: "/users.json",
     data: {uid: uid, access_token: accessToken},
+    dataType: "json",
     headers: {
       'X-Transaction': 'POST Example',
       'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+    },
+    success: function(data){
+      var text = "현재 "+data.total_donations+"원 적립";
+      console.log(text);
+      $('#total_donations').text(text);
     }
-  });  
+  });
   $("#pop_start").modal();
 };
 

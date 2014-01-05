@@ -99,15 +99,17 @@ function login(response){
     headers: {
       'X-Transaction': 'POST Example',
       'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
-    }
+    },
   });
 };
 
 function event_popup(response){
-  FB.api('/me', function(response) {
-    var name = response.name;
-    $("#user_name").val("");
-  });
+  // FB.api('/me', function(response) {
+  //   var name = response.name;
+  // 
+  // });
+  console.log("click");
+  $("#user_name").val("");
   var uid = response.authResponse.userID;
   var accessToken = response.authResponse.accessToken;
   $("#user_uid").val(uid);
@@ -115,11 +117,17 @@ function event_popup(response){
   $("#edit_winner").attr("action", "/users/"+uid);
   $.ajax({
     type: "POST",
-    url: "/users",
+    url: "/users.json",
     data: {uid: uid, access_token: accessToken},
+    dataType: "json",
     headers: {
       'X-Transaction': 'POST Example',
       'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+    },
+    success: function(data){
+      var text = "현재 "+data.total_donations+"원 적립";
+      console.log(text);
+      $('#total_donations').text(text);
     }
   });
   $("#pop_start").modal();
