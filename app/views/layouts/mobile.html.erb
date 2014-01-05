@@ -30,6 +30,7 @@ function verifyUserLikesPage() {
   });
 };
 
+
 var cb = function(response){
   if (response.status === 'connected') {
     event_popup(response);
@@ -40,25 +41,26 @@ var cb = function(response){
   }
 };
 
+var opts = {
+  lines: 13, // The number of lines to draw
+  length: 20, // The length of each line
+  width: 10, // The line thickness
+  radius: 30, // The radius of the inner circle
+  corners: 1, // Corner roundness (0..1)
+  rotate: 0, // The rotation offset
+  direction: 1, // 1: clockwise, -1: counterclockwise
+  color: '#fff', // #rgb or #rrggbb or array of colors
+  speed: 1, // Rounds per second
+  trail: 60, // Afterglow percentage
+  shadow: false, // Whether to render a shadow
+  hwaccel: false, // Whether to use hardware acceleration
+  className: 'spinner', // The CSS class to assign to the spinner
+  zIndex: 2e9, // The z-index (defaults to 2000000000)
+  left: 386 - 60,
+  top: 800 - 60
+};
+
 function get_game_result(){
-  var opts = {
-    lines: 13, // The number of lines to draw
-    length: 20, // The length of each line
-    width: 10, // The line thickness
-    radius: 30, // The radius of the inner circle
-    corners: 1, // Corner roundness (0..1)
-    rotate: 0, // The rotation offset
-    direction: 1, // 1: clockwise, -1: counterclockwise
-    color: '#000', // #rgb or #rrggbb or array of colors
-    speed: 1, // Rounds per second
-    trail: 60, // Afterglow percentage
-    shadow: false, // Whether to render a shadow
-    hwaccel: false, // Whether to use hardware acceleration
-    className: 'spinner', // The CSS class to assign to the spinner
-    zIndex: 2e9, // The z-index (defaults to 2000000000)
-    top: 'auto', // Top position relative to parent in px
-    left: 'auto' // Left position relative to parent in px
-  };
   var target = document.getElementById('mobile');
   var spinner = new Spinner(opts).spin(target);
   spinner;
@@ -104,11 +106,9 @@ function login(response){
 };
 
 function event_popup(response){
-  // FB.api('/me', function(response) {
-  //   var name = response.name;
-  // 
-  // });
-  console.log("click");
+  var target = document.getElementById('mobile');
+  var spinner = new Spinner(opts).spin(target);
+  spinner;
   $("#user_name").val("");
   var uid = response.authResponse.userID;
   var accessToken = response.authResponse.accessToken;
@@ -125,12 +125,18 @@ function event_popup(response){
       'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
     },
     success: function(data){
+      spinner.stop();
       var text = "현재 "+data.total_donations+"원 적립";
-      console.log(text);
       $('#total_donations').text(text);
+      console.log(data.today_limit);
+      if(data.today_limit <= 3){
+        $("#pop_start").modal();
+			}else{
+        $("#pop_limit").modal();
+			}
     }
   });
-  $("#pop_start").modal();
+  
 };
 
 function spin(){

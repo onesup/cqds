@@ -33,9 +33,6 @@ Cqds::Application.routes.draw do
 
   resources :wall_posts, only: [:create]
   resources :users, only: [:create, :update] do
-    collection do
-      get :total_donations
-    end
     member do 
       post :update
     end

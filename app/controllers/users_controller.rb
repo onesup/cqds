@@ -1,5 +1,5 @@
 class UsersController < ApplicationController  
-  
+
   def create
     uid = params["uid"]
     access_token = params["access_token"]
@@ -7,9 +7,12 @@ class UsersController < ApplicationController
     session[:facebook_uid] = uid
     session[:facebook_token] = access_token
     Donation.registering(user)
+    total_donations = Donation.count * 100
+    today_limit = user.daily_donations(Time.now)
+    data = {total_donations: total_donations, today_limit: today_limit}
     respond_to do |format|
-      format.html { render nothing: true }
-      format.json { render action: 'total_donations', status: :created }
+      format.html {render nothing: true}
+      format.json {render json: data}
     end
   end
   
@@ -24,5 +27,4 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:id, :uid, :name, :email, :phone_number)
   end
-  
 end
