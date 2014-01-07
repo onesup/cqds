@@ -5,7 +5,9 @@ class Gift < ActiveRecord::Base
   def is_win?(user, betted_at)
     result = false
     golden_time = latest_golden_time(betted_at)
+    Rails.logger.info("%%%golden_time: "+golden_time.to_s+" <= betted_at:"+ betted_at.to_s)
     unless is_before_win?(user)
+      Rails.logger.info("this guy before win")
       if golden_time.to_datetime <= betted_at.to_datetime
         self.winners.create!(user: user, gifted_at: golden_time)
         result = true

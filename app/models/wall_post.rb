@@ -1,33 +1,26 @@
 class WallPost < ActiveRecord::Base
   belongs_to :user
   validates :message, presence: true
-  def post_message
-'"' + self.message + '" 라고
-' +
-'' + self.user.name + 
-'영웅이 말씀하셨습니다.
-
-댓글기부 ▶ http://bit.ly/173wYGA
-
-영웅의 한마디가 기부금으로 전환되어 
-기적의 어린이재활병원 건립 후원금으로 지원됩니다.
-
-지금 기적을 만드는 영웅이 되어주세요!'
+  def self.post_message
+'쿠크~ 가슴뛰는 선물!
+ 
+지금 쿠크다스 페이지에 가서 "기부하기" 버튼만 누르면,
+심장병 어린이에게 기부를! 나에게는 쿠크다스의 행운이! 
+지금 참여하세요! 쿠크다스를 무료로!!   
+기부하기 ▶ http://bit.ly/cqdas'
   end
   
-  def post
-    user = self.user
-    api = Koala::Facebook::API.new(self.user.token.access_token)
-    pictures = %w(posting_img posting_01 posting_02 posting_03)
-    picture = "#{Rails.root.to_s}/app/assets/images/#{pictures.shuffle.last}.jpg"
+  def self.post(user)
+    api = Koala::Facebook::API.new(user.token.access_token)
+    # pictures = %w(posting_img posting_01 posting_02 posting_03)
+    picture = "#{Rails.root.to_s}/app/assets/images/posting_img.jpg"
     begin 
-      api.put_picture(picture,"image/jpeg", {:message => self.post_message})
+      api.put_picture(picture,"image/jpeg", {:message => WallPost.post_message})
     rescue Koala::Facebook::AuthenticationError
-      puts "@@@@@@@@@@@@@@@@@"
-      puts "Koala::Facebook::AuthenticationError"
-      puts "@@@@@@@@@@@@@@@@@"
+      Rails.logger.info "@@@@@@@@@@@@@@@@@"
+      Rails.logger.info "Koala::Facebook::AuthenticationError"
+      Rails.logger.info "@@@@@@@@@@@@@@@@@"
     end
-    Hero.registering(user)
   end
   
   def self.daily_count(day)

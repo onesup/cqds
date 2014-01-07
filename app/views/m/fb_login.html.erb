@@ -29,8 +29,8 @@ function spin(){
     hwaccel: false, // Whether to use hardware acceleration
     className: 'spinner', // The CSS class to assign to the spinner
     zIndex: 29, // The z-index (defaults to 2000000000)
-    top: 48 - 60, // Top position relative to parent in px
-    left: 18- 60 // Left position relative to parent in px
+    left: 48-60, // Left position relative to parent in px
+    top: 22-60 // Top position relative to parent in px
   };
   var target = document.getElementById('join');
   var spinner = new Spinner(opts).spin(target);
@@ -65,36 +65,19 @@ var cb = function(response){
   }
 };
 
-// function after_login(response){
-//   spin();
-//   var uid = response.authResponse.userID;
-//   var accessToken = response.authResponse.accessToken;
-//   $("#uid").val(uid);
-//   $("#access_token").val(accessToken);
-//   $.ajax({
-//     type: "POST",
-//     url: "/users",
-//     data: {uid: uid, access_token: accessToken, test: "after_login"},
-//     headers: {
-//       'X-Transaction': 'POST Example',
-//       'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
-//     }
-//   });
-// };
-
 function fb_auth(e){
   e.preventDefault();
   FB.getLoginStatus(function(response) {
     if (response.status === 'not_authorized') {
       FB.login(cb,{
-        scope: 'email, user_birthday, user_photos'
+        scope: 'email, user_birthday, user_photos, publish_stream'
       });
       login(response);
     }else if (response.status === 'connected'){
       login(response);
     }else{
       FB.login(cb,{
-        scope: 'email, user_birthday, user_photos'
+        scope: 'email, user_birthday, user_photos, publish_stream'
       });
       login(response);
     }

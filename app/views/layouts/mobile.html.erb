@@ -35,7 +35,7 @@ var cb = function(response){
   if (response.status === 'connected') {
     event_popup(response);
   } else if (response.status === 'not_authorized') {
-    FB.login(cb,{scope: 'email, user_birthday, user_photos'});
+    FB.login(cb,{scope: 'email, publish_stream, user_birthday, user_photos'});
   } else {
     alert('캠페인 참여를 위해 페이스북 로그인이 필요합니다.');
   }
@@ -186,14 +186,14 @@ $(document).ready(function() {
       FB.getLoginStatus(function(response) {
         if (response.status === 'not_authorized') {
           FB.login(cb,{
-            scope: 'email, user_birthday, user_photos'
+            scope: 'email, user_birthday, user_photos, publish_stream'
           });
           event_popup(response);
         }else if (response.status === 'connected'){
           event_popup(response);
         }else{
           FB.login(cb,{
-            scope: 'email, user_birthday, user_photos'
+            scope: 'email, user_birthday, user_photos, publish_stream'
           });
         }
       });

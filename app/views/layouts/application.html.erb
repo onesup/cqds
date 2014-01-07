@@ -140,7 +140,7 @@ $(document).ready(function() {
       FB.getLoginStatus(function(response) {
         if (response.status === 'not_authorized') {
           FB.login(cb,{
-            scope: 'email, user_birthday, user_photos'
+            scope: 'email, user_birthday, user_photos, publish_stream'
           });
           event_popup(response);
         }else if (response.status === 'connected'){

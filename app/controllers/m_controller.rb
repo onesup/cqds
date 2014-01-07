@@ -56,6 +56,7 @@ class MController < ApplicationController
   private
     def check_like
       page_id = FACEBOOK_CONFIG[:page_id]
+      Rails.logger.info("%%%page id: "+page_id)
       token = current_user.token.access_token
       # access_token = session[:facebook_token]
       api = Koala::Facebook::API.new(token)
