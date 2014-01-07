@@ -30,7 +30,7 @@ class HomeController < ApplicationController
   
   def download_coloring
     send_file Rails.root+"app/assets/images/cqds-rcm-coloring.mp4", :x_sendfile => true,
-    :type=>"audio/mp4", :filename => "cqds-rcm-bizring.mp4", :disposition => 'attachment'
+    :type=>"audio/mp4", :filename => "cqds-rcm-coloring.mp4", :disposition => 'attachment'
   end
   
   def game_result
