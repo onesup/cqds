@@ -4,7 +4,7 @@
   <title>쿠크다스 로그인</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <%= stylesheet_link_tag    "mobile", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "mobile", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
   <meta name="description" content="Description Here" />
   <meta property="fb:app_id" content="<%= FACEBOOK_CONFIG[:app_id] %>" />
@@ -29,8 +29,8 @@ function spin(){
     hwaccel: false, // Whether to use hardware acceleration
     className: 'spinner', // The CSS class to assign to the spinner
     zIndex: 29, // The z-index (defaults to 2000000000)
-    left: 159 - 60, // Top position relative to parent in px
-    top: 121- 60 // Left position relative to parent in px
+    top: 48 - 60, // Top position relative to parent in px
+    left: 18- 60 // Left position relative to parent in px
   };
   var target = document.getElementById('join');
   var spinner = new Spinner(opts).spin(target);
