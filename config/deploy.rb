@@ -14,6 +14,7 @@ set :default_environment, {
       'PATH' => "/home/#{user}/.rbenv/versions/2.0.0-p353/bin/:$PATH"
     }
 set :keep_releases, 5
+set :shared_children, shared_children + %w{public/uploads}
 default_run_options[:pty] = true
 ssh_options[:forward_agent] = true
 server "cqds.minivertising.kr", :web, :app, :db, primary: true
