@@ -126,10 +126,10 @@ function event_popup(response){
       spinner.stop();
       var text = "현재 "+data.total_donations+"원 적립";
       $('#total_donations').text(text);
-      if(data.today_limit <= 3){
-        $("#pop_start").modal();
-			}else{
+      if(data.today_limit > 3){
         $("#pop_limit").modal();
+			}else{
+        $("#pop_start").modal();
 			}
     }
   });

@@ -13,6 +13,7 @@ describe Donation do
     Donation.registering(user)
     Donation.registering(user)
     Donation.registering(user)
+    Donation.registering(user)
     expect(Donation.registering(user)).to eql("limit")
   end
   

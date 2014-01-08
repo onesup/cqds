@@ -8,7 +8,7 @@ class Donation < ActiveRecord::Base
     else
       total_donation = 1
     end
-    if user.donations.daily_count(Time.now) >= 3
+    if user.donations.daily_count(Time.now) > 3
       result = "limit"
     else
       if user.donations.count > 1
