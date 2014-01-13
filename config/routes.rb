@@ -1,5 +1,4 @@
 Cqds::Application.routes.draw do
-
   get 'test' => 'page_tab#test'
   get 'render_test' => 'heroes#render_test'
   get 'sdk' => 'sdk_test#index'
@@ -15,7 +14,7 @@ Cqds::Application.routes.draw do
   get 'mobile_contents' => 'm#contents'
   get 'page_tab' => 'page_tab#index'
   get 'page_tab_gate' => 'page_tab#fan_gate'
-  
+  devise_for :users
   namespace :admin do
     get '/' => 'dashboard#index', ad: 'admin'
     resources :winners, only: [:index, :show]

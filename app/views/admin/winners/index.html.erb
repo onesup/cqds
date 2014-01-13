@@ -11,7 +11,9 @@
             <tr>
               <th>번호</th>
               <th>참여자</th>
-              <th>참여 댓글</th>
+              <th>생년월일</th>
+              <th>전화번호</th>
+              <th>참여일시</th>
             </tr>
           </thead>
           <tbody>
@@ -24,8 +26,14 @@
                   <%= link_to image_tag(winner.user.profile_image), "https://facebook.com/#{winner.user.uid}", target: "_blank" %>
                   <%= winner.user.name %>
                 </td>
+                <td>
+                  <%= winner.user.age unless winner.user.age.nil? %>
+                </td>
+                <td>
+                  <%= winner.user.phone_number unless winner.user.phone_number.nil? %>
+                </td>
                 <td class="updated_at">
-                  <p><%= winner.updated_at.strftime("%m.%d %H:%m") %></p>
+                  <p><%= winner.user.updated_at.strftime("%m.%d %H:%M:%S") %></p>
                 </td>
               </tr>
             <% end %>

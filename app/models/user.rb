@@ -1,9 +1,11 @@
 class User < ActiveRecord::Base
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable and :omniauthable
+  devise :database_authenticatable  
   include DailyCount
-    
   has_one :token, as: :identifiable
   has_many :donations
-  # attr_accessor :access_token
+
   
   def daily_donations(day)
     start_date = day.beginning_of_day
@@ -25,7 +27,6 @@ class User < ActiveRecord::Base
       fan.detail_from_facebook(access_token)
       fan.save
     end
-    # Token.create_or_update_token!(fan, access_token)
     fan
   end
   

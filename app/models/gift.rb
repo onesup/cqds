@@ -7,7 +7,6 @@ class Gift < ActiveRecord::Base
     golden_time = latest_golden_time(betted_at)
     Rails.logger.info("%%%golden_time: " + golden_time.to_s + " <= betted_at:" + betted_at.to_s)
     unless is_before_win?(user)
-      Rails.logger.info("this guy before win")
       Rails.logger.info(is_somebody_before_win?(betted_at))
       if golden_time.to_datetime <= betted_at.to_datetime && is_somebody_before_win?(betted_at) == false
         self.winners.create!(user: user, gifted_at: golden_time)
@@ -38,6 +37,8 @@ class Gift < ActiveRecord::Base
   def is_before_win?(user)
     result = false
     result = true unless winners.find_by_user_id(user.id).nil?
+    Rails.logger.info("@@@this guy before win") if result == true
+    return result
   end
   
   def latest_golden_time(betted_at)

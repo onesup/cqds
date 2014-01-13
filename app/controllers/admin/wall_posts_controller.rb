@@ -1,4 +1,5 @@
 class Admin::WallPostsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_wall_post, only: [:show, :edit, :update, :destroy]
   layout 'admin'
   # GET /admin/wall_posts

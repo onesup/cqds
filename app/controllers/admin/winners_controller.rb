@@ -1,4 +1,5 @@
 class Admin::WinnersController < ApplicationController
+  before_action :authenticate_user!
   layout 'admin'
   before_action :set_winner, only: [:show]
   
