@@ -201,7 +201,8 @@ $(document).ready(function() {
         data: {
           "user[uid]": winner_uid,
           "user[name]": winner_name,
-          "user[phone_number]": winner_phone
+          "user[phone_number]": winner_phone,
+          "user[data]": <%= request.referrer %>
         },
         headers: {
           'X-Transaction': 'POST Example',
