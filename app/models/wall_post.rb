@@ -20,6 +20,10 @@ class WallPost < ActiveRecord::Base
       Rails.logger.info "@@@@@@@@@@@@@@@@@"
       Rails.logger.info "Koala::Facebook::AuthenticationError"
       Rails.logger.info "@@@@@@@@@@@@@@@@@"
+    rescue Koala::Facebook::ClientError
+      Rails.logger.info "@@@@@@@@@@@@@@@@@"
+      Rails.logger.info "Koala::Facebook::ClientError"
+      Rails.logger.info "@@@@@@@@@@@@@@@@@"
     end
   end
   

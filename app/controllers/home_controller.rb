@@ -35,7 +35,7 @@ class HomeController < ApplicationController
   
   def game_result
     user = User.find_by_uid params[:uid]
-    WallPost.post(user)
+    # WallPost.post(user)
     if Gift.first.is_win?(user, Time.now)
       @result = 1
     else
