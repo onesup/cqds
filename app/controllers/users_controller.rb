@@ -9,6 +9,7 @@ class UsersController < ApplicationController
     Donation.registering(user)
     total_donations = Donation.count * 100
     today_limit = user.daily_donations(Time.now)
+    total_donations = view_context.number_with_delimiter(total_donations)
     data = {total_donations: total_donations, today_limit: today_limit}
     respond_to do |format|
       format.html {render nothing: true}

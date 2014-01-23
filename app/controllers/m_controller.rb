@@ -64,12 +64,12 @@ class MController < ApplicationController
       begin
         query = api.get_connections("me","likes/" + page_id)
       rescue Koala::Facebook::AuthenticationError
-        Rails.logger.info "auth error"
+        Rails.logger.info "auth error!! uid: " + session[:facebook_uid]
         session[:facebook_uid] = nil
         # redirect_to fb_login_path
         query = "auth error"
       rescue Koala::Facebook::ClientError
-        Rails.logger.info "client error"
+        Rails.logger.info "client error!! uid: " + session[:facebook_uid]
         session[:facebook_uid] = nil
         query = []
       end
