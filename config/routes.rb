@@ -1,4 +1,5 @@
 Cqds::Application.routes.draw do
+  get "donations/index"
   get 'test' => 'page_tab#test'
   get 'render_test' => 'heroes#render_test'
   get 'sdk' => 'sdk_test#index'
@@ -19,6 +20,7 @@ Cqds::Application.routes.draw do
     get '/' => 'dashboard#index', ad: 'admin'
     resources :winners, only: [:index, :show]
     resources :users, only: [:index, :show]
+    resources :donations, only: [:index, :show]
   end
   
   namespace :page_tab do

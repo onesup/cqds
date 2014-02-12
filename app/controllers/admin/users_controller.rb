@@ -4,7 +4,7 @@ class Admin::UsersController < ApplicationController
   before_action :set_user, only: [:show]
   
   def index
-    @users = User.order("created_at desc")
+    @users = User.order("created_at desc").page(params[:page]).per(2000)
   end
 
   def show
