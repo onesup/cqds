@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 gem 'rails', '4.0.0'
+gem 'mysql2'
 gem 'execjs'
 gem 'therubyracer'
 gem 'sass-rails', '~> 4.0.0'
@@ -27,6 +28,7 @@ end
 
 group :development do
   gem 'sqlite3'
+  gem 'mysql2'
   gem 'pry'
   gem 'capistrano', '~> 2.15.4'
 end

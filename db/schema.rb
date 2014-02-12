@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140107161730) do
+ActiveRecord::Schema.define(version: 20140212025320) do
 
   create_table "donations", force: true do |t|
     t.integer  "user_id"
@@ -46,8 +46,8 @@ ActiveRecord::Schema.define(version: 20140107161730) do
     t.datetime "updated_at"
   end
 
-  add_index "tokens", ["identifiable_id", "identifiable_type"], name: "index_tokens_on_identifiable_id_and_identifiable_type"
-  add_index "tokens", ["user_id"], name: "index_tokens_on_user_id"
+  add_index "tokens", ["identifiable_id", "identifiable_type"], name: "index_tokens_on_identifiable_id_and_identifiable_type", using: :btree
+  add_index "tokens", ["user_id"], name: "index_tokens_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -72,6 +72,7 @@ ActiveRecord::Schema.define(version: 20140107161730) do
     t.text     "data"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "donations_count",        default: 0
   end
 
   create_table "wall_posts", force: true do |t|
@@ -82,7 +83,7 @@ ActiveRecord::Schema.define(version: 20140107161730) do
     t.datetime "updated_at"
   end
 
-  add_index "wall_posts", ["user_id"], name: "index_wall_posts_on_user_id"
+  add_index "wall_posts", ["user_id"], name: "index_wall_posts_on_user_id", using: :btree
 
   create_table "winners", force: true do |t|
     t.integer  "user_id"
@@ -93,7 +94,7 @@ ActiveRecord::Schema.define(version: 20140107161730) do
     t.datetime "updated_at"
   end
 
-  add_index "winners", ["gift_id"], name: "index_winners_on_gift_id"
-  add_index "winners", ["user_id"], name: "index_winners_on_user_id"
+  add_index "winners", ["gift_id"], name: "index_winners_on_gift_id", using: :btree
+  add_index "winners", ["user_id"], name: "index_winners_on_user_id", using: :btree
 
 end

@@ -1,5 +1,6 @@
 class Donation < ActiveRecord::Base
-  belongs_to :user
+  include DailyCount
+  belongs_to :user, counter_cache: true 
   
   def self.registering(user)
     last_donation = Donation.order("created_at asc").last

@@ -6,6 +6,10 @@ class Admin::DonationsController < ApplicationController
   def index
     @donations = Donation.order("created_at desc").page(params[:page]).per(2000)
   end
+  
+  def top_donators
+    @users = User.top_donator.page(params[:page]).per(100)
+  end
 
   def show
     

@@ -1,6 +1,6 @@
 <div class="">참여자 수: <%= User.count %> 건</p>
 <div class="">당첨자 수: <%= Winner.count %> 명</p>
-  <div class="">기부 횟수: <%= Donation.count %> 회</p>
+<div class="">기부 횟수: <%= Donation.count %> 회</p>
 <div class="row-fluid">
   <!-- block -->
   <div class="block">
@@ -15,6 +15,7 @@
               <th>날짜</th>
               <th>참여자</th>
               <th>당첨자</th>
+              <th>기부 횟수</th>
             </tr>
           </thead>
           <tbody>
@@ -23,6 +24,7 @@
                 <td><%= time.strftime("%m-%d")%></td>
                 <td><%= User.daily_count time %></td>
                 <td><%= Winner.daily_count time %></td>
+                <td><%= Donation.daily_count time %></td>
               </tr>
             <% end %>
           </tbody>

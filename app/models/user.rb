@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
   include DailyCount
   has_one :token, as: :identifiable
   has_many :donations
+  scope :top_donator, order('donations_count DESC')
 
   
   def daily_donations(day)

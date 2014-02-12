@@ -20,7 +20,11 @@ Cqds::Application.routes.draw do
     get '/' => 'dashboard#index', ad: 'admin'
     resources :winners, only: [:index, :show]
     resources :users, only: [:index, :show]
-    resources :donations, only: [:index, :show]
+    resources :donations, only: [:index, :show] do
+      collection do
+        get 'top_donators'
+      end
+    end
   end
   
   namespace :page_tab do
