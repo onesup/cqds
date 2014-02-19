@@ -306,3 +306,4 @@ DEPENDENCIES
   uglifier (>= 1.3.0)
   unicorn
   useragent (>= 0.2.1)
+  yajl-ruby
