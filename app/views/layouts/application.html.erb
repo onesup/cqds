@@ -125,7 +125,7 @@ function event_popup(response){
     },
     success: function(data){
       spinner.stop();
-      var text = "현재 "+data.total_donations+"원 적립";
+      var text = "현재 5,000,000 원 적립";
       $('#total_donations').text(text);
       if(data.today_limit === "timeover"){
         alert("죄송합니다. \n이벤트가 종료되었습니다. \n(2월 28일 자정 종료)");
