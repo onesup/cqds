@@ -36,10 +36,16 @@ class HomeController < ApplicationController
   def game_result
     user = User.find_by_uid params[:uid]
     # WallPost.post(user)
-    if Gift.first.is_win?(user, Time.now)
-      @result = 1
+    date = DateTime.parse("2014-02-28 19:42:59")
+    binding.pry
+    if Time.now < date
+      if Gift.first.is_win?(user, Time.now)
+        @result = 1
+      else
+        @result = 0
+      end
     else
-      @result = 0
+      @result = "timeover"
     end
     @today_count = Donation.daily_count(Time.now)
     @total_my_count = user.donations.count

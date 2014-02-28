@@ -20,7 +20,7 @@
             <% @winners.each do |winner| %>
               <tr class="">
                 <td>
-                  <%= link_to(winner.id, nil, title: winner.user.uid) %>
+                  <%= link_to(winner.id, admin_user_path(winner.user), title: winner.user.uid) %>
                 </td>
                 <td>
                   <%= link_to image_tag(winner.user.profile_image), "https://facebook.com/#{winner.user.uid}", target: "_blank" %>

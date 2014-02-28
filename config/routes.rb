@@ -19,7 +19,7 @@ Cqds::Application.routes.draw do
   namespace :admin do
     get '/' => 'dashboard#index', ad: 'admin'
     resources :winners, only: [:index, :show]
-    resources :users, only: [:index, :show]
+    resources :users
     resources :donations, only: [:index, :show] do
       collection do
         get 'top_donators'
