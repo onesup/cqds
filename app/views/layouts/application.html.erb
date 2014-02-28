@@ -114,28 +114,30 @@ function event_popup(response){
   $("#user_uid").val(uid);
   $("#user_access_token").val(accessToken);
   $("#edit_winner").attr("action", "/users/"+uid);
-  $.ajax({
-    type: "POST",
-    url: "/users.json",
-    data: {uid: uid, access_token: accessToken},
-    dataType: "json",
-    headers: {
-      'X-Transaction': 'POST Example',
-      'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
-    },
-    success: function(data){
-      spinner.stop();
-      var text = "현재 5,000,000 원 적립";
-      $('#total_donations').text(text);
-      if(data.today_limit === "timeover"){
-        alert("죄송합니다. \n이벤트가 종료되었습니다. \n(모금액 초과)");
-      }else if(data.today_limit > 3){
-        $("#pop_limit").modal();
-			}else{
-        $("#pop_start").modal();
-			}
-    }
-  });
+  alert("죄송합니다. \n이벤트가 종료되었습니다. \n(모금액 초과)");
+  spinner.stop();
+  // $.ajax({
+  //   type: "POST",
+  //   url: "/users.json",
+  //   data: {uid: uid, access_token: accessToken},
+  //   dataType: "json",
+  //   headers: {
+  //     'X-Transaction': 'POST Example',
+  //     'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+  //   },
+  //   success: function(data){
+  //     spinner.stop();
+  //     var text = "현재 5,000,000 원 적립";
+  //     $('#total_donations').text(text);
+  //     if(data.today_limit === "timeover"){
+  //       alert("죄송합니다. \n이벤트가 종료되었습니다. \n(모금액 초과)");
+  //     }else if(data.today_limit > 3){
+  //       $("#pop_limit").modal();
+  //       }else{
+  //       $("#pop_start").modal();
+  //       }
+  //   }
+  // });
 };
 
 $(document).ready(function() {
