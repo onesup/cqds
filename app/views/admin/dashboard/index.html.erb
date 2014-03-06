@@ -1,6 +1,12 @@
-<div class="">참여자 수: <%= User.count %> 건</p>
-<div class="">당첨자 수: <%= Winner.count %> 명</p>
-<div class="">기부 횟수: <%= Donation.count %> 회</p>
+<div class=""><p>참여자 수: <%= User.count %> 건</p></div>
+<div class=""><p>당첨자 수: <%= Winner.count %> 명</p></div>
+<div class=""><p>여성참여자: <%= User.where(gender:"female").count %> 명</p></div>
+<div class=""><p>남성참여자: <%= User.where(gender:"male").count %> 명</p></div>
+<div class=""><p>남잔지 여잔지 모르는 참여자: <%= User.where(gender: nil).count %> 명</p></div>
+<div class=""><p>여성당첨자: <%= Winner.joins(:user).where(users:{gender: "female"}).count %> 명</p></div>
+<div class=""><p>남성당첨자: <%= Winner.joins(:user).where(users:{gender: "male"}).count %> 명</p></div>
+<div class=""><p>남잔지 여잔지 모르는 당첨자: <%= Winner.joins(:user).where(users:{gender: nil}).count %> 명</p></div>
+
 <div class="row-fluid">
   <!-- block -->
   <div class="block">
